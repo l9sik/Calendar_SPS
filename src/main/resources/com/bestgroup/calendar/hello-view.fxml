@@ -11,7 +11,7 @@
             <children>
                 <Text layoutX="191.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Calendar SPS" wrappingWidth="118.13671875">
                     <font>
-                        <Font name="Roboto Regular" size="19.0" />
+                        <Font name="Roboto Regular" size="20.0" />
                     </font>
                 </Text>
             </children>
