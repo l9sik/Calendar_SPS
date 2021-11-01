@@ -18,7 +18,7 @@ public class CurrentTime {
      * @return currentTime as a string without updating
      */
     public String getCurrentTime(){
-        SimpleDateFormat formatter = new SimpleDateFormat("HH:mm");
+        SimpleDateFormat formatter = new SimpleDateFormat("HH:mm:ss");
         Date date = new Date();
         currentTime = formatter.format(date);
         return currentTime;
