@@ -11,20 +11,18 @@ import java.util.concurrent.TimeUnit;
  */
 
 public class CurrentTime {
-    public static String currentTime;
-
     /**
      *
      * @return currentTime as a string without updating
      */
-    public String getCurrentTime(){
+    public static String receiveCurrentTime(){
         SimpleDateFormat formatterTime = new SimpleDateFormat("HH:mm:ss");
         Date date = new Date();
-        String currentTime = formatterTime.format(date);
+        String actualTime = formatterTime.format(date);
         SimpleDateFormat formatterDate = new SimpleDateFormat("dd.MM.yyyy");
-        String currentDate = formatterDate.format(date);
-        currentTime += "\n" + currentDate;
-        return currentTime;
+        String actualDate = formatterDate.format(date);
+        actualTime += "\n" + actualDate;
+        return actualTime;
     }
 
 }
