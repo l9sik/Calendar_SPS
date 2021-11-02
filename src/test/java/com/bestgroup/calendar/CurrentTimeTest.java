@@ -19,7 +19,7 @@ public class CurrentTimeTest {
         CurrentTime ct = new CurrentTime();
 
         // Run
-        String result = ct.getCurrentTime();
+        String result = ct.receiveCurrentTime();
 
         // Verify
         assertEquals(result, expectedResult);

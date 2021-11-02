@@ -1,19 +1,99 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bestgroup.calendar.HelloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: ede0d4;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bestgroup.calendar.controllers.HelloController">
     <children>
-        <AnchorPane prefHeight="60.0" prefWidth="500.0" style="-fx-background-color: blue;" />
-        <AnchorPane layoutY="540.0" prefHeight="60.0" prefWidth="500.0" style="-fx-background-color: blue;">
-         <children>
-            <Text fx:id="Time" fill="#e1f40e" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="130.93671417236328">
+        <AnchorPane prefHeight="100.0" prefWidth="400.0" style="-fx-background-color: DDB892;">
+            <children>
+                <Button fx:id="MainMenuSettingsButton" layoutX="14.0" layoutY="33.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="80.0" style="-fx-background-color: 7F5539;" text="Настройки">
+                    <font>
+                        <Font name="Calibri Bold" size="12.0" />
+                    </font>
+                </Button>
+                <Button fx:id="MainMenuAddEvent" layoutX="271.0" layoutY="33.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="115.0" style="-fx-background-color: 7F5539;" text="Добавить событие">
+                    <font>
+                        <Font name="Calibri Bold" size="12.0" />
+                    </font>
+                </Button>
+            </children>
+        </AnchorPane>
+        <AnchorPane layoutY="500.0" prefHeight="100.0" prefWidth="400.0" style="-fx-background-color: DDB892;">
+            <children>
+                <Button fx:id="MainMenuCorrentDateButton" layoutX="150.0" layoutY="33.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="101.0" style="-fx-background-color: 7F5539;" text="Текущая дата">
+                    <font>
+                        <Font name="Calibri Bold" size="12.0" />
+                    </font>
+                </Button>
+            <Text fx:id="Time" layoutX="14.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="115.20000000000005">
                <font>
                   <Font name="Roboto Black" size="18.0" />
                </font>
             </Text>
-         </children></AnchorPane>
+            </children>
+        </AnchorPane>
+        <Button fx:id="MainMenuJanButton" layoutX="14.0" layoutY="105.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="90.0" style="-fx-background-color: 7F5539;" text="Январь">
+            <font>
+                <Font name="Calibri Bold" size="12.0" />
+            </font>
+        </Button>
+        <Button fx:id="MainMenuFebButton" layoutX="150.0" layoutY="105.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="90.0" style="-fx-background-color: 7F5539;" text="Февраль">
+            <font>
+                <Font name="Calibri Bold" size="12.0" />
+            </font>
+        </Button>
+        <Button fx:id="MainMenuSeptButton" layoutX="292.0" layoutY="305.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="90.0" style="-fx-background-color: 7F5539;" text="Сентябрь">
+            <font>
+                <Font name="Calibri Bold" size="12.0" />
+            </font>
+        </Button>
+        <Button fx:id="MainMenuAprButton" layoutX="14.0" layoutY="205.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="90.0" style="-fx-background-color: 7F5539;" text="Апрель">
+            <font>
+                <Font name="Calibri Bold" size="12.0" />
+            </font>
+        </Button>
+        <Button fx:id="MainMenuMayButton" layoutX="150.0" layoutY="205.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="90.0" style="-fx-background-color: 7F5539;" text="Май">
+            <font>
+                <Font name="Calibri Bold" size="12.0" />
+            </font>
+        </Button>
+        <Button fx:id="MainMenuJuneButton" layoutX="292.0" layoutY="205.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="90.0" style="-fx-background-color: 7F5539;" text="Июнь">
+            <font>
+                <Font name="Calibri Bold" size="12.0" />
+            </font>
+        </Button>
+        <Button fx:id="MainMenuAugButton" layoutX="150.0" layoutY="305.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="90.0" style="-fx-background-color: 7F5539;" text="Август">
+            <font>
+                <Font name="Calibri Bold" size="12.0" />
+            </font>
+        </Button>
+        <Button fx:id="MainMenuJulyButton" layoutX="14.0" layoutY="305.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="90.0" style="-fx-background-color: 7F5539;" text="Июль">
+            <font>
+                <Font name="Calibri Bold" size="12.0" />
+            </font>
+        </Button>
+        <Button fx:id="MainMenuOctButton" layoutX="14.0" layoutY="405.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="90.0" style="-fx-background-color: 7F5539;" text="Октябрь">
+            <font>
+                <Font name="Calibri Bold" size="12.0" />
+            </font>
+        </Button>
+        <Button fx:id="MainMenuDecButton" layoutX="292.0" layoutY="405.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="90.0" style="-fx-background-color: 7F5539;" text="Декабрь">
+            <font>
+                <Font name="Calibri Bold" size="12.0" />
+            </font>
+        </Button>
+        <Button fx:id="MainMenuNovButton" layoutX="150.0" layoutY="405.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="90.0" style="-fx-background-color: 7F5539;" text="Ноябрь">
+            <font>
+                <Font name="Calibri Bold" size="12.0" />
+            </font>
+        </Button>
+        <Button fx:id="MainMenuMarchButton" layoutX="292.0" layoutY="105.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="90.0" style="-fx-background-color: 7F5539;" text="Март">
+            <font>
+                <Font name="Calibri Bold" size="12.0" />
+            </font>
+        </Button>
     </children>
 </AnchorPane>
