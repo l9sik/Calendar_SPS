@@ -1,7 +1,6 @@
 package com.bestgroup.calendar.controllers;
 
 import javafx.scene.control.TextField;
-import com.bestgroup.calendar.Events;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
