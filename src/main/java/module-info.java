@@ -9,6 +9,8 @@ module com.bestgroup.calendar {
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
+    requires org.testng;
+    requires org.junit.jupiter.api;
 
     opens com.bestgroup.calendar to javafx.fxml;
     exports com.bestgroup.calendar;
