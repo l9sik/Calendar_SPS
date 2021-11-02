@@ -24,7 +24,4 @@ public class CurrentTime {
         actualTime += "\n" + actualDate;
         return actualTime;
     }
-
-
-
 }

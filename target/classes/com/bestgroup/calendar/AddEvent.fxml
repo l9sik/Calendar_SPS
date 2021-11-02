@@ -8,32 +8,32 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: ede0d4;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bestgroup.calendar.controllers.AddEventController">
     <children>
-        <AnchorPane prefHeight="100.0" prefWidth="400.0" style="-fx-background-color: DDB892;">
+        <AnchorPane prefHeight="64.0" prefWidth="400.0" style="-fx-background-color: DDB892;">
             <children>
-                <Button fx:id="MainMenuSettingsButton" layoutX="306.0" layoutY="33.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="80.0" style="-fx-background-color: 7F5539;" text="Настройки">
+                <Button fx:id="MainMenuSettingsButton" layoutX="306.0" layoutY="19.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="80.0" style="-fx-background-color: 7F5539;" text="Настройки">
                     <font>
                         <Font name="Calibri Bold" size="12.0" />
                     </font>
                 </Button>
-                <Button fx:id="AddEventCanselButton" layoutX="14.0" layoutY="38.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="80.0" style="-fx-background-color: 7F5539;" text="Отмена">
+                <Button fx:id="AddEventCancelButton" layoutX="14.0" layoutY="19.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="80.0" style="-fx-background-color: 7F5539;" text="Отмена">
                     <font>
                         <Font name="Calibri Bold" size="12.0" />
                     </font>
                 </Button>
             </children>
         </AnchorPane>
-        <AnchorPane layoutY="500.0" prefHeight="100.0" prefWidth="400.0" style="-fx-background-color: DDB892;">
+        <AnchorPane layoutY="536.0" prefHeight="64.0" prefWidth="400.0" style="-fx-background-color: DDB892;">
             <children>
-                <Button fx:id="MainMenuSettingsButton11" layoutX="136.0" layoutY="33.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="129.0" style="-fx-background-color: 7F5539;" text="Добавить событие">
+                <Button fx:id="AddEventButton" layoutX="135.0" layoutY="17.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="129.0" style="-fx-background-color: 7F5539;" text="Добавить событие">
                     <font>
                         <Font name="Calibri Bold" size="12.0" />
                     </font>
                 </Button>
             </children>
         </AnchorPane>
-        <TextField layoutX="21.0" layoutY="131.0" prefHeight="25.0" prefWidth="358.0" promptText="Тема" />
-        <TextField layoutX="21.0" layoutY="171.0" prefHeight="25.0" prefWidth="358.0" promptText="Описание" />
-        <DatePicker layoutX="21.0" layoutY="217.0" prefHeight="25.0" prefWidth="358.0" promptText="Дата" />
-        <TextField layoutX="21.0" layoutY="261.0" prefHeight="25.0" prefWidth="358.0" promptText="Время оповещения" />
+        <TextField fx:id="TextTheme" layoutX="21.0" layoutY="131.0" prefHeight="25.0" prefWidth="358.0" promptText="Тема" />
+        <TextField fx:id="TextDescription" layoutX="21.0" layoutY="171.0" prefHeight="25.0" prefWidth="358.0" promptText="Описание" />
+        <DatePicker fx:id="TextData" layoutX="21.0" layoutY="217.0" prefHeight="25.0" prefWidth="358.0" promptText="Дата" />
+        <TextField fx:id="TextTimeNotification" layoutX="21.0" layoutY="261.0" prefHeight="25.0" prefWidth="358.0" promptText="Время оповещения" />
     </children>
 </AnchorPane>

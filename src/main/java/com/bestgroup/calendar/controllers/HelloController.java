@@ -12,12 +12,15 @@ import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-
+import javafx.scene.control.ComboBox;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class HelloController {
+
+    @FXML
+    private ComboBox<String> ChooseYear;
 
     @FXML
     private ResourceBundle resources;
@@ -26,7 +29,7 @@ public class HelloController {
     private URL location;
 
     @FXML
-    private Button MainMenuAddEvent;
+    private Button MainMenuAddEventButton;
 
     @FXML
     private Button MainMenuAprButton;
@@ -76,6 +79,7 @@ public class HelloController {
 
     @FXML
     void initialize() {
+        FXMLLoader fxmlLoader = new FXMLLoader();
         Timeline clock = new Timeline(new KeyFrame(Duration.ZERO, e -> {
             CurrentTime currentTime = new CurrentTime();
             Time.setText(currentTime.receiveCurrentTime());
@@ -84,8 +88,23 @@ public class HelloController {
         );
         clock.setCycleCount(Animation.INDEFINITE);
         clock.play();
-        MainMenuAddEvent.setOnAction(actionEvent -> {
-            MainMenuAddEvent.getScene().getWindow().hide();
+
+        MainMenuSettingsButton.setOnMouseClicked((event) -> {
+            MainMenuSettingsButton.getScene().getWindow().hide();
+            try {
+                fxmlLoader.setLocation(getClass().getResource("/com/bestgroup/calendar/Settings.fxml"));
+                Scene scene = new Scene(fxmlLoader.load(), 400.0D, 600.0D);
+                Stage stage = new Stage();
+                stage.setTitle("Calendar SPS");
+                stage.setScene(scene);
+                stage.show();
+            } catch (IOException e) {
+                System.err.println(e.getMessage());
+            }
+        });
+
+        MainMenuAddEventButton.setOnAction(actionEvent -> {
+            MainMenuAddEventButton.getScene().getWindow().hide();
 
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("/com/bestgroup/calendar/AddEvent.fxml"));
@@ -98,9 +117,13 @@ public class HelloController {
 
             Parent root = loader.getRoot();
             Stage stage = new Stage();
+            stage.setTitle("Calendar SPS");
             stage.setScene(new Scene(root));
-            stage.showAndWait();
+            stage.show();
         });
+
+        ChooseYear.getItems().setAll("2021", "2022", "2023", "2024", "2025");
+
     }
 
 }
