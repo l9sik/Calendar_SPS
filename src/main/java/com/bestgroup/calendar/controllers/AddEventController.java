@@ -6,7 +6,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -20,7 +19,7 @@ public class AddEventController {
     private URL location;
 
     @FXML
-    private Button AddEventCanselButton;
+    private Button AddEventCancelButton;
 
     @FXML
     private Button MainMenuSettingsButton;
@@ -30,8 +29,8 @@ public class AddEventController {
 
     @FXML
     void initialize() {
-        AddEventCanselButton.setOnAction(actionEvent -> {
-            AddEventCanselButton.getScene().getWindow().hide();
+        AddEventCancelButton.setOnAction(actionEvent -> {
+            AddEventCancelButton.getScene().getWindow().hide();
 
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("/com/bestgroup/calendar/hello-view.fxml"));
@@ -39,7 +38,7 @@ public class AddEventController {
                 loader.load();
             } catch (IOException e) {
                 e.printStackTrace();
-                System.out.println("MYError.");
+                System.err.println("MYError.");
             }
 
             Parent root = loader.getRoot();
@@ -48,5 +47,6 @@ public class AddEventController {
             stage.showAndWait();
         });
     }
+
 
 }
