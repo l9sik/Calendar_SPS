@@ -2,7 +2,7 @@ package com.bestgroup.calendar;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.concurrent.TimeUnit;
+
 
 /**
  * This class helps to display time in program
@@ -24,5 +24,7 @@ public class CurrentTime {
         actualTime += "\n" + actualDate;
         return actualTime;
     }
+
+
 
 }

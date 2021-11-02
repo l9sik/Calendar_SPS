@@ -35,7 +35,7 @@ public class HelloController {
     private Button MainMenuAugButton;
 
     @FXML
-    private Button MainMenuCorrentDateButton;
+    private Button MainMenuCurrentDateButton;
 
     @FXML
     private Button MainMenuDecButton;
