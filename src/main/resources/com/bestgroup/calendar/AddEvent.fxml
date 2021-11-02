@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="400.0" style="-fx-background-color: ede0d4;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bestgroup.calendar.Contollers.ControllerAddEvent">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: ede0d4;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bestgroup.calendar.Controllers.ControllerAddEvent">
     <children>
         <AnchorPane prefHeight="100.0" prefWidth="400.0" style="-fx-background-color: DDB892;">
             <children>
@@ -22,7 +22,7 @@
             </Button>
             </children>
         </AnchorPane>
-        <AnchorPane layoutY="600.0" prefHeight="100.0" prefWidth="400.0" style="-fx-background-color: DDB892;">
+        <AnchorPane layoutY="500.0" prefHeight="100.0" prefWidth="400.0" style="-fx-background-color: DDB892;">
          <children>
             <Button fx:id="MainMenuSettingsButton11" layoutX="136.0" layoutY="33.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="129.0" style="-fx-background-color: 7F5539;" text="Добавить событие">
                <font>
