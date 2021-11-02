@@ -12,4 +12,6 @@ module com.bestgroup.calendar {
 
     opens com.bestgroup.calendar to javafx.fxml;
     exports com.bestgroup.calendar;
+    exports com.bestgroup.calendar.Contollers;
+    opens com.bestgroup.calendar.Contollers to javafx.fxml;
 }
