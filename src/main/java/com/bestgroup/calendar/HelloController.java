@@ -1,15 +1,13 @@
 package com.bestgroup.calendar;
 
 import java.net.URL;
-import java.text.SimpleDateFormat;
-import java.time.LocalTime;
-import java.util.Date;
+
 import java.util.ResourceBundle;
 
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.event.ActionEvent;
+
 import javafx.fxml.FXML;
 import javafx.scene.text.Text;
 import javafx.util.Duration;

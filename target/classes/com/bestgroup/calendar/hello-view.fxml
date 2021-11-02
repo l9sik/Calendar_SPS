@@ -17,9 +17,9 @@
         </AnchorPane>
         <AnchorPane layoutY="540.0" prefHeight="60.0" prefWidth="500.0" style="-fx-background-color: blue;">
          <children>
-            <Text fx:id="Time" fill="RED" layoutX="182.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="135.7366943359375">
+            <Text fx:id="Time" fill="#e1f40e" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="130.93671417236328">
                <font>
-                  <Font size="23.0" />
+                  <Font name="Roboto Black" size="18.0" />
                </font>
             </Text>
          </children></AnchorPane>
