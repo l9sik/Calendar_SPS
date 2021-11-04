@@ -1,7 +1,6 @@
 package com.bestgroup.calendar.controllers;
 
 import javafx.scene.control.TextField;
-import com.bestgroup.calendar.Events;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,9 +10,13 @@ import javafx.scene.control.DatePicker;
 import javafx.stage.Stage;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.ResourceBundle;
 
 public class AddEventController {
@@ -58,15 +61,15 @@ public class AddEventController {
                 e.printStackTrace();
                 System.out.println("MYError.");
             }
-
             Parent root = loader.getRoot();
             Stage stage = new Stage();
             stage.setTitle("Calendar SPS");
             stage.setScene(new Scene(root));
             stage.showAndWait();
         });
+
         MainMenuSettingsButton.setOnAction(actionEvent -> {
-            AddEventCancelButton.getScene().getWindow().hide();
+            MainMenuSettingsButton.getScene().getWindow().hide();
             loader.setLocation(getClass().getResource("/com/bestgroup/calendar/Settings.fxml"));
             try {
                 loader.load();
@@ -83,34 +86,82 @@ public class AddEventController {
         });
 
         AddEventButton.setOnAction(actionEvent -> {
-            String description = TextDescription.getText();
-            String theme = TextTheme.getText();
-            String date = TextData.getPromptText();
-            String time = TextTimeNotification.getText();
-            BufferedWriter writer = null;
-            String filePath = "E:\\Events.txt";
+            boolean isCorrect = true;
+            TextTheme.setStyle("-fx-border-color: none");
+            TextDescription.setStyle("-fx-border-color: none");
+            TextTimeNotification.setStyle("-fx-border-color: none");
+            TextData.setStyle("-fx-border-color: none");
+
+            if(TextTheme.getText() == ""){
+                isCorrect = false;
+                TextTheme.setStyle("-fx-border-color: red");
+            }
+            if (TextDescription.getText() == ""){
+                isCorrect = false;
+                TextDescription.setStyle("-fx-border-color: red");
+            }
+            String timeNotification = TextTimeNotification.getText();
+            try{
+                LocalTime.parse(timeNotification);
+            } catch (DateTimeParseException | NullPointerException e) {
+                isCorrect = false;
+                TextTimeNotification.setPromptText("Пример: 09:30");
+                TextTimeNotification.setStyle("-fx-border-color: red");
+            }
             try {
-                writer = new BufferedWriter(new FileWriter(filePath));
-                writer.write(date);
-                writer.newLine();
-                writer.write(theme);
-                writer.newLine();
-                writer.write(description);
-                writer.newLine();
-                writer.write(time);
-                writer.newLine();
-            } catch (IOException e) {
-                System.err.println(e.getMessage());
-            } finally {
+                TextData.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+            } catch (NullPointerException e) {
+                isCorrect = false;
+                TextData.setStyle("-fx-border-color: red");
+            }
+            if (isCorrect == false) {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("/com/bestgroup/calendar/FailedWriting.fxml"));
+                Scene scene = null;
                 try {
-                    writer.close();
-                } catch (IOException e){
+                    scene = new Scene(fxmlLoader.load());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                Stage stage = new Stage();
+                stage.setTitle("Calendar SPS");
+                stage.setScene(scene);
+                stage.show();
+            } else {
+                AddEventButton.getScene().getWindow().hide();
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("/com/bestgroup/calendar/SuccessWriting.fxml"));
+                Scene scene = null;
+                try {
+                    scene = new Scene(fxmlLoader.load());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                Stage stage = new Stage();
+                stage.setTitle("Calendar SPS");
+                stage.setScene(scene);
+                stage.show();
+                File log = new File("Events.txt");
+                try {
+                    if (!log.exists()) {
+                        System.out.println("We had to make a new file.");
+                        log.createNewFile();
+                    }
+                    FileWriter fileWriter = new FileWriter(log, true);
+                    BufferedWriter bw = new BufferedWriter(fileWriter);
+                    bw.write(TextData.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")) + "\n");
+                    bw.write(TextTheme.getText() + "\n");
+                    bw.write(TextDescription.getText() + "\n");
+                    bw.write(TextTimeNotification.getText() + "\n");
+                    bw.newLine();
+                    bw.close();
+                } catch (IOException e) {
                     System.err.println(e.getMessage());
                 }
             }
         });
+
     }
-
-
-
 }
+
+
