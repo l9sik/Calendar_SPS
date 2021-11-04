@@ -1,7 +1,9 @@
 package com.bestgroup.calendar;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.Instant;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 
 
 /**
@@ -15,13 +17,14 @@ public class CurrentTime {
      *
      * @return currentTime as a string without updating
      */
-    public static String receiveCurrentTime(){
-        SimpleDateFormat formatterTime = new SimpleDateFormat("HH:mm:ss");
-        Date date = new Date();
-        String actualTime = formatterTime.format(date);
-        SimpleDateFormat formatterDate = new SimpleDateFormat("dd.MM.yyyy");
-        String actualDate = formatterDate.format(date);
-        actualTime += "\n" + actualDate;
-        return actualTime;
+    public static String receiveCurrentTime(String str){
+        DateTimeFormatter format = DateTimeFormatter.ofPattern(DATE_FORMAT);
+        Instant nowUtc = Instant.now();
+        ZoneId zone = ZoneId.of(str);
+        ZonedDateTime timeNow = ZonedDateTime.ofInstant(nowUtc, zone);
+        return format.format(timeNow);
     }
+
+    private static final String DATE_FORMAT = "dd-M-yyyy hh:mm:ss a";
+
 }

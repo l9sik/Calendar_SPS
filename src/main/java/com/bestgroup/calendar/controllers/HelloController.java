@@ -82,7 +82,7 @@ public class HelloController {
         FXMLLoader fxmlLoader = new FXMLLoader();
         Timeline clock = new Timeline(new KeyFrame(Duration.ZERO, e -> {
             CurrentTime currentTime = new CurrentTime();
-            Time.setText(currentTime.receiveCurrentTime());
+            Time.setText(currentTime.receiveCurrentTime("UTC+3"));
         }),
                 new KeyFrame(Duration.seconds(1))
         );
@@ -122,7 +122,7 @@ public class HelloController {
             stage.show();
         });
 
-        ChooseYear.getItems().setAll("2021", "2022", "2023", "2024", "2025");
+        ChooseYear.getItems().setAll("2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028");
 
     }
 
