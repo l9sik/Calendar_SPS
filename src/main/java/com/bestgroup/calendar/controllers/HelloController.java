@@ -1,5 +1,6 @@
 package com.bestgroup.calendar.controllers;
 
+import com.bestgroup.calendar.AppHelper;
 import com.bestgroup.calendar.CurrentTime;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
@@ -124,6 +125,30 @@ public class HelloController {
 
         ChooseYear.getItems().setAll("2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028");
 
+        MainMenuJanButton.setOnAction(actionEvent -> {
+            OpenMonthMenu(MainMenuJanButton, 1);
+        });
+        MainMenuFebButton.setOnAction(actionEvent -> {
+            OpenMonthMenu(MainMenuFebButton, 2);
+        });
+
+    }
+    void OpenMonthMenu(Button btn, int monthNum){
+        btn.getScene().getWindow().hide();
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/com/bestgroup/calendar/Month.fxml"));
+        try {
+            loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("MYError.");
+        }
+        AppHelper.setMonth(monthNum);
+        Parent root = loader.getRoot();
+        Stage stage = new Stage();
+        stage.setTitle("Calendar SPS");
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
 }
