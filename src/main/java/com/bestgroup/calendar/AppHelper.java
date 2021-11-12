@@ -1,6 +1,9 @@
 package com.bestgroup.calendar;
 
 import java.text.DateFormatSymbols;
+import java.time.Month;
+import java.time.format.TextStyle;
+import java.util.Locale;
 
 /**
  * This class contains methods for some mathematical problems in the program.
@@ -10,29 +13,50 @@ public class AppHelper {
     /**
      * This 3 numbers are used to show correct data about date that user chose.
      */
-    static private int year = 2021;
-    static private int month = 4;
-    static private int date = 0;
+    static private int year = 0 ;
+    static private int monthNumber = 0;
+    static private String fullDate = null;
+    static private String date = null;
+    static private String monthAndDay;
 
-    public static void setDate(int dt){
-        date = dt;
+    public static void setYear(int yr){ year = yr;}
+    public static void setDate(String dt) { date = dt; }
+    public static void setMonthAndDay(String dy, String mnth){
+        monthAndDay = mnth + " " + dy;
     }
-    public static void setMonth(int mnth){
-        month = mnth;
+    public static void setMonthNumber(int mnthNum){monthNumber = mnthNum;}
+    public static void setFullDate(){
+        if (monthNumber < 10 && Integer.parseInt(date) < 10){
+            fullDate = getYear() + "-" + "0" + getMonthNumber() + "-" + "0" + date;
+        } else if (Integer.parseInt(date) < 10){
+            fullDate = year + "-" + monthNumber + "-" + "0" + date;
+        } else if (monthNumber < 10){
+            fullDate = year + "-" + "0" + monthNumber + "-" + date;
+        } else {
+            fullDate = year + "-" + monthNumber + "-" + date;
+        }
+    }
+
+    public static String getMonthAndDay(){
+        return monthAndDay;
+    }
+    public static String getFullDate() {
+        setFullDate();
+        return fullDate;
     }
     public static int getMonthNumber(){
-        return month;
+        return monthNumber;
     }
     public static int getYear(){
         return year;
     }
-    public static void setYear(int yr){
-        year = yr;
-    }
+
 
     public static String getMonthName(){
         int m = getMonthNumber();
-        return new DateFormatSymbols().getMonths()[m-1];
+        Month month = Month.of(monthNumber);
+        Locale loc = Locale.forLanguageTag("ru");
+        return month.getDisplayName(TextStyle.FULL_STANDALONE, loc);
     }
     public static int getMonthCode(){
         int index = getMonthNumber();
