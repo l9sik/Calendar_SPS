@@ -29,7 +29,6 @@ public class FailedWritingController {
         text.setText("Событие не добавлено!\n Введите корректно все данные.");
         buttonOk.setOnMouseClicked((event) -> {
             buttonOk.getScene().getWindow().hide();
-
         });
 
 

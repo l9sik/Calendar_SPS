@@ -27,23 +27,11 @@ public class SuccessWritingController {
 
     @FXML
     void initialize() {
-        FXMLLoader loader = new FXMLLoader();
+        NewScene nw = new NewScene();
         text.setText("Событие успешно добавлено!");
         buttonOk.setOnMouseClicked((event) -> {
-            buttonOk.getScene().getWindow().hide();
-            loader.setLocation(getClass().getResource("/com/bestgroup/calendar/hello-view.fxml"));
-            try {
-                loader.load();
-            } catch (IOException e) {
-                e.printStackTrace();
-                System.out.println("MYError.");
-            }
-
-            Parent root = loader.getRoot();
-            Stage stage = new Stage();
-            stage.setTitle("Calendar SPS");
-            stage.setScene(new Scene(root));
-            stage.showAndWait();
+            nw.closeScene(buttonOk);
+            nw.openNewScene("/com/bestgroup/calendar/hello-view.fxml");
         });
 
     }

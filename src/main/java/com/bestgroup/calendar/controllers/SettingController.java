@@ -64,11 +64,11 @@ public class SettingController {
             CurrentTime currentTime = new CurrentTime();
             if (ChooseTimeZone.getValue() == null){
                 String str = "UTC+3";
-                time.setText(currentTime.receiveCurrentTime("UTC+3"));
+                time.setText(currentTime.getCurrentTime("UTC+3"));
                 string.setText("Текущее время в часовом поясе " + str);
             } else{
                 String str = ChooseTimeZone.getValue();
-                time.setText(currentTime.receiveCurrentTime(ChooseTimeZone.getValue()));
+                time.setText(currentTime.getCurrentTime(ChooseTimeZone.getValue()));
                 string.setText("Текущее время в часовом поясе " + str);
             }
 

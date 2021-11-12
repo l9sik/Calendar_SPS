@@ -31,7 +31,7 @@ public class ControllerMonthMenu {
     private GridPane DaysTable;
 
     @FXML
-    private Button MainMenuCorrentDateButton;
+    private Button MainMenuCurrentDateButton;
 
     @FXML
     private Button MainMenuSettingsButton;
@@ -44,6 +44,11 @@ public class ControllerMonthMenu {
 
     @FXML
     private Text TextForYear;
+
+    @FXML
+    private Button MainMenuCancelButton;
+
+    private NewScene nw = new NewScene();
 
     @FXML
     void initialize() {
@@ -64,7 +69,10 @@ public class ControllerMonthMenu {
                     btn.setOnAction(new EventHandler<ActionEvent>() {
                         @Override
                         public void handle(ActionEvent actionEvent) {
-                            openAddEventMenu(Integer.parseInt(btn.getText()));
+                            AppHelper.setDate(btn.getText());
+                            AppHelper.setMonthAndDay(btn.getText(), AppHelper.getMonthName());
+                            nw.closeScene(btn);
+                            nw.openNewScene("/com/bestgroup/calendar/DayMenu.fxml");
                         }
                     });
                 }else{
@@ -78,29 +86,14 @@ public class ControllerMonthMenu {
                 DaysTable.add(btn, i, j);
             }
         }
+        MainMenuCancelButton.setOnAction(actionEvent -> {
+            nw.closeScene(MainMenuCancelButton);
+            nw.openNewScene("/com/bestgroup/calendar/hello-view.fxml");
+        });
     }
-    void openAddEventMenu(int date){
-        DaysTable.getScene().getWindow().hide();
 
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/com/bestgroup/calendar/AddEvent.fxml"));
-        try {
-            loader.load();
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.out.println("MYError.");
-        }
-
-        Parent root = loader.getRoot();
-        Stage stage = new Stage();
-        stage.setTitle("Calendar SPS");
-        stage.setScene(new Scene(root));
-        stage.show();
-
-        AppHelper.setDate(date);
-    }
-    void doNotCorrectDate(){
+    void doNotCorrectDate() {
         //InsertCodeHere
-    }
 
+    }
 }
