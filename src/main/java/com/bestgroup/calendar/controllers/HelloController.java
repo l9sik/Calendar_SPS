@@ -6,16 +6,15 @@ import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 import javafx.util.Duration;
 import javafx.scene.control.ComboBox;
-import java.io.IOException;
 import java.net.URL;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 public class HelloController {
@@ -77,78 +76,79 @@ public class HelloController {
     @FXML
     private Text Time;
 
+    private NewScene nw = new NewScene();
 
     @FXML
     void initialize() {
-        FXMLLoader fxmlLoader = new FXMLLoader();
+
         Timeline clock = new Timeline(new KeyFrame(Duration.ZERO, e -> {
             CurrentTime currentTime = new CurrentTime();
-            Time.setText(currentTime.receiveCurrentTime("UTC+3"));
+            Time.setText(currentTime.getCurrentTime("UTC+3"));
         }),
                 new KeyFrame(Duration.seconds(1))
         );
         clock.setCycleCount(Animation.INDEFINITE);
         clock.play();
 
-        MainMenuSettingsButton.setOnMouseClicked((event) -> {
-            MainMenuSettingsButton.getScene().getWindow().hide();
-            try {
-                fxmlLoader.setLocation(getClass().getResource("/com/bestgroup/calendar/Settings.fxml"));
-                Scene scene = new Scene(fxmlLoader.load(), 400.0D, 600.0D);
-                Stage stage = new Stage();
-                stage.setTitle("Calendar SPS");
-                stage.setScene(scene);
-                stage.show();
-            } catch (IOException e) {
-                System.err.println(e.getMessage());
-            }
+
+        MainMenuCurrentDateButton.setOnMouseClicked((event) -> {
+            CurrentTime.setYear();
+            CurrentTime.setMonthAndDay();
+            nw.closeScene(MainMenuCurrentDateButton);
+            nw.openNewScene("/com/bestgroup/calendar/DayMenu.fxml");
         });
 
-        MainMenuAddEventButton.setOnAction(actionEvent -> {
-            MainMenuAddEventButton.getScene().getWindow().hide();
+        MainMenuSettingsButton.setOnMouseClicked((event) -> {
+            nw.closeScene(MainMenuSettingsButton);
+            nw.openNewScene("/com/bestgroup/calendar/Settings.fxml");
+        });
 
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/com/bestgroup/calendar/AddEvent.fxml"));
-            try {
-                loader.load();
-            } catch (IOException e) {
-                e.printStackTrace();
-                System.out.println("MYError.");
-            }
-
-            Parent root = loader.getRoot();
-            Stage stage = new Stage();
-            stage.setTitle("Calendar SPS");
-            stage.setScene(new Scene(root));
-            stage.show();
+        MainMenuAddEventButton.setOnMouseClicked((event) -> {
+            CurrentTime.resetDate();
+            nw.closeScene(MainMenuAddEventButton);
+            nw.openNewScene("/com/bestgroup/calendar/AddEvent.fxml");
         });
 
         ChooseYear.getItems().setAll("2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028");
 
-        MainMenuJanButton.setOnAction(actionEvent -> {
-            OpenMonthMenu(MainMenuJanButton, 1);
-        });
-        MainMenuFebButton.setOnAction(actionEvent -> {
-            OpenMonthMenu(MainMenuFebButton, 2);
-        });
+        MainMenuJanButton.setOnAction(actionEvent -> OpenMonthMenu(MainMenuJanButton, 1));
+        MainMenuFebButton.setOnAction(actionEvent -> OpenMonthMenu(MainMenuFebButton, 2));
+        MainMenuMarchButton.setOnAction(actionEvent -> OpenMonthMenu(MainMenuMarchButton, 3));
+        MainMenuAprButton.setOnAction(actionEvent -> OpenMonthMenu(MainMenuAprButton, 4));
+        MainMenuMayButton.setOnAction(actionEvent -> OpenMonthMenu(MainMenuMayButton, 5));
+        MainMenuJuneButton.setOnAction(actionEvent -> OpenMonthMenu(MainMenuJuneButton, 6));
+        MainMenuJulyButton.setOnAction(actionEvent -> OpenMonthMenu(MainMenuJulyButton, 7));
+        MainMenuAugButton.setOnAction(actionEvent -> OpenMonthMenu(MainMenuAugButton, 8));
+        MainMenuSeptButton.setOnAction(actionEvent -> OpenMonthMenu(MainMenuSeptButton, 9));
+        MainMenuOctButton.setOnAction(actionEvent -> OpenMonthMenu(MainMenuOctButton, 10));
+        MainMenuNovButton.setOnAction(actionEvent -> OpenMonthMenu(MainMenuNovButton, 11));
+        MainMenuDecButton.setOnAction(actionEvent -> OpenMonthMenu(MainMenuFebButton, 12));
+
 
     }
-    void OpenMonthMenu(Button btn, int monthNum){
-        btn.getScene().getWindow().hide();
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/com/bestgroup/calendar/Month.fxml"));
-        try {
-            loader.load();
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.out.println("MYError.");
+
+    void OpenMonthMenu(Button btn, int monthNum) {
+        boolean isYear = isYear();
+        if (!isYear){
+            nw.openNewScene("/com/bestgroup/calendar/FailedChoosingYear.fxml");
+        } else {
+            AppHelper.setMonthNumber(monthNum);
+            AppHelper.setYear(Integer.parseInt(ChooseYear.getValue()));
+            nw.closeScene(btn);
+            nw.openNewScene("/com/bestgroup/calendar/Month.fxml");
         }
-        AppHelper.setMonth(monthNum);
-        Parent root = loader.getRoot();
-        Stage stage = new Stage();
-        stage.setTitle("Calendar SPS");
-        stage.setScene(new Scene(root));
-        stage.show();
+    }
+
+
+    Boolean isYear(){
+        boolean isYear = true;
+        int year = 0;
+        try {
+            year = Integer.parseInt(ChooseYear.getValue());
+        } catch (NumberFormatException e){
+            isYear = false;
+        }
+        return isYear;
     }
 
 }

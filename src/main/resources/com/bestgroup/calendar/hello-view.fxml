@@ -24,7 +24,7 @@
         </AnchorPane>
         <AnchorPane layoutY="536.0" prefHeight="64.0" prefWidth="400.0" style="-fx-background-color: DDB892;">
             <children>
-                <Button fx:id="MainMenuCorrentDateButton" layoutX="149.0" layoutY="16.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="101.0" style="-fx-background-color: 7F5539;" text="Текущая дата">
+                <Button fx:id="MainMenuCurrentDateButton" layoutX="149.0" layoutY="16.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="101.0" style="-fx-background-color: 7F5539;" text="Текущая дата">
                     <font>
                         <Font name="Calibri Bold" size="12.0" />
                     </font>
