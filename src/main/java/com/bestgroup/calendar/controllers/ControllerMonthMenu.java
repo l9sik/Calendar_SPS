@@ -1,23 +1,14 @@
 package com.bestgroup.calendar.controllers;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 import com.bestgroup.calendar.AppHelper;
-import org.controlsfx.control.spreadsheet.Grid;
 
 public class ControllerMonthMenu {
 
@@ -28,32 +19,29 @@ public class ControllerMonthMenu {
     private URL location;
 
     @FXML
-    private GridPane DaysTable;
+    private GridPane daysTable;
 
     @FXML
-    private Button MainMenuCurrentDateButton;
+    private Button mainMenuSettingsButton;
 
     @FXML
-    private Button MainMenuSettingsButton;
+    private Text textForMonth;
 
     @FXML
-    private Text TextForMonth;
+    private Text time;
 
     @FXML
-    private Text Time;
+    private Text textForYear;
 
     @FXML
-    private Text TextForYear;
-
-    @FXML
-    private Button MainMenuCancelButton;
+    private Button mainMenuCancelButton;
 
     private NewScene nw = new NewScene();
 
     @FXML
     void initialize() {
-        TextForYear.setText(Integer.toString(AppHelper.getYear()));
-        TextForMonth.setText(AppHelper.getMonthName());
+        textForYear.setText(Integer.toString(AppHelper.getYear()));
+        textForMonth.setText(AppHelper.getMonthName());
         int[][] dateInIntArray = AppHelper.getWeekMatrix();
         for (int j = 0; j < 5; j++) {
             for (int i = 0; i < 7; i++) {
@@ -66,31 +54,30 @@ public class ControllerMonthMenu {
                 GridPane.setMargin(btn, new Insets(10));
                 GridPane.setHalignment(btn, HPos.CENTER);
                 if (text != null){
-                    btn.setOnAction(new EventHandler<ActionEvent>() {
-                        @Override
-                        public void handle(ActionEvent actionEvent) {
-                            AppHelper.setDate(btn.getText());
-                            AppHelper.setMonthAndDay(btn.getText(), AppHelper.getMonthName());
-                            nw.closeScene(btn);
-                            nw.openNewScene("/com/bestgroup/calendar/DayMenu.fxml");
-                        }
+                    btn.setOnAction(actionEvent -> {
+                        AppHelper.setDate(btn.getText());
+                        AppHelper.setMonthAndDay(btn.getText(), AppHelper.getMonthName());
+                        nw.closeScene(btn);
+                        nw.openNewScene("/com/bestgroup/calendar/DayMenu.fxml");
                     });
                 }else{
-                    btn.setOnAction(new EventHandler<ActionEvent>() {
-                        @Override
-                        public void handle(ActionEvent actionEvent) {
-                            doNotCorrectDate();                                 //<---
-                        }
+                    btn.setOnAction(actionEvent -> {
+                        doNotCorrectDate();                                 //<---
                     });
                 }
-                DaysTable.add(btn, i, j);
+                daysTable.add(btn, i, j);
             }
         }
-        MainMenuCancelButton.setOnAction(actionEvent -> {
-            nw.closeScene(MainMenuCancelButton);
+        mainMenuCancelButton.setOnAction(actionEvent -> {
+            nw.closeScene(mainMenuCancelButton);
             nw.openNewScene("/com/bestgroup/calendar/hello-view.fxml");
         });
+        mainMenuSettingsButton.setOnAction(actionEvent -> {
+            nw.closeScene(mainMenuCancelButton);
+            nw.openNewScene("/com/bestgroup/calendar/Settings.fxml");
+        });
     }
+
 
     void doNotCorrectDate() {
         //InsertCodeHere

@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-
 import com.bestgroup.calendar.CurrentTime;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
@@ -29,10 +28,10 @@ public class SettingController {
     private URL location;
 
     @FXML
-    private Button SettingsCancelButton;
+    private Button settingsCancelButton;
 
     @FXML
-    public ComboBox<String> ChooseTimeZone;
+    public ComboBox<String> chooseTimeZone;
 
     @FXML
     private Text time;
@@ -40,12 +39,14 @@ public class SettingController {
     @FXML
     private Text string;
 
+    private static final String UTC_3 = "UTC+3";
+
 
     @FXML
     void initialize() {
         FXMLLoader fxmlLoader = new FXMLLoader();
-        SettingsCancelButton.setOnMouseClicked((event) -> {
-            SettingsCancelButton.getScene().getWindow().hide();
+        settingsCancelButton.setOnMouseClicked((event) -> {
+            settingsCancelButton.getScene().getWindow().hide();
             try {
                 fxmlLoader.setLocation(getClass().getResource("/com/bestgroup/calendar/hello-view.fxml"));
                 Scene scene = new Scene(fxmlLoader.load(), 400.0D, 600.0D);
@@ -57,18 +58,18 @@ public class SettingController {
                 System.err.println(e.getMessage());
             }
         });
-        ChooseTimeZone.setPromptText("UTC+3");
-        ChooseTimeZone.getItems().setAll("UTC-9","UTC-3","UTC-2","UTC-1","UTC+0", "UTC+1", "UTC+2", "UTC+3", "UTC+4", "UTC+5");
+
+        chooseTimeZone.setPromptText(UTC_3);
+        chooseTimeZone.getItems().setAll("UTC-9", "UTC-3", "UTC-2", "UTC-1", "UTC+0", "UTC+1", "UTC+2", "UTC+3", "UTC+4", "UTC+5");
 
         Timeline clock = new Timeline(new KeyFrame(Duration.ZERO, e -> {
-            CurrentTime currentTime = new CurrentTime();
-            if (ChooseTimeZone.getValue() == null){
+            if (chooseTimeZone.getValue() == null) {
                 String str = "UTC+3";
-                time.setText(currentTime.getCurrentTime("UTC+3"));
+                time.setText(CurrentTime.getCurrentTime(UTC_3));
                 string.setText("Текущее время в часовом поясе " + str);
-            } else{
-                String str = ChooseTimeZone.getValue();
-                time.setText(currentTime.getCurrentTime(ChooseTimeZone.getValue()));
+            } else {
+                String str = chooseTimeZone.getValue();
+                time.setText(CurrentTime.getCurrentTime(chooseTimeZone.getValue()));
                 string.setText("Текущее время в часовом поясе " + str);
             }
 

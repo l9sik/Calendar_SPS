@@ -21,40 +21,40 @@ public class FilledEventController {
     private URL location;
 
     @FXML
-    private Button CancelButton;
+    private Button cancelButton;
 
     @FXML
-    private Button DeleteEventButton;
+    private Button deleteEventButton;
 
     @FXML
-    private Button SettingsButton;
+    private Button settingsButton;
 
     @FXML
-    private DatePicker TextData;
+    private DatePicker textData;
 
     @FXML
-    private TextField TextDescription;
+    private TextField textDescription;
 
     @FXML
-    private TextField TextTheme;
+    private TextField textTheme;
 
     @FXML
-    private TextField TextTimeNotification;
+    private TextField textTimeNotification;
 
     @FXML
     void initialize() {
         NewScene nw = new NewScene();
         filedFields();
-        CancelButton.setOnAction(actionEvent -> {
-            nw.closeScene(CancelButton);
+        cancelButton.setOnAction(actionEvent -> {
+            nw.closeScene(cancelButton);
             nw.openNewScene("/com/bestgroup/calendar/hello-view.fxml");
         });
-        SettingsButton.setOnAction(actionEvent -> {
-            nw.closeScene(SettingsButton);
+        settingsButton.setOnAction(actionEvent -> {
+            nw.closeScene(settingsButton);
             nw.openNewScene("/com/bestgroup/calendar/Settings.fxml");
         });
-        DeleteEventButton.setOnAction(actionEvent -> {
-            nw.closeScene(DeleteEventButton);
+        deleteEventButton.setOnAction(actionEvent -> {
+            nw.closeScene(deleteEventButton);
             nw.openNewScene("/com/bestgroup/calendar/SuccessDelete.fxml");
             try {
                 deleteEvent();
@@ -68,16 +68,16 @@ public class FilledEventController {
     public void filedFields() {
         EventHelper ev = new EventHelper();
         ev.getEvent();
-        TextData.setValue(LocalDate.parse(ev.getFullDate()));
-        TextDescription.setText(ev.getDescription());
-        TextTheme.setText(ev.getTheme());
-        TextTimeNotification.setText(ev.getTimeNotification());
+        textData.setValue(LocalDate.parse(ev.getFullDate()));
+        textDescription.setText(ev.getDescription());
+        textTheme.setText(ev.getTheme());
+        textTimeNotification.setText(ev.getTimeNotification());
 
     }
 
     public void deleteEvent() throws IOException {
         String line;
-        String outputLine = String.valueOf(TextData.getValue());
+        String outputLine = String.valueOf(textData.getValue());
         File sourceFile = new File("Events.txt");
         File outputFile = new File("Dictio2.txt");
         BufferedReader reader = new BufferedReader(new FileReader(sourceFile));

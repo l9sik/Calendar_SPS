@@ -6,6 +6,7 @@ import javafx.scene.control.TextField;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -27,42 +28,43 @@ public class AddEventController {
     private URL location;
 
     @FXML
-    private Button AddEventCancelButton;
+    private Button addEventCancelButton;
+    @FXML
+    private Button mainMenuSettingsButton;
 
     @FXML
-    private Button MainMenuSettingsButton;
+    private Button addEventButton;
 
     @FXML
-    private Button AddEventButton;
+    public DatePicker textData;
 
     @FXML
-    public DatePicker TextData;
+    public TextField textDescription;
 
     @FXML
-    public TextField TextDescription;
+    public TextField textTheme;
 
     @FXML
-    public TextField TextTheme;
+    public TextField textTimeNotification;
 
-    @FXML
-    public TextField TextTimeNotification;
+    private static final String DATA_FORMAT = "yyyy-MM-dd";
 
 
     @FXML
     void initialize() {
         setInitialTextData();
         NewScene nw = new NewScene();
-        AddEventCancelButton.setOnAction(actionEvent -> {
-            nw.closeScene(AddEventButton);
+        addEventCancelButton.setOnAction(actionEvent -> {
+            nw.closeScene(addEventButton);
             nw.openNewScene("/com/bestgroup/calendar/hello-view.fxml");
         });
 
-        MainMenuSettingsButton.setOnAction(actionEvent -> {
-            nw.closeScene(AddEventButton);
+        mainMenuSettingsButton.setOnAction(actionEvent -> {
+            nw.closeScene(addEventButton);
             nw.openNewScene("/com/bestgroup/calendar/Settings.fxml");
         });
 
-        AddEventButton.setOnAction(actionEvent -> {
+        addEventButton.setOnAction(actionEvent -> {
             boolean isCorrect;
             resetStyles();
             setStyles();
@@ -71,64 +73,66 @@ public class AddEventController {
                 nw.openNewScene("/com/bestgroup/calendar/FailedWriting.fxml");
             } else {
                 writeToFile();
-                nw.closeScene(AddEventButton);
+                nw.closeScene(addEventButton);
                 nw.openNewScene("/com/bestgroup/calendar/SuccessWriting.fxml");
             }
         });
 
     }
 
-    private void resetStyles(){
-        TextTheme.setStyle("-fx-border-color: none");
-        TextDescription.setStyle("-fx-border-color: none");
-        TextTimeNotification.setStyle("-fx-border-color: none");
-        TextData.setStyle("-fx-border-color: none");
+    private void resetStyles() {
+        String borderNone = "-fx-border-color: none";
+        textTheme.setStyle(borderNone);
+        textDescription.setStyle(borderNone);
+        textTimeNotification.setStyle(borderNone);
+        textData.setStyle(borderNone);
     }
 
-    private Boolean isStylesApplied(){
-        Boolean isCorrect = true;
-        if(TextTheme.getLength() < 1){
+    private Boolean isStylesApplied() {
+        boolean isCorrect = true;
+        if (textTheme.getLength() < 1) {
             isCorrect = false;
         }
-        if (TextTheme.getLength() < 1){
+        if (textDescription.getLength() < 1) {
             isCorrect = false;
         }
-        String timeNotification = TextTimeNotification.getText();
-        try{
+        String timeNotification = textTimeNotification.getText();
+        try {
             LocalTime.parse(timeNotification);
         } catch (DateTimeParseException | NullPointerException e) {
             isCorrect = false;
         }
         try {
-            TextData.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+            textData.getValue().format(DateTimeFormatter.ofPattern(DATA_FORMAT));
         } catch (NullPointerException e) {
             isCorrect = false;
         }
         return isCorrect;
     }
 
-    private void setStyles(){
-        if(TextTheme.getLength() < 1){
-            TextTheme.setStyle("-fx-border-color: red");
+    private void setStyles() {
+        String borderRed = "-fx-border-color: red";
+        if (textTheme.getLength() < 1) {
+            textTheme.setStyle(borderRed);
         }
-        if (TextDescription.getLength() < 1){
-            TextDescription.setStyle("-fx-border-color: red");
+        if (textDescription.getLength() < 1) {
+            textDescription.setStyle(borderRed);
         }
-        String timeNotification = TextTimeNotification.getText();
-        try{
+        String timeNotification = textTimeNotification.getText();
+        try {
             LocalTime.parse(timeNotification);
         } catch (DateTimeParseException | NullPointerException e) {
-            TextTimeNotification.setPromptText("Пример: 09:30");
-            TextTimeNotification.setStyle("-fx-border-color: red");
+            textTimeNotification.setPromptText("Пример: 09:30");
+            textTimeNotification.setStyle(borderRed);
         }
         try {
-            TextData.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+            textData.getValue().format(DateTimeFormatter.ofPattern(DATA_FORMAT));
         } catch (NullPointerException e) {
-            TextData.setStyle("-fx-border-color: red");
+            textData.setStyle(borderRed);
         }
     }
 
-    private void writeToFile(){
+    private void writeToFile() {
 
         File log = new File("Events.txt");
         try {
@@ -138,10 +142,10 @@ public class AddEventController {
             }
             FileWriter fileWriter = new FileWriter(log, true);
             BufferedWriter bw = new BufferedWriter(fileWriter);
-            bw.write(TextData.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")) + "\n");
-            bw.write(TextTheme.getText() + "\n");
-            bw.write(TextDescription.getText() + "\n");
-            bw.write(TextTimeNotification.getText() + "\n");
+            bw.write(textData.getValue().format(DateTimeFormatter.ofPattern(DATA_FORMAT)) + "\n");
+            bw.write(textTheme.getText() + "\n");
+            bw.write(textDescription.getText() + "\n");
+            bw.write(textTimeNotification.getText() + "\n");
             bw.newLine();
             bw.close();
         } catch (IOException e) {
@@ -149,16 +153,16 @@ public class AddEventController {
         }
     }
 
-    private void setInitialTextData(){
+    private void setInitialTextData() {
         try {
             if (!Objects.isNull(AppHelper.getFullDate())) {
-                TextData.setValue(LocalDate.parse(AppHelper.getFullDate()));
+                textData.setValue(LocalDate.parse(AppHelper.getFullDate()));
             }
-        } catch (NumberFormatException e){
-            e.getMessage();
+        } catch (NumberFormatException e) {
+            System.out.println(e.getMessage());
         }
-        if (!Objects.isNull(CurrentTime.getCurrentDate())){
-            TextData.setValue(LocalDate.parse(CurrentTime.getCurrentDate()));
+        if (!Objects.isNull(CurrentTime.getCurrentDate())) {
+            textData.setValue(LocalDate.parse(CurrentTime.getCurrentDate()));
         }
     }
 }

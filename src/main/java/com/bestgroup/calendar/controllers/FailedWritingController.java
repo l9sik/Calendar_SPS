@@ -25,8 +25,6 @@ public class FailedWritingController {
 
     @FXML
     void initialize() {
-        FXMLLoader loader = new FXMLLoader();
-        text.setText("Событие не добавлено!\n Введите корректно все данные.");
         buttonOk.setOnMouseClicked((event) -> {
             buttonOk.getScene().getWindow().hide();
         });
