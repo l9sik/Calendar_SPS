@@ -75,11 +75,11 @@ public class HelloController {
     private final NewScene nw = new NewScene();
 
     @FXML
+
     void initialize() {
 
         Timeline clock = new Timeline(new KeyFrame(Duration.ZERO, e -> {
-            CurrentTime currentTime = new CurrentTime();
-            time.setText(currentTime.getCurrentTime("UTC+3"));
+            time.setText(CurrentTime.getCurrentTime("UTC+3"));
         }),
                 new KeyFrame(Duration.seconds(1))
         );

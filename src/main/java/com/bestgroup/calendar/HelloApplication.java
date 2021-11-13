@@ -2,8 +2,6 @@ package com.bestgroup.calendar;
 
 import com.bestgroup.calendar.controllers.NewScene;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -19,7 +17,7 @@ public class HelloApplication extends Application {
      * @throws IOException
      */
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage stage){
         NewScene nw = new NewScene();
         nw.openNewScene("/com/bestgroup/calendar/hello-view.fxml");
     }

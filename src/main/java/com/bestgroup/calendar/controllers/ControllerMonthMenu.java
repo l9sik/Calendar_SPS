@@ -31,12 +31,13 @@ public class ControllerMonthMenu {
     private Text time;
 
     @FXML
+
     private Text textForYear;
 
     @FXML
     private Button mainMenuCancelButton;
 
-    private NewScene nw = new NewScene();
+    private final NewScene nw = new NewScene();
 
     @FXML
     void initialize() {

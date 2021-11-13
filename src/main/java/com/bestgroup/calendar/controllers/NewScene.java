@@ -12,7 +12,7 @@ public class NewScene {
         try {
             scene = new javafx.scene.Scene(fxmlLoader.load());
         } catch (IOException er) {
-            er.printStackTrace();
+            System.err.println(er.getMessage());
         }
         Stage stage = new Stage();
         stage.setTitle("Calendar SPS");

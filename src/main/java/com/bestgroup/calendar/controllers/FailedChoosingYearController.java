@@ -22,11 +22,7 @@ public class FailedChoosingYearController {
 
     @FXML
     void initialize() {
-        buttonOk.setOnMouseClicked((event) -> {
-            buttonOk.getScene().getWindow().hide();
-        });
-
-
+        buttonOk.setOnMouseClicked((event) -> buttonOk.getScene().getWindow().hide());
     }
 
 }

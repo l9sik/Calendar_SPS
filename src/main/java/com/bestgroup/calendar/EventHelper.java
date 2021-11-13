@@ -19,7 +19,7 @@ public class EventHelper {
     public String getDescription (){ return description; }
 
     public Boolean isEventExist() {
-        Boolean isExist = false;
+        boolean isExist = false;
         File file = new File("Events.txt");
         Scanner scanner = null;
         try {
