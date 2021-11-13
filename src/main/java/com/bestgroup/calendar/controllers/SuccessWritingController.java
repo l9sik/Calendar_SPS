@@ -28,7 +28,6 @@ public class SuccessWritingController {
     @FXML
     void initialize() {
         NewScene nw = new NewScene();
-        text.setText("Событие успешно добавлено!");
         buttonOk.setOnMouseClicked((event) -> {
             nw.closeScene(buttonOk);
             nw.openNewScene("/com/bestgroup/calendar/hello-view.fxml");

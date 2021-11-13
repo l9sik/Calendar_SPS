@@ -18,16 +18,16 @@ public class DayMenuController {
     private URL location;
 
     @FXML
-    private Button DayMenuCancelButton;
+    private Button dayMenuCancelButton;
 
     @FXML
-    private Button DayMenuSettingsButton;
+    private Button dayMenuSettingsButton;
 
     @FXML
-    private Button DayMenuAddEvent;
+    private Button dayMenuAddEvent;
 
     @FXML
-    private Button DayMenuShowEvent;
+    private Button dayMenuShowEvent;
 
     @FXML
     private AnchorPane t;
@@ -43,24 +43,24 @@ public class DayMenuController {
         NewScene nw = new NewScene();
         textYear.setText(String.valueOf(AppHelper.getYear()));
         textMonthAndDay.setText(AppHelper.getMonthAndDay());
-        DayMenuCancelButton.setOnAction(actionEvent -> {
-            nw.closeScene(DayMenuCancelButton);
+        dayMenuCancelButton.setOnAction(actionEvent -> {
+            nw.closeScene(dayMenuCancelButton);
             nw.openNewScene("/com/bestgroup/calendar/hello-view.fxml");
         });
-        DayMenuSettingsButton.setOnAction(actionEvent -> {
-            nw.closeScene(DayMenuSettingsButton);
+        dayMenuSettingsButton.setOnAction(actionEvent -> {
+            nw.closeScene(dayMenuSettingsButton);
             nw.openNewScene("/com/bestgroup/calendar/Settings.fxml");
         });
 
-        DayMenuShowEvent.setDisable(isDisabled());
+        dayMenuShowEvent.setDisable(isDisabled());
 
-        DayMenuShowEvent.setOnAction(actionEvent -> {
-            nw.closeScene(DayMenuShowEvent);
+        dayMenuShowEvent.setOnAction(actionEvent -> {
+            nw.closeScene(dayMenuShowEvent);
             nw.openNewScene("/com/bestgroup/calendar/FilledEvent.fxml");
         });
 
-        DayMenuAddEvent.setOnAction(actionEvent -> {
-            nw.closeScene(DayMenuAddEvent);
+        dayMenuAddEvent.setOnAction(actionEvent -> {
+            nw.closeScene(dayMenuAddEvent);
             nw.openNewScene("/com/bestgroup/calendar/AddEvent.fxml");
         });
     }

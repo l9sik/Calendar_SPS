@@ -22,7 +22,6 @@ public class FailedChoosingYearController {
 
     @FXML
     void initialize() {
-        text.setText("Ошибка! Выберите год.");
         buttonOk.setOnMouseClicked((event) -> {
             buttonOk.getScene().getWindow().hide();
         });

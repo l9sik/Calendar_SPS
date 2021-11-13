@@ -9,12 +9,12 @@
    <children>
       <AnchorPane prefHeight="64.0" prefWidth="400.0" style="-fx-background-color: DDB892;">
          <children>
-            <Button fx:id="DayMenuSettingsButton" layoutX="306.0" layoutY="19.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="80.0" style="-fx-background-color: 7F5539;" text="Настройки">
+            <Button fx:id="dayMenuSettingsButton" layoutX="306.0" layoutY="19.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="80.0" style="-fx-background-color: 7F5539;" text="Настройки">
                <font>
                   <Font name="Calibri Bold" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="DayMenuCancelButton" layoutX="14.0" layoutY="19.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="80.0" style="-fx-background-color: 7F5539;" text="Отмена">
+            <Button fx:id="dayMenuCancelButton" layoutX="14.0" layoutY="19.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="80.0" style="-fx-background-color: 7F5539;" text="Отмена">
                <font>
                   <Font name="Calibri Bold" size="12.0" />
                </font>
@@ -32,7 +32,7 @@
             <Font size="24.0" />
          </font>
       </Text>
-      <Button fx:id="DayMenuAddEvent" layoutX="35.0" layoutY="300.0" mnemonicParsing="false" prefHeight="92.0" prefWidth="130.0" text="Добавить событие" />
-      <Button fx:id="DayMenuShowEvent" layoutX="211.0" layoutY="300.0" mnemonicParsing="false" prefHeight="92.0" prefWidth="130.0" text="Посмореть события" />
+      <Button fx:id="dayMenuAddEvent" layoutX="35.0" layoutY="300.0" mnemonicParsing="false" prefHeight="92.0" prefWidth="130.0" text="Добавить событие" />
+      <Button fx:id="dayMenuShowEvent" layoutX="211.0" layoutY="300.0" mnemonicParsing="false" prefHeight="92.0" prefWidth="130.0" text="Посмореть события" />
    </children>
 </AnchorPane>

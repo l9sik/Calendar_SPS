@@ -6,21 +6,17 @@ import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 import javafx.scene.control.ComboBox;
 import java.net.URL;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.ResourceBundle;
 
 public class HelloController {
 
     @FXML
-    private ComboBox<String> ChooseYear;
+    private ComboBox<String> chooseYear;
 
     @FXML
     private ResourceBundle resources;
@@ -29,61 +25,61 @@ public class HelloController {
     private URL location;
 
     @FXML
-    private Button MainMenuAddEventButton;
+    private Button mainMenuAddEventButton;
 
     @FXML
-    private Button MainMenuAprButton;
+    private Button mainMenuAprButton;
 
     @FXML
-    private Button MainMenuAugButton;
+    private Button mainMenuAugButton;
 
     @FXML
-    private Button MainMenuCurrentDateButton;
+    private Button mainMenuCurrentDateButton;
 
     @FXML
-    private Button MainMenuDecButton;
+    private Button mainMenuDecButton;
 
     @FXML
-    private Button MainMenuFebButton;
+    private Button mainMenuFebButton;
 
     @FXML
-    private Button MainMenuJanButton;
+    private Button mainMenuJanButton;
 
     @FXML
-    private Button MainMenuJulyButton;
+    private Button mainMenuJulyButton;
 
     @FXML
-    private Button MainMenuJuneButton;
+    private Button mainMenuJuneButton;
 
     @FXML
-    private Button MainMenuMarchButton;
+    private Button mainMenuMarchButton;
 
     @FXML
-    private Button MainMenuMayButton;
+    private Button mainMenuMayButton;
 
     @FXML
-    private Button MainMenuNovButton;
+    private Button mainMenuNovButton;
 
     @FXML
-    private Button MainMenuOctButton;
+    private Button mainMenuOctButton;
 
     @FXML
-    private Button MainMenuSeptButton;
+    private Button mainMenuSeptButton;
 
     @FXML
-    private Button MainMenuSettingsButton;
+    private Button mainMenuSettingsButton;
 
     @FXML
-    private Text Time;
+    private Text time;
 
-    private NewScene nw = new NewScene();
+    private final NewScene nw = new NewScene();
 
     @FXML
     void initialize() {
 
         Timeline clock = new Timeline(new KeyFrame(Duration.ZERO, e -> {
             CurrentTime currentTime = new CurrentTime();
-            Time.setText(currentTime.getCurrentTime("UTC+3"));
+            time.setText(currentTime.getCurrentTime("UTC+3"));
         }),
                 new KeyFrame(Duration.seconds(1))
         );
@@ -91,38 +87,38 @@ public class HelloController {
         clock.play();
 
 
-        MainMenuCurrentDateButton.setOnMouseClicked((event) -> {
+        mainMenuCurrentDateButton.setOnMouseClicked((event) -> {
             CurrentTime.setYear();
             CurrentTime.setMonthAndDay();
-            nw.closeScene(MainMenuCurrentDateButton);
+            nw.closeScene(mainMenuCurrentDateButton);
             nw.openNewScene("/com/bestgroup/calendar/DayMenu.fxml");
         });
 
-        MainMenuSettingsButton.setOnMouseClicked((event) -> {
-            nw.closeScene(MainMenuSettingsButton);
+        mainMenuSettingsButton.setOnMouseClicked((event) -> {
+            nw.closeScene(mainMenuSettingsButton);
             nw.openNewScene("/com/bestgroup/calendar/Settings.fxml");
         });
 
-        MainMenuAddEventButton.setOnMouseClicked((event) -> {
+        mainMenuAddEventButton.setOnMouseClicked((event) -> {
             CurrentTime.resetDate();
-            nw.closeScene(MainMenuAddEventButton);
+            nw.closeScene(mainMenuAddEventButton);
             nw.openNewScene("/com/bestgroup/calendar/AddEvent.fxml");
         });
 
-        ChooseYear.getItems().setAll("2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028");
+        chooseYear.getItems().setAll("2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028");
 
-        MainMenuJanButton.setOnAction(actionEvent -> OpenMonthMenu(MainMenuJanButton, 1));
-        MainMenuFebButton.setOnAction(actionEvent -> OpenMonthMenu(MainMenuFebButton, 2));
-        MainMenuMarchButton.setOnAction(actionEvent -> OpenMonthMenu(MainMenuMarchButton, 3));
-        MainMenuAprButton.setOnAction(actionEvent -> OpenMonthMenu(MainMenuAprButton, 4));
-        MainMenuMayButton.setOnAction(actionEvent -> OpenMonthMenu(MainMenuMayButton, 5));
-        MainMenuJuneButton.setOnAction(actionEvent -> OpenMonthMenu(MainMenuJuneButton, 6));
-        MainMenuJulyButton.setOnAction(actionEvent -> OpenMonthMenu(MainMenuJulyButton, 7));
-        MainMenuAugButton.setOnAction(actionEvent -> OpenMonthMenu(MainMenuAugButton, 8));
-        MainMenuSeptButton.setOnAction(actionEvent -> OpenMonthMenu(MainMenuSeptButton, 9));
-        MainMenuOctButton.setOnAction(actionEvent -> OpenMonthMenu(MainMenuOctButton, 10));
-        MainMenuNovButton.setOnAction(actionEvent -> OpenMonthMenu(MainMenuNovButton, 11));
-        MainMenuDecButton.setOnAction(actionEvent -> OpenMonthMenu(MainMenuFebButton, 12));
+        mainMenuJanButton.setOnAction(actionEvent -> OpenMonthMenu(mainMenuJanButton, 1));
+        mainMenuFebButton.setOnAction(actionEvent -> OpenMonthMenu(mainMenuFebButton, 2));
+        mainMenuMarchButton.setOnAction(actionEvent -> OpenMonthMenu(mainMenuMarchButton, 3));
+        mainMenuAprButton.setOnAction(actionEvent -> OpenMonthMenu(mainMenuAprButton, 4));
+        mainMenuMayButton.setOnAction(actionEvent -> OpenMonthMenu(mainMenuMayButton, 5));
+        mainMenuJuneButton.setOnAction(actionEvent -> OpenMonthMenu(mainMenuJuneButton, 6));
+        mainMenuJulyButton.setOnAction(actionEvent -> OpenMonthMenu(mainMenuJulyButton, 7));
+        mainMenuAugButton.setOnAction(actionEvent -> OpenMonthMenu(mainMenuAugButton, 8));
+        mainMenuSeptButton.setOnAction(actionEvent -> OpenMonthMenu(mainMenuSeptButton, 9));
+        mainMenuOctButton.setOnAction(actionEvent -> OpenMonthMenu(mainMenuOctButton, 10));
+        mainMenuNovButton.setOnAction(actionEvent -> OpenMonthMenu(mainMenuNovButton, 11));
+        mainMenuDecButton.setOnAction(actionEvent -> OpenMonthMenu(mainMenuFebButton, 12));
 
 
     }
@@ -133,7 +129,7 @@ public class HelloController {
             nw.openNewScene("/com/bestgroup/calendar/FailedChoosingYear.fxml");
         } else {
             AppHelper.setMonthNumber(monthNum);
-            AppHelper.setYear(Integer.parseInt(ChooseYear.getValue()));
+            AppHelper.setYear(Integer.parseInt(chooseYear.getValue()));
             nw.closeScene(btn);
             nw.openNewScene("/com/bestgroup/calendar/Month.fxml");
         }
@@ -144,7 +140,7 @@ public class HelloController {
         boolean isYear = true;
         int year = 0;
         try {
-            year = Integer.parseInt(ChooseYear.getValue());
+            year = Integer.parseInt(chooseYear.getValue());
         } catch (NumberFormatException e){
             isYear = false;
         }

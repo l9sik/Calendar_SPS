@@ -7,7 +7,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="159.0" prefWidth="229.0" style="-fx-background-color: ede0d4;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bestgroup.calendar.controllers.SuccessWritingController">
    <children>
-      <Text fx:id="text" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="228.9999999999999">
+      <Text fx:id="text" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Событие успешно добавлено!" textAlignment="CENTER" wrappingWidth="228.9999999999999">
          <font>
             <Font name="Roboto Regular" size="14.0" />
          </font>

@@ -23,7 +23,6 @@ public class SuccessDeleteController {
     @FXML
     void initialize() {
         NewScene nw = new NewScene();
-        text.setText("Успех! Событие удалено.");
         buttonOk.setOnMouseClicked((event) -> {
             nw.closeScene(buttonOk);
             nw.openNewScene("/com/bestgroup/calendar/hello-view.fxml");
