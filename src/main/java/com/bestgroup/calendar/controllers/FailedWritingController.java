@@ -2,6 +2,7 @@ package com.bestgroup.calendar.controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 
@@ -25,10 +26,7 @@ public class FailedWritingController {
 
     @FXML
     void initialize() {
-        buttonOk.setOnMouseClicked((event) -> {
-            buttonOk.getScene().getWindow().hide();
-        });
-
+        buttonOk.setOnMouseClicked((event) -> buttonOk.getScene().getWindow().hide());
 
     }
 
