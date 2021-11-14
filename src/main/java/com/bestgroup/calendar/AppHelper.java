@@ -120,14 +120,14 @@ public class AppHelper {
     public static int[][] getWeekMatrix() {
         int dayOfWeek = getDayOfWeekNum();
         int NumOfDaysInMonth = getNumOfDaysInMonth();
-        int[][] weekMatrix = new int[7][5];
+        int[][] weekMatrix = new int[7][6];
         int count = 0;
         for (int i = 0; i < 7; i++) {
             if (i <= dayOfWeek)
                 weekMatrix[i][0] = -1;
             else weekMatrix[i][0] = ++count;
         }
-        for (int j = 1; j < 5; j++) {
+        for (int j = 1; j < 6; j++) {
             for (int i = 0; i < 7; i++) {
                 weekMatrix[i][j] = ++count;
                 if (count > NumOfDaysInMonth) {

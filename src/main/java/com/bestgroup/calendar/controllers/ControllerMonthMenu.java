@@ -2,6 +2,8 @@ package com.bestgroup.calendar.controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import com.bestgroup.calendar.animations.Shake;
 import javafx.fxml.FXML;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
@@ -9,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import com.bestgroup.calendar.AppHelper;
+import org.w3c.dom.Node;
 
 public class ControllerMonthMenu {
 
@@ -44,7 +47,7 @@ public class ControllerMonthMenu {
         textForYear.setText(Integer.toString(AppHelper.getYear()));
         textForMonth.setText(AppHelper.getMonthName());
         int[][] dateInIntArray = AppHelper.getWeekMatrix();
-        for (int j = 0; j < 5; j++) {
+        for (int j = 0; j < 6; j++) {
             for (int i = 0; i < 7; i++) {
                 String text = null;
                 if (dateInIntArray[i][j] > 0)
@@ -63,7 +66,8 @@ public class ControllerMonthMenu {
                     });
                 }else{
                     btn.setOnAction(actionEvent -> {
-                        doNotCorrectDate();                                 //<---
+                        Shake notCorrectDate = new Shake(btn);
+                        notCorrectDate.playAnim();
                     });
                 }
                 daysTable.add(btn, i, j);
@@ -77,11 +81,5 @@ public class ControllerMonthMenu {
             nw.closeScene(mainMenuCancelButton);
             nw.openNewScene("/com/bestgroup/calendar/Settings.fxml");
         });
-    }
-
-
-    void doNotCorrectDate() {
-        //InsertCodeHere
-
     }
 }
