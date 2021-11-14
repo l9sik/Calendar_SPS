@@ -11,6 +11,8 @@ module com.bestgroup.calendar {
     requires eu.hansolo.tilesfx;
     requires org.testng;
     requires org.junit.jupiter.api;
+    requires poi;
+    requires java.desktop;
 
     opens com.bestgroup.calendar to javafx.fxml;
     exports com.bestgroup.calendar;
