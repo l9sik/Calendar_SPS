@@ -16,6 +16,9 @@ import java.util.ResourceBundle;
 public class HelloController {
 
     @FXML
+    private Button events;
+
+    @FXML
     private ComboBox<String> chooseYear;
 
     @FXML
@@ -119,6 +122,10 @@ public class HelloController {
         mainMenuOctButton.setOnAction(actionEvent -> OpenMonthMenu(mainMenuOctButton, 10));
         mainMenuNovButton.setOnAction(actionEvent -> OpenMonthMenu(mainMenuNovButton, 11));
         mainMenuDecButton.setOnAction(actionEvent -> OpenMonthMenu(mainMenuFebButton, 12));
+        events.setOnAction(actionEvent -> {
+            nw.closeScene(events);
+            nw.openNewScene("/com/bestgroup/calendar/Events.fxml");
+        });
 
 
     }
