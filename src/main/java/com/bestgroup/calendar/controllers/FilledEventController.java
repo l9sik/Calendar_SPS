@@ -2,7 +2,10 @@ package com.bestgroup.calendar.controllers;
 
 import java.io.*;
 import java.net.URL;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 import com.bestgroup.calendar.EventHelper;
@@ -10,6 +13,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import org.apache.poi.hssf.usermodel.HSSFRow;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.Sheet;
 
 
 public class FilledEventController {
@@ -62,7 +69,6 @@ public class FilledEventController {
                 System.out.println(e.getMessage());
             }
         });
-
     }
 
     public void filedFields() {
@@ -96,6 +102,18 @@ public class FilledEventController {
         writer.close();
         sourceFile.delete();
         outputFile.renameTo(sourceFile);
+    }
+    public static void removeRow(HSSFSheet sheet, int rowIndex) {
+        int lastRowNum = sheet.getLastRowNum();
+        if (rowIndex >= 0 && rowIndex < lastRowNum) {
+            sheet.shiftRows(rowIndex + 1, lastRowNum, -1);
+        }
+        if (rowIndex == lastRowNum) {
+            HSSFRow removingRow = sheet.getRow(rowIndex);
+            if (removingRow != null) {
+                sheet.removeRow(removingRow);
+            }
+        }
     }
 
 }
