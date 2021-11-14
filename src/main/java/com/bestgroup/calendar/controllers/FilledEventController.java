@@ -78,7 +78,6 @@ public class FilledEventController {
         textDescription.setText(ev.getDescription());
         textTheme.setText(ev.getTheme());
         textTimeNotification.setText(ev.getTimeNotification());
-
     }
 
     public void deleteEvent() throws IOException {
