@@ -48,7 +48,7 @@ public class SettingController {
         settingsCancelButton.setOnMouseClicked((event) -> {
             settingsCancelButton.getScene().getWindow().hide();
             try {
-                fxmlLoader.setLocation(getClass().getResource("/com/bestgroup/calendar/hello-view.fxml"));
+                fxmlLoader.setLocation(getClass().getResource("/com/bestgroup/calendar/MainMenu.fxml"));
                 Scene scene = new Scene(fxmlLoader.load(), 400.0D, 600.0D);
                 Stage stage = new Stage();
                 stage.setTitle("Calendar SPS");

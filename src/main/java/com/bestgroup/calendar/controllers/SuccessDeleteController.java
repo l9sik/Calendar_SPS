@@ -25,7 +25,7 @@ public class SuccessDeleteController {
         NewScene nw = new NewScene();
         buttonOk.setOnMouseClicked((event) -> {
             nw.closeScene(buttonOk);
-            nw.openNewScene("/com/bestgroup/calendar/hello-view.fxml");
+            nw.openNewScene("/com/bestgroup/calendar/MainMenu.fxml");
         });
     }
 }

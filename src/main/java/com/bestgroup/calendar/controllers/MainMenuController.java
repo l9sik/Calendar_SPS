@@ -13,7 +13,7 @@ import javafx.scene.control.ComboBox;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class HelloController {
+public class MainMenuController {
 
     @FXML
     private Button events;

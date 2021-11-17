@@ -6,9 +6,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: ede0d4;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bestgroup.calendar.controllers.FilledEventController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: f2cc8f;" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bestgroup.calendar.controllers.FilledEventController">
    <children>
-      <AnchorPane prefHeight="64.0" prefWidth="400.0" style="-fx-background-color: DDB892;">
+      <AnchorPane prefHeight="64.0" prefWidth="400.0" style="-fx-background-color: E07A5F;">
          <children>
             <Button fx:id="settingsButton" layoutX="306.0" layoutY="19.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="80.0" style="-fx-background-color: 7F5539;" text="Настройки">
                <font>
@@ -22,7 +22,7 @@
             </Button>
          </children>
       </AnchorPane>
-      <AnchorPane layoutY="536.0" prefHeight="64.0" prefWidth="400.0" style="-fx-background-color: DDB892;">
+      <AnchorPane layoutY="536.0" prefHeight="64.0" prefWidth="400.0" style="-fx-background-color: E07A5F;">
          <children>
             <Button fx:id="deleteEventButton" layoutX="135.0" layoutY="17.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="129.0" style="-fx-background-color: 7F5539;" text="Удалить событие">
                <font>

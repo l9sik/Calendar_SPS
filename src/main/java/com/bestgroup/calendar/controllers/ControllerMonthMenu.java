@@ -11,7 +11,6 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import com.bestgroup.calendar.AppHelper;
-import org.w3c.dom.Node;
 
 public class ControllerMonthMenu {
 
@@ -75,7 +74,7 @@ public class ControllerMonthMenu {
         }
         mainMenuCancelButton.setOnAction(actionEvent -> {
             nw.closeScene(mainMenuCancelButton);
-            nw.openNewScene("/com/bestgroup/calendar/hello-view.fxml");
+            nw.openNewScene("/com/bestgroup/calendar/MainMenu.fxml");
         });
         mainMenuSettingsButton.setOnAction(actionEvent -> {
             nw.closeScene(mainMenuCancelButton);

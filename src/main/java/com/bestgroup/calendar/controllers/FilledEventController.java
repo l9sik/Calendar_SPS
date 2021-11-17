@@ -2,10 +2,7 @@ package com.bestgroup.calendar.controllers;
 
 import java.io.*;
 import java.net.URL;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.ResourceBundle;
 
 import com.bestgroup.calendar.EventHelper;
@@ -15,8 +12,6 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.ss.usermodel.Sheet;
 
 
 public class FilledEventController {
@@ -54,7 +49,7 @@ public class FilledEventController {
         filedFields();
         cancelButton.setOnAction(actionEvent -> {
             nw.closeScene(cancelButton);
-            nw.openNewScene("/com/bestgroup/calendar/hello-view.fxml");
+            nw.openNewScene("/com/bestgroup/calendar/MainMenu.fxml");
         });
         settingsButton.setOnAction(actionEvent -> {
             nw.closeScene(settingsButton);

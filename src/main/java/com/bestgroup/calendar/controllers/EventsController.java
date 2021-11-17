@@ -3,22 +3,20 @@ package com.bestgroup.calendar.controllers;
 import com.bestgroup.calendar.CurrentTime;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.awt.Desktop;
 
 /**
  * Controller for Events.fxml. Contains button to open excel file
+ *
  * @author l9sik
  */
 public class EventsController {
 
     @FXML
-    private Button mainMenuAddEventButton;
+    private Button mainMenuCancelButton;
 
     @FXML
     private Button mainMenuCurrentDateButton;
@@ -39,17 +37,17 @@ public class EventsController {
                 Desktop desktop = Desktop.getDesktop();
 
                 desktop.open(new File("Events.xls"));
-            }catch (IOException e){
+            } catch (IOException e) {
                 System.out.println("There is something wrong with excel file.");
             }
         });
-        mainMenuSettingsButton.setOnAction(actionEvent ->  {
-            newScene.closeScene(mainMenuAddEventButton);
+        mainMenuSettingsButton.setOnAction(actionEvent -> {
+            newScene.closeScene(mainMenuSettingsButton);
             newScene.openNewScene("/com/bestgroup/calendar/Settings.fxml");
         });
-        mainMenuAddEventButton.setOnAction(actionEvent -> {
-            newScene.closeScene(mainMenuAddEventButton);
-            newScene.openNewScene("/com/bestgroup/calendar/AddEvent.fxml");
+        mainMenuCancelButton.setOnAction(actionEvent -> {
+            newScene.closeScene(mainMenuCancelButton);
+            newScene.openNewScene("/com/bestgroup/calendar/MainMenu.fxml");
         });
         mainMenuCurrentDateButton.setOnMouseClicked((event) -> {
             CurrentTime.setYear();

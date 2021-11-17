@@ -45,7 +45,7 @@ public class DayMenuController {
         textMonthAndDay.setText(AppHelper.getMonthAndDay());
         dayMenuCancelButton.setOnAction(actionEvent -> {
             nw.closeScene(dayMenuCancelButton);
-            nw.openNewScene("/com/bestgroup/calendar/hello-view.fxml");
+            nw.openNewScene("/com/bestgroup/calendar/MainMenu.fxml");
         });
         dayMenuSettingsButton.setOnAction(actionEvent -> {
             nw.closeScene(dayMenuSettingsButton);

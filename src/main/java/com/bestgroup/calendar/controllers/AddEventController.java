@@ -59,7 +59,7 @@ public class AddEventController {
         NewScene nw = new NewScene();
         addEventCancelButton.setOnAction(actionEvent -> {
             nw.closeScene(addEventButton);
-            nw.openNewScene("/com/bestgroup/calendar/hello-view.fxml");
+            nw.openNewScene("/com/bestgroup/calendar/MainMenu.fxml");
         });
 
         mainMenuSettingsButton.setOnAction(actionEvent -> {

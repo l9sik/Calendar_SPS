@@ -13,7 +13,7 @@
                         <Font name="Calibri Bold" size="12.0" />
                     </font>
                 </Button>
-                <Button fx:id="mainMenuAddEventButton" layoutX="270.0" layoutY="18.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="115.0" text="Добавить событие" textFill="WHITE">
+                <Button fx:id="mainMenuCancelButton" layoutX="270.0" layoutY="18.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="115.0" text="Отмена" textFill="WHITE">
                     <font>
                         <Font name="Calibri Bold" size="12.0" />
                     </font>

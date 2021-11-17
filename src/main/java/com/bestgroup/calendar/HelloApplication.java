@@ -19,7 +19,7 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage){
         NewScene nw = new NewScene();
-        nw.openNewScene("/com/bestgroup/calendar/hello-view.fxml");
+        nw.openNewScene("/com/bestgroup/calendar/MainMenu.fxml");
     }
 
     /**

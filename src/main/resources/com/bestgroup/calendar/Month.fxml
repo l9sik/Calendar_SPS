@@ -8,9 +8,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: ede0d4;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bestgroup.calendar.controllers.ControllerMonthMenu">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: f2cc8f;" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bestgroup.calendar.controllers.ControllerMonthMenu">
     <children>
-        <AnchorPane prefHeight="64.0" prefWidth="400.0" style="-fx-background-color: DDB892;">
+        <AnchorPane prefHeight="64.0" prefWidth="400.0" style="-fx-background-color: E07A5F;">
             <children>
                 <Button fx:id="mainMenuSettingsButton" layoutX="14.0" layoutY="18.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="80.0" style="-fx-background-color: 7F5539;" text="Настройки">
                     <font>
@@ -24,7 +24,7 @@
             </Button>
             </children>
         </AnchorPane>
-        <AnchorPane layoutY="536.0" prefHeight="64.0" prefWidth="400.0" style="-fx-background-color: DDB892;">
+        <AnchorPane layoutY="536.0" prefHeight="64.0" prefWidth="400.0" style="-fx-background-color: E07A5F;">
             <children>
             <Text fx:id="time" layoutX="14.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="115.20000000000005">
                <font>
@@ -44,54 +44,54 @@
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="58.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="58.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="55.0" minHeight="10.0" prefHeight="55.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="70.0" minHeight="50.0" prefHeight="48.799993896484374" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="70.0" minHeight="50.0" prefHeight="57.60001831054687" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="51.199981689453125" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="47.19999999999999" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="40.400000000000006" vgrow="SOMETIMES" />
         </rowConstraints>
       </GridPane>
-      <Text fx:id="textForMonth" layoutX="25.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="221.13671875">
+      <Text fx:id="textForMonth" layoutX="25.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="221.13671875">
          <font>
             <Font name="Roboto Regular" size="24.0" />
          </font>
       </Text>
-      <Text fx:id="textForYear" layoutX="25.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+      <Text fx:id="textForYear" layoutX="25.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
          <font>
             <Font name="Roboto Regular" size="36.0" />
          </font>
       </Text>
-      <Text layoutX="35.0" layoutY="242.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Сб">
+      <Text layoutX="38.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Сб">
          <font>
             <Font size="24.0" />
          </font>
       </Text>
-      <Text layoutX="90.0" layoutY="242.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Вс">
+      <Text layoutX="89.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Вс">
          <font>
             <Font size="24.0" />
          </font>
       </Text>
-      <Text layoutX="134.0" layoutY="242.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Пн">
+      <Text layoutX="136.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Пн">
          <font>
             <Font size="24.0" />
          </font>
       </Text>
-      <Text layoutX="189.0" layoutY="242.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Вт">
+      <Text layoutX="188.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Вт">
          <font>
             <Font size="24.0" />
          </font>
       </Text>
-      <Text layoutX="236.0" layoutY="242.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ср">
+      <Text layoutX="232.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ср">
          <font>
             <Font size="24.0" />
          </font>
       </Text>
-      <Text layoutX="286.0" layoutY="242.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Чт">
+      <Text layoutX="286.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Чт">
          <font>
             <Font size="24.0" />
          </font>
       </Text>
-      <Text layoutX="336.0" layoutY="242.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Пт">
+      <Text layoutX="334.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Пт">
          <font>
             <Font size="24.0" />
          </font>
