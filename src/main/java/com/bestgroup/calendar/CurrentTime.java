@@ -52,7 +52,7 @@ public class CurrentTime {
 
     public static void resetDate(){
         date = null;
-        AppHelper.setDate(date);
+        AppHelper.setDate(null);
     }
 
     public static String getCurrentDate(){

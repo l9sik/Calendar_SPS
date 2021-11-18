@@ -81,9 +81,7 @@ public class MainMenuController {
 
     void initialize() {
 
-        Timeline clock = new Timeline(new KeyFrame(Duration.ZERO, e -> {
-            time.setText(CurrentTime.getCurrentTime("UTC+3"));
-        }),
+        Timeline clock = new Timeline(new KeyFrame(Duration.ZERO, e -> time.setText(CurrentTime.getCurrentTime("UTC+3"))),
                 new KeyFrame(Duration.seconds(1))
         );
         clock.setCycleCount(Animation.INDEFINITE);

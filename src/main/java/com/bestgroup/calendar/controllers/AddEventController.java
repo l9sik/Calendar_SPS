@@ -50,7 +50,7 @@ public class AddEventController {
     public TextField textTimeNotification;
 
     private static final String DATA_FORMAT = "yyyy-MM-dd";
-    Notifications notific = new Notifications();
+    final Notifications notific = new Notifications();
 
 
     @FXML
@@ -94,10 +94,7 @@ public class AddEventController {
     }
 
     private Boolean isStylesApplied() {
-        boolean isCorrect = true;
-        if (textTheme.getLength() < 1) {
-            isCorrect = false;
-        }
+        boolean isCorrect = textTheme.getLength() >= 1;
         if (textDescription.getLength() < 1) {
             isCorrect = false;
         }

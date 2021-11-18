@@ -1,6 +1,5 @@
 package com.bestgroup.calendar;
 
-import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
@@ -9,9 +8,6 @@ import org.apache.poi.ss.usermodel.DataFormat;
 import org.apache.poi.ss.usermodel.Row;
 
 import java.io.*;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -39,7 +35,9 @@ public class EventHelper {
         } catch (FileNotFoundException e) {
             System.out.println(e.getMessage());
         }
-        while (scanner.hasNextLine()) {
+        while (true) {
+            assert scanner != null;
+            if (!scanner.hasNextLine()) break;
             String line = scanner.nextLine();
             if (line.equals(fullDate)) {
                 isExist = true;
@@ -56,7 +54,9 @@ public class EventHelper {
         } catch (FileNotFoundException e) {
             System.out.println(e.getMessage());
         }
-        while (scanner.hasNextLine()) {
+        while (true) {
+            assert scanner != null;
+            if (!scanner.hasNextLine()) break;
             String line = scanner.nextLine();
             if (line.equals(fullDate)) {
                 setTheme(scanner.nextLine());

@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.awt.Desktop;
 
 /**
- * Controller for Events.fxml. Contains button to open excel file
+ * Controller for Events.fxml. Contains button to open Excel file
  *
  * @author l9sik
  */

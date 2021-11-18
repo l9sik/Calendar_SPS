@@ -1,5 +1,125 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="EntryPointsManager">
+    <entry_points version="2.0">
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.AddEventController addEventButton" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.AddEventController addEventCancelButton" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.FailedChoosingYearController buttonOk" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.FailedWritingController buttonOk" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.SuccessDeleteController buttonOk" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.SuccessWritingController buttonOk" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.FilledEventController cancelButton" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.SettingController chooseTimeZone" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.MainMenuController chooseYear" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.DayMenuController dayMenuAddEvent" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.DayMenuController dayMenuCancelButton" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.DayMenuController dayMenuSettingsButton" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.DayMenuController dayMenuShowEvent" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.ControllerMonthMenu daysTable" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.FilledEventController deleteEventButton" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.MainMenuController events" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.AddEventController location" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.ControllerMonthMenu location" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.DayMenuController location" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.FailedChoosingYearController location" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.FailedWritingController location" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.FilledEventController location" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.MainMenuController location" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.SettingController location" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.SuccessDeleteController location" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.SuccessWritingController location" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.MainMenuController mainMenuAddEventButton" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.MainMenuController mainMenuAprButton" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.MainMenuController mainMenuAugButton" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.ControllerMonthMenu mainMenuCancelButton" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.EventsController mainMenuCancelButton" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.EventsController mainMenuCurrentDateButton" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.MainMenuController mainMenuCurrentDateButton" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.MainMenuController mainMenuDecButton" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.MainMenuController mainMenuFebButton" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.MainMenuController mainMenuJanButton" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.MainMenuController mainMenuJulyButton" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.MainMenuController mainMenuJuneButton" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.MainMenuController mainMenuMarchButton" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.MainMenuController mainMenuMayButton" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.MainMenuController mainMenuNovButton" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.MainMenuController mainMenuOctButton" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.MainMenuController mainMenuSeptButton" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.AddEventController mainMenuSettingsButton" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.ControllerMonthMenu mainMenuSettingsButton" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.EventsController mainMenuSettingsButton" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.MainMenuController mainMenuSettingsButton" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.EventsController openExcelButton" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.AddEventController resources" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.ControllerMonthMenu resources" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.DayMenuController resources" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.FailedChoosingYearController resources" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.FailedWritingController resources" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.FilledEventController resources" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.MainMenuController resources" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.SettingController resources" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.SuccessDeleteController resources" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.SuccessWritingController resources" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.FilledEventController settingsButton" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.SettingController settingsCancelButton" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.SettingController string" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.DayMenuController t" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.FailedChoosingYearController text" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.FailedWritingController text" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.SuccessDeleteController text" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.SuccessWritingController text" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.AddEventController textData" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.FilledEventController textData" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.AddEventController textDescription" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.FilledEventController textDescription" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.ControllerMonthMenu textForMonth" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.ControllerMonthMenu textForYear" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.DayMenuController textMonthAndDay" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.AddEventController textTheme" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.FilledEventController textTheme" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.AddEventController textTimeNotification" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.FilledEventController textTimeNotification" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.DayMenuController textYear" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.ControllerMonthMenu time" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.MainMenuController time" />
+      <entry_point TYPE="field" FQNAME="com.bestgroup.calendar.controllers.SettingController time" />
+    </entry_points>
+    <pattern value="com.bestgroup.calendar.controllers.AddEventController" />
+    <pattern value="com.bestgroup.calendar.AppHelper" />
+    <pattern value="com.bestgroup.calendar.controllers.ControllerMonthMenu" />
+    <pattern value="com.bestgroup.calendar.CurrentTime" />
+    <pattern value="com.bestgroup.calendar.controllers.DayMenuController" />
+    <pattern value="com.bestgroup.calendar.EventHelper" />
+    <pattern value="com.bestgroup.calendar.controllers.EventsController" />
+    <pattern value="com.bestgroup.calendar.controllers.FailedChoosingYearController" />
+    <pattern value="com.bestgroup.calendar.controllers.FailedWritingController" />
+    <pattern value="com.bestgroup.calendar.controllers.FilledEventController" />
+    <pattern value="com.bestgroup.calendar.HelloApplication" />
+    <pattern value="com.bestgroup.calendar.controllers.MainMenuController" />
+    <pattern value="com.bestgroup.calendar.controllers.NewScene" />
+    <pattern value="com.bestgroup.calendar.Notifications" />
+    <pattern value="com.bestgroup.calendar.controllers.SettingController" />
+    <pattern value="com.bestgroup.calendar.controllers.SuccessDeleteController" />
+    <pattern value="com.bestgroup.calendar.controllers.SuccessWritingController" />
+    <pattern value="com.bestgroup.calendar.controllers.AddEventController" method="initialize" />
+    <pattern value="com.bestgroup.calendar.controllers.ControllerMonthMenu" method="initialize" />
+    <pattern value="com.bestgroup.calendar.controllers.DayMenuController" method="initialize" />
+    <pattern value="com.bestgroup.calendar.controllers.EventsController" method="initialize" />
+    <pattern value="com.bestgroup.calendar.controllers.FailedChoosingYearController" method="initialize" />
+    <pattern value="com.bestgroup.calendar.controllers.FailedWritingController" method="initialize" />
+    <pattern value="com.bestgroup.calendar.controllers.FilledEventController" method="initialize" />
+    <pattern value="com.bestgroup.calendar.controllers.MainMenuController" method="initialize" />
+    <pattern value="com.bestgroup.calendar.controllers.SettingController" method="initialize" />
+    <pattern value="com.bestgroup.calendar.controllers.SuccessDeleteController" method="initialize" />
+    <pattern value="com.bestgroup.calendar.controllers.SuccessWritingController" method="initialize" />
+    <pattern value="com.bestgroup.calendar.controllers.MainMenuController" method="isYear" />
+    <pattern value="com.bestgroup.calendar.HelloApplication" method="main" />
+    <pattern value="com.bestgroup.calendar.controllers.FilledEventController" method="removeRow" />
+    <pattern value="com.bestgroup.calendar.CurrentTime" method="setCurrentDate" />
+    <pattern value="com.bestgroup.calendar.EventHelper" method="setFullDate" />
+    <pattern value="com.bestgroup.calendar.HelloApplication" method="start" />
+    <pattern value="com.bestgroup.calendar.EventHelper" method="writeIntoExcel" />
+  </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="JavadocGenerationManager">
     <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$" />

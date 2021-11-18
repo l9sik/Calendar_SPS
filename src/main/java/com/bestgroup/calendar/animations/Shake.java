@@ -5,7 +5,7 @@ import javafx.scene.Node;
 import javafx.util.Duration;
 
 public class Shake {
-    private TranslateTransition trlateTrsition;
+    private final TranslateTransition trlateTrsition;
 
     public Shake(Node nd){
         trlateTrsition = new TranslateTransition(Duration.millis(70), nd);
