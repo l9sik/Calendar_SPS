@@ -17,7 +17,7 @@
                         <Font name="Calibri Bold" size="12.0" />
                     </font>
                 </Button>
-            <Button fx:id="mainMenuCancelButton" layoutX="306.0" layoutY="18.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="80.0" style="-fx-background-color: 7F5539;" text="Отмена">
+            <Button fx:id="mainMenuCancelButton" layoutX="306.0" layoutY="18.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="80.0" style="-fx-background-color: 7F5539;" stylesheets="@styles.css" text="Отмена">
                <font>
                   <Font name="Calibri Bold" size="12.0" />
                </font>
@@ -33,7 +33,7 @@
             </Text>
             </children>
         </AnchorPane>
-      <GridPane fx:id="daysTable" alignment="CENTER" layoutX="25.0" layoutY="250.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="350.0" style="-fx-grid-lines-visible: true;">
+      <GridPane fx:id="daysTable" alignment="CENTER" layoutX="25.0" layoutY="250.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="350.0" style="-fx-grid-lines-visible: false;">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -49,51 +49,52 @@
           <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="51.199981689453125" vgrow="SOMETIMES" />
           <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="47.19999999999999" vgrow="SOMETIMES" />
           <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="40.400000000000006" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="40.400000000000006" vgrow="SOMETIMES" />
         </rowConstraints>
       </GridPane>
-      <Text fx:id="textForMonth" layoutX="25.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="221.13671875">
+      <Text fx:id="textForMonth" fill="#c22e2e" layoutX="27.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Text" wrappingWidth="188.20000000000005">
          <font>
             <Font name="Roboto Regular" size="24.0" />
          </font>
       </Text>
-      <Text fx:id="textForYear" layoutX="25.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+      <Text fx:id="textForYear" fill="#3d405b" layoutX="25.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Text">
          <font>
-            <Font name="Roboto Regular" size="36.0" />
+            <Font name="Roboto Bold" size="36.0" />
          </font>
       </Text>
-      <Text layoutX="38.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Сб">
+      <Text fill="#3d405b" layoutX="38.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Сб">
          <font>
-            <Font size="24.0" />
+            <Font name="Calibri" size="24.0" />
          </font>
       </Text>
-      <Text layoutX="89.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Вс">
+      <Text fill="#3d405b" layoutX="89.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Вс">
          <font>
-            <Font size="24.0" />
+            <Font name="Calibri" size="24.0" />
          </font>
       </Text>
-      <Text layoutX="136.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Пн">
+      <Text fill="#3d405b" layoutX="136.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Пн">
          <font>
-            <Font size="24.0" />
+            <Font name="Calibri" size="24.0" />
          </font>
       </Text>
-      <Text layoutX="188.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Вт">
+      <Text fill="#3d405b" layoutX="188.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Вт">
          <font>
-            <Font size="24.0" />
+            <Font name="Calibri" size="24.0" />
          </font>
       </Text>
-      <Text layoutX="232.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ср">
+      <Text fill="#3d405b" layoutX="232.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Ср">
          <font>
-            <Font size="24.0" />
+            <Font name="Calibri" size="24.0" />
          </font>
       </Text>
-      <Text layoutX="286.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Чт">
+      <Text fill="#3d405b" layoutX="286.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Чт">
          <font>
-            <Font size="24.0" />
+            <Font name="Calibri" size="24.0" />
          </font>
       </Text>
-      <Text layoutX="334.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Пт">
+      <Text fill="#3d405b" layoutX="334.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Пт">
          <font>
-            <Font size="24.0" />
+            <Font name="Calibri" size="24.0" />
          </font>
       </Text>
     </children>
