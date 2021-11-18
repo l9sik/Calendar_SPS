@@ -5,12 +5,13 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: f2cc8f;" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bestgroup.calendar.controllers.AddEventController">
     <children>
         <AnchorPane prefHeight="64.0" prefWidth="400.0" style="-fx-background-color: E07A5F;">
             <children>
-                <Button fx:id="mainMenuSettingsButton" layoutX="306.0" layoutY="19.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="80.0"  text="Настройки">
+                <Button fx:id="mainMenuSettingsButton" layoutX="306.0" layoutY="19.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="80.0" text="Настройки">
                     <font>
                         <Font name="Calibri Bold" size="12.0" />
                     </font>
@@ -31,9 +32,29 @@
                 </Button>
             </children>
         </AnchorPane>
-        <TextField fx:id="textTheme" layoutX="21.0" layoutY="131.0" prefHeight="25.0" prefWidth="358.0" promptText="Тема" />
+        <TextField fx:id="textTheme" layoutX="21.0" layoutY="117.0" prefHeight="25.0" prefWidth="358.0" promptText="Тема" />
         <TextField fx:id="textDescription" layoutX="21.0" layoutY="171.0" prefHeight="25.0" prefWidth="358.0" promptText="Описание" />
-        <DatePicker fx:id="textData" layoutX="21.0" layoutY="217.0" prefHeight="25.0" prefWidth="358.0" promptText="Дата" />
-        <TextField fx:id="textTimeNotification" layoutX="21.0" layoutY="261.0" prefHeight="25.0" prefWidth="358.0" promptText="Время оповещения" />
+        <DatePicker fx:id="textData" layoutX="21.0" layoutY="225.0" prefHeight="25.0" prefWidth="358.0" promptText="Дата" />
+        <TextField fx:id="textTimeNotification" layoutX="21.0" layoutY="283.0" prefHeight="25.0" prefWidth="358.0" promptText="09:45" />
+      <Text fill="#3d405b" layoutX="21.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Тема" wrappingWidth="145.0">
+         <font>
+            <Font name="Calibri" size="24.0" />
+         </font>
+      </Text>
+      <Text fill="#3d405b" layoutX="21.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Описание" wrappingWidth="145.0">
+         <font>
+            <Font name="Calibri" size="24.0" />
+         </font>
+      </Text>
+      <Text fill="#3d405b" layoutX="21.0" layoutY="219.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Дата" wrappingWidth="145.0">
+         <font>
+            <Font name="Calibri" size="24.0" />
+         </font>
+      </Text>
+      <Text fill="#3d405b" layoutX="21.0" layoutY="277.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Время оповещения" wrappingWidth="202.0">
+         <font>
+            <Font name="Calibri" size="24.0" />
+         </font>
+      </Text>
     </children>
 </AnchorPane>
