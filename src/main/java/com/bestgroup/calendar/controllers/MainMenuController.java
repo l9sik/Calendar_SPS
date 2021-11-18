@@ -10,8 +10,6 @@ import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 import javafx.scene.control.ComboBox;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public class MainMenuController {
 
@@ -20,12 +18,6 @@ public class MainMenuController {
 
     @FXML
     private ComboBox<String> chooseYear;
-
-    @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
 
     @FXML
     private Button mainMenuAddEventButton;
@@ -139,7 +131,6 @@ public class MainMenuController {
             nw.openNewScene("/com/bestgroup/calendar/Month.fxml");
         }
     }
-
 
     Boolean isYear(){
         boolean isYear = true;
