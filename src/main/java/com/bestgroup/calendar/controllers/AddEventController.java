@@ -9,25 +9,17 @@ import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 
 import java.io.*;
-import java.net.URL;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.Objects;
-import java.util.ResourceBundle;
 import com.bestgroup.calendar.animations.Shake;
 
 import org.apache.poi.hssf.usermodel.*;
 import org.apache.poi.ss.usermodel.*;
 
 public class AddEventController {
-
-    @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
 
     @FXML
     private Button addEventCancelButton;
