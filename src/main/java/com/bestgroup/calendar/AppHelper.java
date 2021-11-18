@@ -67,7 +67,11 @@ public class AppHelper {
     public static String getMonthName() {
         Month month = Month.of(monthNumber);
         Locale loc = Locale.forLanguageTag("ru");
-        return month.getDisplayName(TextStyle.FULL_STANDALONE, loc);
+        String monthName = month.getDisplayName(TextStyle.FULL_STANDALONE, loc);
+        String removedStr = monthName.substring(1);
+        String firstLetter = monthName.substring(0, 1).toUpperCase();
+        monthName = firstLetter + removedStr;
+        return monthName;
     }
 
     public static int getMonthCode() {
