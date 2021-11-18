@@ -52,24 +52,29 @@ public class ControllerMonthMenu {
                 if (dateInIntArray[i][j] > 0)
                     text = Integer.toString(dateInIntArray[i][j]);
                 Button btn = new Button(text);
+                btn.setId(i + " " + j);
+                if (i < 2)
+                    btn.setStyle("-fx-background-color: c22e2e;");
                 btn.setMaxHeight(30);
                 btn.setMaxWidth(30);
                 GridPane.setMargin(btn, new Insets(10));
                 GridPane.setHalignment(btn, HPos.CENTER);
-                if (text != null){
+                if (text != null) {
                     btn.setOnAction(actionEvent -> {
                         AppHelper.setDate(btn.getText());
                         AppHelper.setMonthAndDay(btn.getText(), AppHelper.getMonthName());
                         nw.closeScene(btn);
                         nw.openNewScene("/com/bestgroup/calendar/DayMenu.fxml");
                     });
-                }else{
-                    btn.setOnAction(actionEvent -> {
+                    daysTable.add(btn, i, j);
+                }
+                /*}else{
+                    daysTable.getChildren().remove(btn);
+                    *//*btn.setOnAction(actionEvent -> {
                         Shake notCorrectDate = new Shake(btn);
                         notCorrectDate.playAnim();
-                    });
-                }
-                daysTable.add(btn, i, j);
+                    });*//*
+                }*/
             }
         }
         mainMenuCancelButton.setOnAction(actionEvent -> {
