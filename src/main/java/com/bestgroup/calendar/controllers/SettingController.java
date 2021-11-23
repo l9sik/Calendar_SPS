@@ -56,7 +56,7 @@ public class SettingController {
         });
 
         chooseTimeZone.setPromptText(UTC_3);
-        chooseTimeZone.getItems().setAll("UTC-9", "UTC-3", "UTC-2", "UTC-1", "UTC+0", "UTC+1", "UTC+2", "UTC+3", "UTC+4", "UTC+5");
+        chooseTimeZone.getItems().setAll("UTC-9", "UTC-3", "UTC-2", "UTC-1", "UTC+0", "UTC+1", "UTC+2", UTC_3, "UTC+4", "UTC+5");
 
         Timeline clock = new Timeline(new KeyFrame(Duration.ZERO, e -> {
             if (chooseTimeZone.getValue() == null) {
