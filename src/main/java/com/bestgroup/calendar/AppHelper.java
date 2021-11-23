@@ -1,6 +1,9 @@
 package com.bestgroup.calendar;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.Month;
 import java.time.format.TextStyle;
+import java.util.Calendar;
 import java.util.Locale;
 
 /**
@@ -140,5 +143,17 @@ public class AppHelper {
             }
         }
         return weekMatrix;
+    }
+    static public String plusDay(String date, int numOfDays){
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Calendar c = Calendar.getInstance();
+        try{
+            c.setTime(sdf.parse(date));
+        }catch(ParseException e){
+            e.printStackTrace();
+        }
+        c.add(Calendar.DAY_OF_MONTH, numOfDays);
+        String newDate = sdf.format(c.getTime());
+        return newDate;
     }
 }
