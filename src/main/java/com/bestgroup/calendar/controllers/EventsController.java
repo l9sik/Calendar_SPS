@@ -1,12 +1,17 @@
 package com.bestgroup.calendar.controllers;
 
+import com.bestgroup.calendar.AppHelper;
 import com.bestgroup.calendar.CurrentTime;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import org.apache.poi.hssf.usermodel.HSSFRow;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.awt.Desktop;
+import java.util.ArrayList;
 
 /**
  * Controller for Events.fxml. Contains button to open Excel file
@@ -14,6 +19,9 @@ import java.awt.Desktop;
  * @author l9sik
  */
 public class EventsController {
+
+    @FXML
+    private ComboBox<String> filterChooser;
 
     @FXML
     private Button mainMenuCancelButton;
@@ -31,8 +39,18 @@ public class EventsController {
 
     @FXML
     void initialize() {
+        filterChooser.getItems().setAll("Нет", "Неделя", "Месяц");
 
         openExcelButton.setOnAction(actionEvent -> {
+            String currentDate = filterChooser.getValue();
+            ArrayList list = getList(currentDate);
+            if (!list.isEmpty()) {
+                try {
+                    setFilter(list);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
             try {
                 Desktop desktop = Desktop.getDesktop();
 
@@ -55,6 +73,57 @@ public class EventsController {
             newScene.closeScene(mainMenuCurrentDateButton);
             newScene.openNewScene("/com/bestgroup/calendar/DayMenu.fxml");
         });
+    }
+
+    ArrayList<String> getList(String choice){
+        String date = AppHelper.getFullDate();
+        String newDate;
+        ArrayList<String> list = new ArrayList<>();
+        if (choice.equals("Неделя")){
+            for (int i = 0; i < 7; i++){
+                newDate = AppHelper.plusDay(date, i);
+                list.add(newDate);
+            }
+        }
+        if (choice.equals("Месяц")){
+            for (int i = 0; i < 30; i++){
+                newDate = AppHelper.plusDay(date, i);
+                list.add(newDate);
+            }
+        }
+        return list;
+    }
+
+    private void setFilter(ArrayList<String> list) throws IOException{
+        if (!list.isEmpty()) {
+            try (HSSFWorkbook wbFrom = new HSSFWorkbook(new FileInputStream("Events.xls"))) {
+                HSSFSheet sheetIn = wbFrom.createSheet("Filtered events");
+                HSSFRow topRow = sheetIn.createRow(0);
+                HSSFSheet sheetFrom = wbFrom.getSheetAt(0);
+                topRow.createCell(0).setCellValue("Date");
+                topRow.createCell(1).setCellValue("Theme");
+                topRow.createCell(2).setCellValue("Description");
+                topRow.createCell(3).setCellValue("Time");
+                int lastRowNum = sheetFrom.getLastRowNum() + 1;
+                int i = 1;
+                while (i < lastRowNum) {
+                    HSSFRow rowFrom = sheetFrom.getRow(i);
+                    if (list.contains(rowFrom.getCell(0).getStringCellValue())) {
+                        HSSFRow rowIn = sheetIn.createRow(i);
+                        rowIn.createCell(0).setCellValue(rowFrom.getCell(0).getStringCellValue());
+                        rowIn.createCell(1).setCellValue(rowFrom.getCell(1).getStringCellValue());
+                        rowIn.createCell(2).setCellValue(rowFrom.getCell(2).getStringCellValue());
+                        rowIn.createCell(3).setCellValue(rowFrom.getCell(3).getStringCellValue());
+                    }
+                    i++;
+                }
+                OutputStream out = new FileOutputStream("Events.xls");
+                wbFrom.write(out);
+                out.flush();
+                out.close();
+            }
+        }
+
     }
 
 }
