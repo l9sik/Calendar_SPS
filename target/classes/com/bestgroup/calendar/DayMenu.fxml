@@ -5,34 +5,39 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="t" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: f2cc8f;" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bestgroup.calendar.controllers.DayMenuController">
-   <children>
-      <AnchorPane prefHeight="64.0" prefWidth="400.0" style="-fx-background-color: E07A5F;">
-         <children>
-            <Button fx:id="dayMenuSettingsButton" layoutX="306.0" layoutY="19.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="80.0" style="-fx-background-color: 7F5539;" text="Настройки">
-               <font>
-                  <Font name="Calibri Bold" size="12.0" />
-               </font>
-            </Button>
-            <Button fx:id="dayMenuCancelButton" layoutX="14.0" layoutY="19.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="80.0" style="-fx-background-color: 7F5539;" text="Отмена">
-               <font>
-                  <Font name="Calibri Bold" size="12.0" />
-               </font>
-            </Button>
-         </children>
-      </AnchorPane>
-      <AnchorPane layoutY="536.0" prefHeight="64.0" prefWidth="400.0" style="-fx-background-color: E07A5F;" />
-      <Text fx:id="textYear" layoutX="24.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="197.33673095703125">
-         <font>
-            <Font name="Roboto Regular" size="36.0" />
-         </font>
-      </Text>
-      <Text fx:id="textMonthAndDay" layoutX="24.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="226.93670654296875">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Text>
-      <Button fx:id="dayMenuAddEvent" layoutX="35.0" layoutY="300.0" mnemonicParsing="false" prefHeight="92.0" prefWidth="130.0" text="Добавить событие" />
-      <Button fx:id="dayMenuShowEvent" layoutX="211.0" layoutY="300.0" mnemonicParsing="false" prefHeight="92.0" prefWidth="130.0" text="Посмореть события" />
-   </children>
+<AnchorPane fx:id="t" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: f2cc8f;" stylesheets="@styles.css"
+            xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.bestgroup.calendar.controllers.DayMenuController">
+    <AnchorPane prefHeight="64.0" prefWidth="400.0" style="-fx-background-color: E07A5F;">
+        <Button fx:id="dayMenuSettingsButton" layoutX="306.0" layoutY="19.0" mnemonicParsing="false"
+                prefHeight="34.0" prefWidth="80.0" style="-fx-background-color: 7F5539;" text="Настройки">
+            <font>
+                <Font name="Calibri Bold" size="12.0"/>
+            </font>
+        </Button>
+        <Button fx:id="dayMenuCancelButton" layoutX="14.0" layoutY="19.0" mnemonicParsing="false" prefHeight="34.0"
+                prefWidth="80.0" style="-fx-background-color: 7F5539;" text="Отмена">
+            <font>
+                <Font name="Calibri Bold" size="12.0"/>
+            </font>
+        </Button>
+    </AnchorPane>
+    <AnchorPane layoutY="536.0" prefHeight="64.0" prefWidth="400.0" style="-fx-background-color: E07A5F;"/>
+    <Text fx:id="textYear" layoutX="24.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text"
+          wrappingWidth="197.33673095703125">
+        <font>
+          <Font name="Roboto Regular" size="36.0"/>
+        </font>
+    </Text>
+    <Text fx:id="textMonthAndDay" layoutX="24.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text"
+          wrappingWidth="226.93670654296875">
+        <font>
+          <Font size="24.0"/>
+        </font>
+    </Text>
+    <Button fx:id="dayMenuAddEvent" layoutX="35.0" layoutY="300.0" mnemonicParsing="false" prefHeight="92.0"
+            prefWidth="130.0" text="Добавить событие"/>
+    <Button fx:id="dayMenuShowEvent" layoutX="211.0" layoutY="300.0" mnemonicParsing="false" prefHeight="92.0"
+            prefWidth="130.0" text="Посмореть события"/>
 </AnchorPane>

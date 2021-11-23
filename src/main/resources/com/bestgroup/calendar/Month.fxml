@@ -8,94 +8,106 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: f2cc8f;" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bestgroup.calendar.controllers.ControllerMonthMenu">
-    <children>
-        <AnchorPane prefHeight="64.0" prefWidth="400.0" style="-fx-background-color: E07A5F;">
-            <children>
-                <Button fx:id="mainMenuSettingsButton" layoutX="14.0" layoutY="18.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="80.0" style="-fx-background-color: 7F5539;" text="Настройки">
-                    <font>
-                        <Font name="Calibri Bold" size="12.0" />
-                    </font>
-                </Button>
-            <Button fx:id="mainMenuCancelButton" layoutX="306.0" layoutY="18.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="80.0" style="-fx-background-color: 7F5539;" stylesheets="@styles.css" text="Отмена">
-               <font>
-                  <Font name="Calibri Bold" size="12.0" />
-               </font>
-            </Button>
-            </children>
-        </AnchorPane>
-        <AnchorPane layoutY="536.0" prefHeight="64.0" prefWidth="400.0" style="-fx-background-color: E07A5F;">
-            <children>
-            <Text fx:id="time" layoutX="14.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="115.20000000000005">
-               <font>
-                  <Font name="Californian FB Bold" size="18.0" />
-               </font>
-            </Text>
-            </children>
-        </AnchorPane>
-      <GridPane fx:id="daysTable" alignment="CENTER" layoutX="25.0" layoutY="250.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="350.0" style="-fx-grid-lines-visible: false;">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-            <RowConstraints maxHeight="70.0" minHeight="50.0" prefHeight="48.799993896484374" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="70.0" minHeight="50.0" prefHeight="57.60001831054687" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="51.199981689453125" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="47.19999999999999" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="40.400000000000006" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="40.400000000000006" vgrow="SOMETIMES" />
-        </rowConstraints>
-      </GridPane>
-      <Text fx:id="textForMonth" fill="#c22e2e" layoutX="27.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Text" wrappingWidth="188.20000000000005">
-         <font>
-            <Font name="Roboto Regular" size="24.0" />
-         </font>
-      </Text>
-      <Text fx:id="textForYear" fill="#3d405b" layoutX="25.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Text">
-         <font>
-            <Font name="Roboto Bold" size="36.0" />
-         </font>
-      </Text>
-      <Text fill="#3d405b" layoutX="38.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Сб">
-         <font>
-            <Font name="Calibri" size="24.0" />
-         </font>
-      </Text>
-      <Text fill="#3d405b" layoutX="89.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Вс">
-         <font>
-            <Font name="Calibri" size="24.0" />
-         </font>
-      </Text>
-      <Text fill="#3d405b" layoutX="136.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Пн">
-         <font>
-            <Font name="Calibri" size="24.0" />
-         </font>
-      </Text>
-      <Text fill="#3d405b" layoutX="188.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Вт">
-         <font>
-            <Font name="Calibri" size="24.0" />
-         </font>
-      </Text>
-      <Text fill="#3d405b" layoutX="232.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Ср">
-         <font>
-            <Font name="Calibri" size="24.0" />
-         </font>
-      </Text>
-      <Text fill="#3d405b" layoutX="286.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Чт">
-         <font>
-            <Font name="Calibri" size="24.0" />
-         </font>
-      </Text>
-      <Text fill="#3d405b" layoutX="334.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Пт">
-         <font>
-            <Font name="Calibri" size="24.0" />
-         </font>
-      </Text>
-    </children>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0"
+            prefWidth="400.0" style="-fx-background-color: f2cc8f;" stylesheets="@styles.css"
+            xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.bestgroup.calendar.controllers.ControllerMonthMenu">
+    <AnchorPane prefHeight="64.0" prefWidth="400.0" style="-fx-background-color: E07A5F;">
+        <Button fx:id="mainMenuSettingsButton" layoutX="14.0" layoutY="18.0" mnemonicParsing="false"
+                prefHeight="34.0" prefWidth="80.0" style="-fx-background-color: 7F5539;" text="Настройки">
+            <font>
+                <Font name="Calibri Bold" size="12.0"/>
+            </font>
+        </Button>
+        <Button fx:id="mainMenuCancelButton" layoutX="306.0" layoutY="18.0" mnemonicParsing="false"
+                prefHeight="34.0" prefWidth="80.0" style="-fx-background-color: 7F5539;" stylesheets="@styles.css"
+                text="Отмена">
+            <font>
+                <Font name="Calibri Bold" size="12.0"/>
+            </font>
+        </Button>
+    </AnchorPane>
+    <AnchorPane layoutY="536.0" prefHeight="64.0" prefWidth="400.0" style="-fx-background-color: E07A5F;">
+        <Text fx:id="time" layoutX="14.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0"
+              wrappingWidth="115.20000000000005">
+            <font>
+                <Font name="Californian FB Bold" size="18.0"/>
+            </font>
+        </Text>
+    </AnchorPane>
+    <GridPane fx:id="daysTable" alignment="CENTER" layoutX="25.0" layoutY="250.0" maxHeight="-Infinity"
+              maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="350.0"
+              style="-fx-grid-lines-visible: false;">
+      <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+      </columnConstraints>
+      <rowConstraints>
+          <RowConstraints maxHeight="70.0" minHeight="50.0" prefHeight="48.799993896484374" vgrow="SOMETIMES"/>
+          <RowConstraints maxHeight="70.0" minHeight="50.0" prefHeight="57.60001831054687" vgrow="SOMETIMES"/>
+          <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="51.199981689453125" vgrow="SOMETIMES"/>
+          <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="47.19999999999999" vgrow="SOMETIMES"/>
+          <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="40.400000000000006" vgrow="SOMETIMES"/>
+          <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="40.400000000000006" vgrow="SOMETIMES"/>
+      </rowConstraints>
+    </GridPane>
+    <Text fx:id="textForMonth" fill="#c22e2e" layoutX="27.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0"
+          styleClass="text" text="Text" wrappingWidth="188.20000000000005">
+        <font>
+          <Font name="Roboto Regular" size="24.0"/>
+        </font>
+    </Text>
+    <Text fx:id="textForYear" fill="#3d405b" layoutX="25.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0"
+          styleClass="text" text="Text">
+        <font>
+          <Font name="Roboto Bold" size="36.0"/>
+        </font>
+    </Text>
+    <Text fill="#3d405b" layoutX="38.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text"
+          text="Сб">
+        <font>
+          <Font name="Calibri" size="24.0"/>
+        </font>
+    </Text>
+    <Text fill="#3d405b" layoutX="89.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text"
+          text="Вс">
+        <font>
+          <Font name="Calibri" size="24.0"/>
+        </font>
+    </Text>
+    <Text fill="#3d405b" layoutX="136.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text"
+          text="Пн">
+        <font>
+          <Font name="Calibri" size="24.0"/>
+        </font>
+    </Text>
+    <Text fill="#3d405b" layoutX="188.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text"
+          text="Вт">
+        <font>
+          <Font name="Calibri" size="24.0"/>
+        </font>
+    </Text>
+    <Text fill="#3d405b" layoutX="232.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text"
+          text="Ср">
+        <font>
+          <Font name="Calibri" size="24.0"/>
+        </font>
+    </Text>
+    <Text fill="#3d405b" layoutX="286.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text"
+          text="Чт">
+        <font>
+          <Font name="Calibri" size="24.0"/>
+        </font>
+    </Text>
+    <Text fill="#3d405b" layoutX="334.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text"
+          text="Пт">
+        <font>
+          <Font name="Calibri" size="24.0"/>
+        </font>
+    </Text>
 </AnchorPane>

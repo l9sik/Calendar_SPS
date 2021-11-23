@@ -6,6 +6,7 @@ module com.bestgroup.calendar {
     requires javafx.base;
     requires poi;
     requires java.desktop;
+    requires java.logging;
 
     opens com.bestgroup.calendar to javafx.fxml;
     exports com.bestgroup.calendar;
