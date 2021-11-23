@@ -136,7 +136,6 @@ public class AddEventController {
 	}
 
 	private void writeToFile() {
-
 		File log = new File("Events.txt");
 		try {
 			if (!log.exists()) {
@@ -144,7 +143,7 @@ public class AddEventController {
 				System.out.println(log.createNewFile());
 			} else {
 				FileWriter fileWriter = new FileWriter(log, true);
-				try (BufferedWriter bw = new BufferedWriter(fileWriter);) {
+				try (BufferedWriter bw = new BufferedWriter(fileWriter)) {
 					bw.write(textData.getValue().format(DateTimeFormatter.ofPattern(DATA_FORMAT)) + "\n");
 					bw.write(textTheme.getText() + "\n");
 					bw.write(textDescription.getText() + "\n");
@@ -160,35 +159,35 @@ public class AddEventController {
 	private void writeIntoExcel() {
 		try {
 			File log = new File("Events.xls");
-			FileInputStream file = new FileInputStream(log);
-			HSSFWorkbook wb = new HSSFWorkbook(file);
-			HSSFSheet sheet = wb.getSheetAt(wb.getActiveSheetIndex());
-			Row row = sheet.createRow(sheet.getLastRowNum() + 1);
+			try (FileInputStream file = new FileInputStream(log)) {
+				try (HSSFWorkbook wb = new HSSFWorkbook(file)) {
+					HSSFSheet sheet = wb.getSheetAt(wb.getActiveSheetIndex());
+					Row row = sheet.createRow(sheet.getLastRowNum() + 1);
+					Cell date = row.createCell(0);
+					DataFormat format = wb.createDataFormat();
+					CellStyle dateStyle = wb.createCellStyle();
+					dateStyle.setDataFormat(format.getFormat("yyyy-MM-dd"));
+					date.setCellStyle(dateStyle);
+					date.setCellValue(textData.getValue().format(DateTimeFormatter.ofPattern(DATA_FORMAT)));
+					sheet.autoSizeColumn(0);
 
-			Cell date = row.createCell(0);
-			DataFormat format = wb.createDataFormat();
-			CellStyle dateStyle = wb.createCellStyle();
-			dateStyle.setDataFormat(format.getFormat("yyyy-MM-dd"));
-			date.setCellStyle(dateStyle);
-			date.setCellValue(textData.getValue().format(DateTimeFormatter.ofPattern(DATA_FORMAT)));
-			sheet.autoSizeColumn(0);
+					Cell theme = row.createCell(1);
+					theme.setCellValue(textTheme.getText());
+					sheet.autoSizeColumn(1);
 
-			Cell theme = row.createCell(1);
-			theme.setCellValue(textTheme.getText());
-			sheet.autoSizeColumn(1);
+					Cell description = row.createCell(2);
+					description.setCellValue(textDescription.getText());
+					sheet.autoSizeColumn(2);
 
-			Cell description = row.createCell(2);
-			description.setCellValue(textDescription.getText());
-			sheet.autoSizeColumn(2);
+					Cell time = row.createCell(3);
+					time.setCellValue(textTimeNotification.getText());
+					sheet.autoSizeColumn(3);
 
-			Cell time = row.createCell(3);
-			time.setCellValue(textTimeNotification.getText());
-			sheet.autoSizeColumn(3);
-
-			FileOutputStream out = new FileOutputStream(log);
-			wb.write(out);
-			out.close();
-			wb.close();
+					FileOutputStream out = new FileOutputStream(log);
+					wb.write(out);
+					out.close();
+				}
+			}
 		} catch (IOException e) {
 			System.out.println("Something wrong with excel file");
 		}

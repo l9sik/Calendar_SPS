@@ -101,6 +101,6 @@
                 <Font name="Calibri Bold" size="12.0" />
             </font>
         </Button>
-      <ComboBox fx:id="chooseYear" layoutX="125.0" layoutY="71.0" prefWidth="150.0" promptText="Выберите год" />
+      <ComboBox fx:id="chooseYear" layoutX="125.0" layoutY="71.0" prefWidth="150.0" promptText="Выберите год" styleClass="button" />
     </children>
 </AnchorPane>
