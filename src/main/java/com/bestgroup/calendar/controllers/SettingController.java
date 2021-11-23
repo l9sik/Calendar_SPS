@@ -1,6 +1,8 @@
 package com.bestgroup.calendar.controllers;
 
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.bestgroup.calendar.CurrentTime;
 import javafx.animation.Animation;
@@ -16,8 +18,9 @@ import javafx.scene.control.ComboBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-
 public class SettingController {
+
+    private static final Logger logger = Logger.getLogger("SettingController.class");
 
     @FXML
     private Button settingsCancelButton;
@@ -33,12 +36,12 @@ public class SettingController {
 
     private static final String UTC_3 = "UTC+3";
 
-
     @FXML
     void initialize() {
         FXMLLoader fxmlLoader = new FXMLLoader();
-        settingsCancelButton.setOnMouseClicked((event) -> {
+        settingsCancelButton.setOnMouseClicked(event -> {
             settingsCancelButton.getScene().getWindow().hide();
+            String errorMessage = "IOException is happened";
             try {
                 fxmlLoader.setLocation(getClass().getResource("/com/bestgroup/calendar/MainMenu.fxml"));
                 Scene scene = new Scene(fxmlLoader.load(), 400.0D, 600.0D);
@@ -46,8 +49,9 @@ public class SettingController {
                 stage.setTitle("Calendar SPS");
                 stage.setScene(scene);
                 stage.show();
+
             } catch (IOException e) {
-                System.err.println(e.getMessage());
+                logger.log(Level.INFO, errorMessage);
             }
         });
 
@@ -56,9 +60,8 @@ public class SettingController {
 
         Timeline clock = new Timeline(new KeyFrame(Duration.ZERO, e -> {
             if (chooseTimeZone.getValue() == null) {
-                String str = "UTC+3";
                 time.setText(CurrentTime.getCurrentTime(UTC_3));
-                string.setText("Текущее время в часовом поясе " + str);
+                string.setText("Текущее время в часовом поясе " + UTC_3);
             } else {
                 String str = chooseTimeZone.getValue();
                 time.setText(CurrentTime.getCurrentTime(chooseTimeZone.getValue()));

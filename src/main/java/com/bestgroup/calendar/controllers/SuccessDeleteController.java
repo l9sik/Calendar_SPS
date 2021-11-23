@@ -12,7 +12,7 @@ public class SuccessDeleteController {
     @FXML
     void initialize() {
         NewScene nw = new NewScene();
-        buttonOk.setOnMouseClicked((event) -> {
+        buttonOk.setOnMouseClicked(event -> {
             nw.closeScene(buttonOk);
             nw.openNewScene("/com/bestgroup/calendar/MainMenu.fxml");
         });
