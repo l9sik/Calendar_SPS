@@ -1,9 +1,5 @@
 package com.bestgroup.calendar.controllers;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
-import com.bestgroup.calendar.animations.Shake;
 import javafx.fxml.FXML;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
@@ -15,12 +11,6 @@ import com.bestgroup.calendar.AppHelper;
 public class ControllerMonthMenu {
 
     @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
-
-    @FXML
     private GridPane daysTable;
 
     @FXML
@@ -30,10 +20,6 @@ public class ControllerMonthMenu {
     private Text textForMonth;
 
     @FXML
-    private Text time;
-
-    @FXML
-
     private Text textForYear;
 
     @FXML

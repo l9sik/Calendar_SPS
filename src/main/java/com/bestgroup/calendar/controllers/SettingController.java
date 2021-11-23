@@ -1,8 +1,6 @@
 package com.bestgroup.calendar.controllers;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 import com.bestgroup.calendar.CurrentTime;
 import javafx.animation.Animation;
@@ -20,12 +18,6 @@ import javafx.util.Duration;
 
 
 public class SettingController {
-
-    @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
 
     @FXML
     private Button settingsCancelButton;

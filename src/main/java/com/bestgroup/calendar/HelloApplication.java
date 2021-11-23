@@ -10,10 +10,10 @@ import java.io.IOException;
  * Main class
  * @version 1.0
  */
+@SuppressWarnings("JavaDoc")
 public class HelloApplication extends Application {
     /**
      *
-     * @param stage
      * @throws IOException
      */
     @Override
@@ -24,7 +24,6 @@ public class HelloApplication extends Application {
 
     /**
      * Program is launched here
-     * @param args
      */
     public static void main(String[] args) {
         launch();

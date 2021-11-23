@@ -86,6 +86,8 @@ public class FilledEventController {
 				}
 			}
 		}
+		sourceFile.delete();
+		outputFile.renameTo(sourceFile);
 	}
 
 	public static void removeRow(HSSFSheet sheet, int rowIndex) {
