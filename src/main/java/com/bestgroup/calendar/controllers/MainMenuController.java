@@ -97,7 +97,9 @@ public class MainMenuController {
 			nw.openNewScene("/com/bestgroup/calendar/AddEvent.fxml");
 		});
 
-		chooseYear.getItems().setAll("2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028");
+		chooseYear.getItems().setAll("2014", "2015", "2016", "2017", "2018",
+				"2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026",
+				"2027", "2028");
 
 		mainMenuJanButton.setOnAction(actionEvent -> OpenMonthMenu(mainMenuJanButton, 1));
 		mainMenuFebButton.setOnAction(actionEvent -> OpenMonthMenu(mainMenuFebButton, 2));
