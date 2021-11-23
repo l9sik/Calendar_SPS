@@ -8,8 +8,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
 
 public class FilledEventController {
@@ -49,9 +51,9 @@ public class FilledEventController {
 		});
 		deleteEventButton.setOnAction(actionEvent -> {
 			nw.closeScene(deleteEventButton);
-			nw.openNewScene("/com/bestgroup/calendar/SuccessDelete.fxml");
 			try {
-				deleteEvent();
+				if (deleteEvent())
+					nw.openNewScene("/com/bestgroup/calendar/SuccessDelete.fxml");
 			} catch (IOException e) {
 				System.out.println(e.getMessage());
 			}
@@ -67,8 +69,9 @@ public class FilledEventController {
 		textTimeNotification.setText(ev.getTimeNotification());
 	}
 
-	public void deleteEvent() throws IOException {
+	public boolean deleteEvent() throws IOException {
 		String line;
+		boolean isDeleted = false;
 		String outputLine = String.valueOf(textData.getValue());
 		File sourceFile = new File("Events.txt");
 		File outputFile = new File("Dictio2.txt");
@@ -86,8 +89,36 @@ public class FilledEventController {
 				}
 			}
 		}
+		try (HSSFWorkbook wb = new HSSFWorkbook(new FileInputStream("Events.xls"))){
+			HSSFSheet sheet = wb.getSheetAt(wb.getActiveSheetIndex());
+			int lastRowNum = sheet.getLastRowNum() + 1;
+
+			int i = 1;
+			boolean isNotFound = true;
+			int index = -1;
+			while (i < lastRowNum && isNotFound) {
+				HSSFRow row = sheet.getRow(i);
+				line = row.getCell(0).getStringCellValue();
+				if (line.equals(outputLine)){
+					index = i;
+					isNotFound = false;
+				}
+				i++;
+			}
+
+			if (index > 0){
+				removeRow(sheet, index);
+				isDeleted = true;
+			}else System.out.println("There is no such event in excel file.");
+			OutputStream out = new FileOutputStream("Events.xls");
+			wb.write(out);
+			out.flush();
+			out.close();
+
+		}
 		sourceFile.delete();
 		outputFile.renameTo(sourceFile);
+		return isDeleted;
 	}
 
 	public static void removeRow(HSSFSheet sheet, int rowIndex) {
