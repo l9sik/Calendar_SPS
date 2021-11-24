@@ -79,19 +79,19 @@ public class MainMenuController {
 		clock.play();
 
 
-		mainMenuCurrentDateButton.setOnMouseClicked((event) -> {
+		mainMenuCurrentDateButton.setOnMouseClicked(event -> {
 			CurrentTime.setYear();
 			CurrentTime.setMonthAndDay();
 			nw.closeScene(mainMenuCurrentDateButton);
 			nw.openNewScene("/com/bestgroup/calendar/DayMenu.fxml");
 		});
 
-		mainMenuSettingsButton.setOnMouseClicked((event) -> {
+		mainMenuSettingsButton.setOnMouseClicked(event -> {
 			nw.closeScene(mainMenuSettingsButton);
 			nw.openNewScene("/com/bestgroup/calendar/Settings.fxml");
 		});
 
-		mainMenuAddEventButton.setOnMouseClicked((event) -> {
+		mainMenuAddEventButton.setOnMouseClicked(event -> {
 			CurrentTime.resetDate();
 			nw.closeScene(mainMenuAddEventButton);
 			nw.openNewScene("/com/bestgroup/calendar/AddEvent.fxml");
@@ -101,18 +101,18 @@ public class MainMenuController {
 				"2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026",
 				"2027", "2028");
 
-		mainMenuJanButton.setOnAction(actionEvent -> OpenMonthMenu(mainMenuJanButton, 1));
-		mainMenuFebButton.setOnAction(actionEvent -> OpenMonthMenu(mainMenuFebButton, 2));
-		mainMenuMarchButton.setOnAction(actionEvent -> OpenMonthMenu(mainMenuMarchButton, 3));
-		mainMenuAprButton.setOnAction(actionEvent -> OpenMonthMenu(mainMenuAprButton, 4));
-		mainMenuMayButton.setOnAction(actionEvent -> OpenMonthMenu(mainMenuMayButton, 5));
-		mainMenuJuneButton.setOnAction(actionEvent -> OpenMonthMenu(mainMenuJuneButton, 6));
-		mainMenuJulyButton.setOnAction(actionEvent -> OpenMonthMenu(mainMenuJulyButton, 7));
-		mainMenuAugButton.setOnAction(actionEvent -> OpenMonthMenu(mainMenuAugButton, 8));
-		mainMenuSeptButton.setOnAction(actionEvent -> OpenMonthMenu(mainMenuSeptButton, 9));
-		mainMenuOctButton.setOnAction(actionEvent -> OpenMonthMenu(mainMenuOctButton, 10));
-		mainMenuNovButton.setOnAction(actionEvent -> OpenMonthMenu(mainMenuNovButton, 11));
-		mainMenuDecButton.setOnAction(actionEvent -> OpenMonthMenu(mainMenuFebButton, 12));
+		mainMenuJanButton.setOnAction(actionEvent -> openMonthMenu(mainMenuJanButton, 1));
+		mainMenuFebButton.setOnAction(actionEvent -> openMonthMenu(mainMenuFebButton, 2));
+		mainMenuMarchButton.setOnAction(actionEvent -> openMonthMenu(mainMenuMarchButton, 3));
+		mainMenuAprButton.setOnAction(actionEvent -> openMonthMenu(mainMenuAprButton, 4));
+		mainMenuMayButton.setOnAction(actionEvent -> openMonthMenu(mainMenuMayButton, 5));
+		mainMenuJuneButton.setOnAction(actionEvent -> openMonthMenu(mainMenuJuneButton, 6));
+		mainMenuJulyButton.setOnAction(actionEvent -> openMonthMenu(mainMenuJulyButton, 7));
+		mainMenuAugButton.setOnAction(actionEvent -> openMonthMenu(mainMenuAugButton, 8));
+		mainMenuSeptButton.setOnAction(actionEvent -> openMonthMenu(mainMenuSeptButton, 9));
+		mainMenuOctButton.setOnAction(actionEvent -> openMonthMenu(mainMenuOctButton, 10));
+		mainMenuNovButton.setOnAction(actionEvent -> openMonthMenu(mainMenuNovButton, 11));
+		mainMenuDecButton.setOnAction(actionEvent -> openMonthMenu(mainMenuFebButton, 12));
 		events.setOnAction(actionEvent -> {
 			nw.closeScene(events);
 			nw.openNewScene("/com/bestgroup/calendar/Events.fxml");
@@ -121,7 +121,7 @@ public class MainMenuController {
 
 	}
 
-	void OpenMonthMenu(Button btn, int monthNum) {
+	void openMonthMenu(Button btn, int monthNum) {
 		boolean isYear = isYear();
 		if (!isYear) {
 			nw.openNewScene("/com/bestgroup/calendar/FailedChoosingYear.fxml");
