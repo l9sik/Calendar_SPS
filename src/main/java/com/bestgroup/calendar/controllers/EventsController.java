@@ -18,6 +18,8 @@ import java.util.ArrayList;
  *
  * @author l9sik
  */
+
+
 public class EventsController {
 
     @FXML
