@@ -18,6 +18,10 @@ import java.util.Date;
 
 public class CurrentTime {
 
+    private CurrentTime(){
+        throw new IllegalStateException("Utility class");
+    }
+
     private static final String TIME_FORMAT = "dd-MM-yyyy hh:mm:ss a";
     private static final String DATE_FORMAT = "yyyy-MM-dd";
     private static final String YEAR_FORMAT = "yyyy";

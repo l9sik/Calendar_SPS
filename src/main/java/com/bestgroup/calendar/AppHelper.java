@@ -12,14 +12,18 @@ import java.util.Locale;
  * @author l9sik
  */
 public class AppHelper {
+
+    private AppHelper() {
+        throw new IllegalStateException("Utility class");
+    }
     /**
      * This 3 numbers are used to show correct data about date that user chose.
      */
-    static private int year = 0;
-    static private int monthNumber = 0;
-    static private String fullDate = null;
-    static private String date = null;
-    static private String monthAndDay;
+    private static  int year = 0;
+    private static  int monthNumber = 0;
+    private static String fullDate = null;
+    private static String date = null;
+    private static String monthAndDay;
 
     public static void setYear(int yr) {
         year = yr;
@@ -126,7 +130,7 @@ public class AppHelper {
 
     public static int[][] getWeekMatrix() {
         int dayOfWeek = getDayOfWeekNum();
-        int NumOfDaysInMonth = getNumOfDaysInMonth();
+        int numOfDaysInMonth = getNumOfDaysInMonth();
         int[][] weekMatrix = new int[7][6];
         int count = 0;
         for (int i = 0; i < 7; i++) {
@@ -137,14 +141,14 @@ public class AppHelper {
         for (int j = 1; j < 6; j++) {
             for (int i = 0; i < 7; i++) {
                 weekMatrix[i][j] = ++count;
-                if (count > NumOfDaysInMonth) {
+                if (count > numOfDaysInMonth) {
                     weekMatrix[i][j] = -1;
                 }
             }
         }
         return weekMatrix;
     }
-    static public String plusDay(String date, int numOfDays){
+    public static String plusDay(String date, int numOfDays){
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Calendar c = Calendar.getInstance();
         try{
@@ -153,7 +157,6 @@ public class AppHelper {
             e.printStackTrace();
         }
         c.add(Calendar.DAY_OF_MONTH, numOfDays);
-        String newDate = sdf.format(c.getTime());
-        return newDate;
+        return sdf.format(c.getTime());
     }
 }
