@@ -150,13 +150,13 @@ public class AppHelper {
     }
     public static String plusDay(String date, int numOfDays){
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        Calendar c = Calendar.getInstance();
+        Calendar calendar = Calendar.getInstance();
         try{
-            c.setTime(sdf.parse(date));
+            calendar.setTime(sdf.parse(date));
         }catch(ParseException e){
             e.printStackTrace();
         }
-        c.add(Calendar.DAY_OF_MONTH, numOfDays);
-        return sdf.format(c.getTime());
+        calendar.add(Calendar.DAY_OF_MONTH, numOfDays);
+        return sdf.format(calendar.getTime());
     }
 }
