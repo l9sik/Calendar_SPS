@@ -43,7 +43,7 @@ public class EventsController {
 
         openExcelButton.setOnAction(actionEvent -> {
             String currentDate = filterChooser.getValue();
-            ArrayList list = getList(currentDate);
+            ArrayList<String> list = getList(currentDate);
             if (!list.isEmpty()) {
                 try {
                     setFilter(list);

@@ -54,13 +54,6 @@ public class ControllerMonthMenu {
                     });
                     daysTable.add(btn, i, j);
                 }
-                /*}else{
-                    daysTable.getChildren().remove(btn);
-                    *//*btn.setOnAction(actionEvent -> {
-                        Shake notCorrectDate = new Shake(btn);
-                        notCorrectDate.playAnim();
-                    });*//*
-                }*/
             }
         }
         mainMenuCancelButton.setOnAction(actionEvent -> {
