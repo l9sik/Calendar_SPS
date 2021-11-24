@@ -7,6 +7,7 @@ module com.bestgroup.calendar {
     requires poi;
     requires java.desktop;
     requires java.logging;
+    requires org.junit.jupiter.api;
 
     opens com.bestgroup.calendar to javafx.fxml;
     exports com.bestgroup.calendar;

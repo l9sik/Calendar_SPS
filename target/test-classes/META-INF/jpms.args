@@ -1,4 +1,0 @@
---patch-module
-com.bestgroup.calendar=_
---add-reads
-com.bestgroup.calendar=ALL-UNNAMED

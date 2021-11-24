@@ -1,0 +1,6 @@
+# Created at 2021-11-24T21:19:37.553
+Corrupted STDOUT by directly writing to native stream in forked JVM 1. Stream 'Error occurred during initialization of boot layer'.
+
+# Created at 2021-11-24T21:19:37.559
+Corrupted STDOUT by directly writing to native stream in forked JVM 1. Stream 'java.lang.module.FindException: Module com.bestgroup.calendar not found'.
+
