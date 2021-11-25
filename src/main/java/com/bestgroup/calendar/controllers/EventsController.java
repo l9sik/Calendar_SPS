@@ -16,6 +16,7 @@ import java.util.ArrayList;
 /**
  * Controller for Events.fxml.
  * Contains button to open Excel file and button to filter events
+ *
  * @author l9sik
  */
 
@@ -39,6 +40,9 @@ public class EventsController {
 
     private final NewScene newScene = new NewScene();
 
+    /**
+     * Initialize.
+     */
     @FXML
     void initialize() {
         filterChooser.getItems().setAll("Нет", "Неделя", "Месяц");
@@ -80,6 +84,7 @@ public class EventsController {
 
     /**
      * Gets set of week or month from current date
+     *
      * @param choice choice from filter-chooser combo-box
      * @return List of week or month dates
      */

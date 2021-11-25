@@ -6,13 +6,15 @@ import javafx.util.Duration;
 
 /**
  * This class is for animations
- * @author l9sik;
+ *
+ * @author l9sik ;
  */
 public class Shake {
     private final TranslateTransition trlateTrsition;
 
     /**
      * Method for shake-animation
+     *
      * @param nd node that you want to animate
      */
     public Shake(Node nd){

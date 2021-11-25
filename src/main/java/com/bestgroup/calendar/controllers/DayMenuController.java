@@ -8,6 +8,7 @@ import javafx.scene.text.Text;
 
 /**
  * Controller for DayMenu.fxml
+ *
  * @author eviv2206
  */
 public class DayMenuController {
@@ -30,6 +31,9 @@ public class DayMenuController {
     @FXML
     private Text textYear;
 
+    /**
+     * Initialize.
+     */
     @FXML
     void initialize() {
         NewScene nw = new NewScene();
@@ -57,6 +61,11 @@ public class DayMenuController {
         });
     }
 
+    /**
+     * Is disabled boolean.
+     *
+     * @return the boolean
+     */
     public static Boolean isDisabled(){
         EventHelper ev = new EventHelper();
         return !ev.isEventExist();

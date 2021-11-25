@@ -13,6 +13,7 @@ import javafx.scene.control.ComboBox;
 
 /**
  * Controller for MainMenu.fxml
+ *
  * @author eviv2206
  * @author l9sik
  */
@@ -74,7 +75,10 @@ public class MainMenuController {
 
 	private final NewScene nw = new NewScene();
 
-	@FXML
+    /**
+     * Initialize.
+     */
+    @FXML
 	void initialize() {
 
 		Timeline clock = new Timeline(new KeyFrame(Duration.ZERO, e -> time.setText(CurrentTime.getCurrentTime("UTC+3"))),
@@ -126,13 +130,14 @@ public class MainMenuController {
 
 	}
 
-	/**
-	 * Opens fxml file and sets month-variable in AppHelper class
-	 * @see AppHelper#setMonthNumber(int)
-	 * @param btn button that had been pushed
-	 * @param monthNum number of month (starts from 1)
-	 */
-	void openMonthMenu(Button btn, int monthNum) {
+    /**
+     * Opens fxml file and sets month-variable in AppHelper class
+     *
+     * @param btn      button that had been pushed
+     * @param monthNum number of month (starts from 1)
+     * @see AppHelper#setMonthNumber(int) AppHelper#setMonthNumber(int)
+     */
+    void openMonthMenu(Button btn, int monthNum) {
 		boolean isYear = isYear();
 		if (!isYear) {
 			nw.openNewScene("/com/bestgroup/calendar/FailedChoosingYear.fxml");
@@ -144,11 +149,12 @@ public class MainMenuController {
 		}
 	}
 
-	/**
-	 * Checks if year was chosen
-	 * @return true if the year had been chosen
-	 */
-	Boolean isYear() {
+    /**
+     * Checks if year was chosen
+     *
+     * @return true if the year had been chosen
+     */
+    Boolean isYear() {
 		boolean isYear = true;
 		try {
 			Integer.parseInt(chooseYear.getValue());

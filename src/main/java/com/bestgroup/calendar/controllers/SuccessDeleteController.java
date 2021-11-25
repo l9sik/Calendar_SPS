@@ -5,6 +5,7 @@ import javafx.scene.control.Button;
 
 /**
  * Controller for SuccessDelete.fxml
+ *
  * @author eviv2206
  */
 public class SuccessDeleteController {
@@ -13,6 +14,9 @@ public class SuccessDeleteController {
     private Button buttonOk;
 
 
+    /**
+     * Initialize.
+     */
     @FXML
     void initialize() {
         NewScene nw = new NewScene();
