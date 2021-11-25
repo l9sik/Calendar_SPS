@@ -14,8 +14,8 @@ import java.awt.Desktop;
 import java.util.ArrayList;
 
 /**
- * Controller for Events.fxml. Contains button to open Excel file
- *
+ * Controller for Events.fxml.
+ * Contains button to open Excel file and button to filter events
  * @author l9sik
  */
 
@@ -77,6 +77,11 @@ public class EventsController {
         });
     }
 
+    /**
+     * Gets set of week or month from current date
+     * @param choice choice from filter-chooser combo-box
+     * @return List of week or month dates
+     */
     ArrayList<String> getList(String choice){
         String date = AppHelper.getFullDate();
         String newDate;
@@ -96,6 +101,12 @@ public class EventsController {
         return list;
     }
 
+    /**
+     * Method that sets filter to Events.xls file
+     * It creates new sheet with filtered data
+     * @param list
+     * @throws IOException if something goes wrong
+     */
     private void setFilter(ArrayList<String> list) throws IOException{
         if (!list.isEmpty()) {
             try (HSSFWorkbook wbFrom = new HSSFWorkbook(new FileInputStream("Events.xls"))) {

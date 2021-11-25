@@ -12,7 +12,10 @@ import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
-
+/**
+ * Controller for FilledEvent.fxml
+ * @author eviv2206
+ */
 public class FilledEventController {
 
 	@FXML
@@ -59,6 +62,9 @@ public class FilledEventController {
 		});
 	}
 
+	/**
+	 * Fills the fields from chosen event
+	 */
 	public void filedFields() {
 		EventHelper ev = new EventHelper();
 		ev.getEvent();
@@ -68,6 +74,11 @@ public class FilledEventController {
 		textTimeNotification.setText(ev.getTimeNotification());
 	}
 
+	/**
+	 * Deletes event from both Events.txt and Events.xls
+	 * @return returns true if deleting successfully ended
+	 * @throws IOException throws if something goes wrong
+	 */
 	public boolean deleteEvent() throws IOException {
 		String line;
 		boolean isDeleted = false;
@@ -120,6 +131,11 @@ public class FilledEventController {
 		return isDeleted;
 	}
 
+	/**
+	 * Removes row in sheet by index
+	 * @param sheet Sheet where you want to remove row
+	 * @param rowIndex Index of row you want to remove (starts with 0)
+	 */
 	public static void removeRow(HSSFSheet sheet, int rowIndex) {
 		int lastRowNum = sheet.getLastRowNum();
 		if (rowIndex >= 0 && rowIndex < lastRowNum) {

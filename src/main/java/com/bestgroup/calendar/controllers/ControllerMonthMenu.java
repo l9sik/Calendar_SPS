@@ -8,6 +8,10 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import com.bestgroup.calendar.AppHelper;
 
+/**
+ * Controller for Month.fxml
+ * @author l9sik
+ */
 public class ControllerMonthMenu {
 
     @FXML
@@ -32,6 +36,11 @@ public class ControllerMonthMenu {
         textForYear.setText(Integer.toString(AppHelper.getYear()));
         textForMonth.setText(AppHelper.getMonthName());
         int[][] dateInIntArray = AppHelper.getWeekMatrix();
+        /**
+         * Cycle to fill combo-box with buttons
+         * sets ID to each button
+         * colors button if it wednesday
+         */
         for (int j = 0; j < 6; j++) {
             for (int i = 0; i < 7; i++) {
                 String text = null;

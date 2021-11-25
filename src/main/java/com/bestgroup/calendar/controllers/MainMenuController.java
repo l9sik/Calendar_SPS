@@ -11,6 +11,11 @@ import javafx.scene.text.Text;
 import javafx.util.Duration;
 import javafx.scene.control.ComboBox;
 
+/**
+ * Controller for MainMenu.fxml
+ * @author eviv2206
+ * @author l9sik
+ */
 public class MainMenuController {
 
 	@FXML
@@ -121,6 +126,12 @@ public class MainMenuController {
 
 	}
 
+	/**
+	 * Opens fxml file and sets month-variable in AppHelper class
+	 * @see AppHelper#setMonthNumber(int)
+	 * @param btn button that had been pushed
+	 * @param monthNum number of month (starts from 1)
+	 */
 	void openMonthMenu(Button btn, int monthNum) {
 		boolean isYear = isYear();
 		if (!isYear) {
@@ -133,6 +144,10 @@ public class MainMenuController {
 		}
 	}
 
+	/**
+	 * Checks if year was chosen
+	 * @return true if the year had been chosen
+	 */
 	Boolean isYear() {
 		boolean isYear = true;
 		try {

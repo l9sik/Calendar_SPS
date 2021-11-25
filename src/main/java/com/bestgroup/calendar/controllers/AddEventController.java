@@ -3,6 +3,7 @@ package com.bestgroup.calendar.controllers;
 import com.bestgroup.calendar.AppHelper;
 import com.bestgroup.calendar.CurrentTime;
 import com.bestgroup.calendar.Notifications;
+import javafx.scene.Node;
 import javafx.scene.control.TextField;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -20,6 +21,11 @@ import com.bestgroup.calendar.animations.Shake;
 import org.apache.poi.hssf.usermodel.*;
 import org.apache.poi.ss.usermodel.*;
 
+/**
+ * Controller for AddEvent.fxml
+ * @author l9sik
+ * @author eviv2206
+ */
 public class AddEventController {
 
 	@FXML
@@ -78,6 +84,9 @@ public class AddEventController {
 
 	}
 
+	/**
+	 * Method resets styles of Node that had been used
+	 */
 	private void resetStyles() {
 		String borderNone = "-fx-border-color: none";
 		textTheme.setStyle(borderNone);
@@ -86,6 +95,9 @@ public class AddEventController {
 		textData.setStyle(borderNone);
 	}
 
+	/**
+	 * @return True if all fields had been filled
+	 */
 	private Boolean isStylesApplied() {
 		boolean isCorrect = textTheme.getLength() >= 1;
 		if (textDescription.getLength() < 1) {
@@ -105,6 +117,10 @@ public class AddEventController {
 		return isCorrect;
 	}
 
+	/**
+	 * Sets red border and use shake method when field filled incorrectly
+	 * @see Shake#Shake(Node) 
+	 */
 	private void setStyles() {
 		String borderRed = "-fx-border-color: red";
 		if (textTheme.getLength() < 1) {
@@ -135,6 +151,9 @@ public class AddEventController {
 		}
 	}
 
+	/**
+	 * Writes event Events.txt file
+	 */
 	private void writeToFile() {
 		File log = new File("Events.txt");
 		try {
@@ -156,6 +175,9 @@ public class AddEventController {
 		}
 	}
 
+	/**
+	 * Writes event in Events.xls file
+	 */
 	private void writeIntoExcel() {
 		try {
 			File log = new File("Events.xls");
@@ -193,6 +215,9 @@ public class AddEventController {
 		}
 	}
 
+	/**
+	 * Sets initial text to the fields
+	 */
 	private void setInitialTextData() {
 		try {
 			if (!Objects.isNull(AppHelper.getFullDate())) {

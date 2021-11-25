@@ -14,7 +14,7 @@ import java.io.IOException;
 public class HelloApplication extends Application {
     /**
      *
-     * @throws IOException
+     * @throws IOException if something goes wrong
      */
     @Override
     public void start(Stage stage){

@@ -4,6 +4,10 @@ import javafx.fxml.FXML;
 
 import javafx.scene.control.Button;
 
+/**
+ * Controller for SuccessWriting.fxml
+ * @author eviv2206
+ */
 public class SuccessWritingController {
 
     @FXML

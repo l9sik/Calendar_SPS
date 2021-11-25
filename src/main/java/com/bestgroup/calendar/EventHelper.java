@@ -5,7 +5,10 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
+/**
+ * Class that helps with dates
+ * @author eviv2206
+ */
 public class EventHelper {
 	private String fullDate = AppHelper.getFullDate();
 	private String description;
@@ -69,6 +72,9 @@ public class EventHelper {
 		return isExist;
 	}
 
+	/**
+	 * Finds the event by date
+	 */
 	public void getEvent() {
 		File file = new File("Events.txt");
 		String errorMessage = "File is not found";

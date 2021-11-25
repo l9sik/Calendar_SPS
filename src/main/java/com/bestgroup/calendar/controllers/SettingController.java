@@ -18,6 +18,10 @@ import javafx.scene.control.ComboBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+/**
+ * Controller for Setting.fxml
+ * @author eviv2206
+ */
 public class SettingController {
 
     private static final Logger logger = Logger.getLogger("SettingController.class");

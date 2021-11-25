@@ -16,31 +16,47 @@ public class AppHelper {
     private AppHelper() {
         throw new IllegalStateException("Utility class");
     }
-    /**
-     * This 3 numbers are used to show correct data about date that user chose.
-     */
+
     private static  int year = 0;
     private static  int monthNumber = 0;
     private static String fullDate = null;
     private static String date = null;
     private static String monthAndDay;
 
+    /**
+     * Setter for year-variable
+     * @param yr number of year that should be set
+     */
     public static void setYear(int yr) {
         year = yr;
     }
-
+    /**
+     * Setter for date-variable
+     * @param dt line of date that should be set
+     */
     public static void setDate(String dt) {
         date = dt;
     }
-
+    /**
+     * Setter for year-variable
+     * @param dy day in string format
+     * @param mnth month in string format
+     */
     public static void setMonthAndDay(String dy, String mnth) {
         monthAndDay = mnth + " " + dy;
     }
 
+    /**
+     * Setter for month-variable
+     * @param mnthNum month number
+     */
     public static void setMonthNumber(int mnthNum) {
         monthNumber = mnthNum;
     }
 
+    /**
+     * Sets fulldate-variable if "yyyy-MM-dd"-format
+     */
     public static void setFullDate() {
         if (monthNumber < 10 && Integer.parseInt(date) < 10) {
             fullDate = getYear() + "-" + "0" + getMonthNumber() + "-" + "0" + date;
@@ -53,24 +69,43 @@ public class AppHelper {
         }
     }
 
+    /**
+     * getter for monthAndDay-variable
+     * @return monthAndDay string
+     */
     public static String getMonthAndDay() {
         return monthAndDay;
     }
 
+    /**
+     * getter for fullDate-variable
+     * @return fullDate
+     */
     public static String getFullDate() {
         setFullDate();
         return fullDate;
     }
 
+    /**
+     * getter for monthNumber-variable
+     * @return monthNumber
+     */
     public static int getMonthNumber() {
         return monthNumber;
     }
 
+    /**
+     * getter for year-variable
+     * @return year
+     */
     public static int getYear() {
         return year;
     }
 
-
+    /**
+     * Returns the name of Month
+     * @return month name
+     */
     public static String getMonthName() {
         Month month = Month.of(monthNumber);
         Locale loc = Locale.forLanguageTag("ru");
@@ -106,6 +141,10 @@ public class AppHelper {
         return (6 + lastTwoDigits + lastTwoDigits / 4) % 7;
     }
 
+    /**
+     * Finds day of week (Sunday - 0, Friday - 7)
+     * @return The number of day in week
+     */
     public static int getDayOfWeekNum() {
         int dayCode = 0;
         int monthCode = getMonthCode();
@@ -116,6 +155,9 @@ public class AppHelper {
         return dayOfWeekNum;
     }
 
+    /**
+     * @return Number of days in month
+     */
     public static int getNumOfDaysInMonth() {
         int monthNumber = getMonthNumber();
         if (monthNumber == 2) {
@@ -128,6 +170,10 @@ public class AppHelper {
         return monthNumber;
     }
 
+    /**
+     * Gets 7 x 6 table of week
+     * @return 7 x 6 matrix in integer
+     */
     public static int[][] getWeekMatrix() {
         int dayOfWeek = getDayOfWeekNum();
         int numOfDaysInMonth = getNumOfDaysInMonth();
@@ -148,6 +194,13 @@ public class AppHelper {
         }
         return weekMatrix;
     }
+
+    /**
+     * Adds a numOfDays days to choice date
+     * @param date String in format "yyyy-MM-dd"
+     * @param numOfDays number of days to add
+     * @return String in format "yyyy-MM-dd"
+     */
     public static String plusDay(String date, int numOfDays){
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Calendar calendar = Calendar.getInstance();

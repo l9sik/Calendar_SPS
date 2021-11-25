@@ -6,6 +6,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 
+/**
+ * Controller for DayMenu.fxml
+ * @author eviv2206
+ */
 public class DayMenuController {
 
     @FXML
