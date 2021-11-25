@@ -44,8 +44,9 @@ public class EventsController {
         filterChooser.getItems().setAll("Нет", "Неделя", "Месяц");
 
         openExcelButton.setOnAction(actionEvent -> {
-            String currentDate = filterChooser.getValue();
-            ArrayList<String> list = getList(currentDate);
+            String choice = filterChooser.getValue();
+            if (choice == null) choice = "Нет";
+            ArrayList<String> list = getList(choice);
             if (!list.isEmpty()) {
                 try {
                     setFilter(list);

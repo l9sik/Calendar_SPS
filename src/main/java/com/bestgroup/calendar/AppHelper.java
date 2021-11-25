@@ -58,14 +58,19 @@ public class AppHelper {
      * Sets fulldate-variable if "yyyy-MM-dd"-format
      */
     public static void setFullDate() {
-        if (monthNumber < 10 && Integer.parseInt(date) < 10) {
-            fullDate = getYear() + "-" + "0" + getMonthNumber() + "-" + "0" + date;
-        } else if (Integer.parseInt(date) < 10) {
-            fullDate = year + "-" + monthNumber + "-" + "0" + date;
-        } else if (monthNumber < 10) {
-            fullDate = year + "-" + "0" + monthNumber + "-" + date;
-        } else {
-            fullDate = year + "-" + monthNumber + "-" + date;
+        try {
+            if (monthNumber < 10 && Integer.parseInt(date) < 10) {
+                fullDate = getYear() + "-" + "0" + getMonthNumber() + "-" + "0" + date;
+            } else if (Integer.parseInt(date) < 10) {
+                fullDate = year + "-" + monthNumber + "-" + "0" + date;
+            } else if (monthNumber < 10) {
+                fullDate = year + "-" + "0" + monthNumber + "-" + date;
+            } else {
+                fullDate = year + "-" + monthNumber + "-" + date;
+            }
+        }catch (NumberFormatException e){
+            CurrentTime.setCurrentDate();
+            fullDate = CurrentTime.getCurrentDate();
         }
     }
 
@@ -205,6 +210,10 @@ public class AppHelper {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Calendar calendar = Calendar.getInstance();
         try{
+            if (date == null) {
+                CurrentTime.setCurrentDate();
+                date = CurrentTime.getCurrentDate();
+            }
             calendar.setTime(sdf.parse(date));
         }catch(ParseException e){
             e.printStackTrace();
