@@ -10,6 +10,7 @@ import com.bestgroup.calendar.AppHelper;
 
 /**
  * Controller for Month.fxml
+ *
  * @author l9sik
  */
 public class ControllerMonthMenu {
@@ -31,6 +32,9 @@ public class ControllerMonthMenu {
 
     private final NewScene nw = new NewScene();
 
+    /**
+     * Initialize.
+     */
     @FXML
     void initialize() {
         textForYear.setText(Integer.toString(AppHelper.getYear()));

@@ -23,6 +23,7 @@ import org.apache.poi.ss.usermodel.*;
 
 /**
  * Controller for AddEvent.fxml
+ *
  * @author l9sik
  * @author eviv2206
  */
@@ -36,23 +37,41 @@ public class AddEventController {
 	@FXML
 	private Button addEventButton;
 
-	@FXML
+    /**
+     * The Text data.
+     */
+    @FXML
 	public DatePicker textData;
 
-	@FXML
+    /**
+     * The Text description.
+     */
+    @FXML
 	public TextField textDescription;
 
-	@FXML
+    /**
+     * The Text theme.
+     */
+    @FXML
 	public TextField textTheme;
 
-	@FXML
+    /**
+     * The Text time notification.
+     */
+    @FXML
 	public TextField textTimeNotification;
 
 	private static final String DATA_FORMAT = "yyyy-MM-dd";
-	final Notifications notific = new Notifications();
+    /**
+     * The Notific.
+     */
+    final Notifications notific = new Notifications();
 
 
-	@FXML
+    /**
+     * Initialize.
+     */
+    @FXML
 	void initialize() {
 		setInitialTextData();
 		NewScene nw = new NewScene();

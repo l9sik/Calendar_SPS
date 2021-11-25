@@ -14,6 +14,7 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
 /**
  * Controller for FilledEvent.fxml
+ *
  * @author eviv2206
  */
 public class FilledEventController {
@@ -39,7 +40,10 @@ public class FilledEventController {
 	@FXML
 	private TextField textTimeNotification;
 
-	@FXML
+    /**
+     * Initialize.
+     */
+    @FXML
 	void initialize() {
 		NewScene nw = new NewScene();
 		filedFields();
@@ -62,10 +66,10 @@ public class FilledEventController {
 		});
 	}
 
-	/**
-	 * Fills the fields from chosen event
-	 */
-	public void filedFields() {
+    /**
+     * Fills the fields from chosen event
+     */
+    public void filedFields() {
 		EventHelper ev = new EventHelper();
 		ev.getEvent();
 		textData.setValue(LocalDate.parse(ev.getFullDate()));
@@ -74,12 +78,13 @@ public class FilledEventController {
 		textTimeNotification.setText(ev.getTimeNotification());
 	}
 
-	/**
-	 * Deletes event from both Events.txt and Events.xls
-	 * @return returns true if deleting successfully ended
-	 * @throws IOException throws if something goes wrong
-	 */
-	public boolean deleteEvent() throws IOException {
+    /**
+     * Deletes event from both Events.txt and Events.xls
+     *
+     * @return returns true if deleting successfully ended
+     * @throws IOException throws if something goes wrong
+     */
+    public boolean deleteEvent() throws IOException {
 		String line;
 		boolean isDeleted = false;
 		String outputLine = String.valueOf(textData.getValue());
@@ -131,12 +136,13 @@ public class FilledEventController {
 		return isDeleted;
 	}
 
-	/**
-	 * Removes row in sheet by index
-	 * @param sheet Sheet where you want to remove row
-	 * @param rowIndex Index of row you want to remove (starts with 0)
-	 */
-	public static void removeRow(HSSFSheet sheet, int rowIndex) {
+    /**
+     * Removes row in sheet by index
+     *
+     * @param sheet    Sheet where you want to remove row
+     * @param rowIndex Index of row you want to remove (starts with 0)
+     */
+    public static void removeRow(HSSFSheet sheet, int rowIndex) {
 		int lastRowNum = sheet.getLastRowNum();
 		if (rowIndex >= 0 && rowIndex < lastRowNum) {
 			sheet.shiftRows(rowIndex + 1, lastRowNum, -1);

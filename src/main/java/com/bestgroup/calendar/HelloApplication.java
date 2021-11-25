@@ -24,6 +24,8 @@ public class HelloApplication extends Application {
 
     /**
      * Program is launched here
+     *
+     * @param args the input arguments
      */
     public static void main(String[] args) {
         launch();

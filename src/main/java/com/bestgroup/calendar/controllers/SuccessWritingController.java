@@ -6,6 +6,7 @@ import javafx.scene.control.Button;
 
 /**
  * Controller for SuccessWriting.fxml
+ *
  * @author eviv2206
  */
 public class SuccessWritingController {
@@ -13,6 +14,9 @@ public class SuccessWritingController {
     @FXML
     private Button buttonOk;
 
+    /**
+     * Initialize.
+     */
     @FXML
     void initialize() {
         NewScene nw = new NewScene();

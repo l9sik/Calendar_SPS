@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 public class NewScene {
     /**
      * Method that opens fxml file by path
+     *
      * @param path pass of fxml file
      */
     public void openNewScene(String path){
@@ -30,6 +31,7 @@ public class NewScene {
 
     /**
      * Closes scene
+     *
      * @param btn button from scene that should be closed
      */
     public void closeScene(Button btn){

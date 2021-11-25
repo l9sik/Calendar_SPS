@@ -20,6 +20,7 @@ import javafx.util.Duration;
 
 /**
  * Controller for Setting.fxml
+ *
  * @author eviv2206
  */
 public class SettingController {
@@ -29,6 +30,9 @@ public class SettingController {
     @FXML
     private Button settingsCancelButton;
 
+    /**
+     * The Choose time zone.
+     */
     @FXML
     public ComboBox<String> chooseTimeZone;
 
@@ -40,6 +44,9 @@ public class SettingController {
 
     private static final String UTC_3 = "UTC+3";
 
+    /**
+     * Initialize.
+     */
     @FXML
     void initialize() {
         FXMLLoader fxmlLoader = new FXMLLoader();

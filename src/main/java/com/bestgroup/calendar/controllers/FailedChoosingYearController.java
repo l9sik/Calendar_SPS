@@ -5,6 +5,7 @@ import javafx.scene.control.Button;
 
 /**
  * Controller for FailedChoosingYear.fxml
+ *
  * @author eviv2206
  */
 public class FailedChoosingYearController {
@@ -12,7 +13,10 @@ public class FailedChoosingYearController {
 	@FXML
 	private Button buttonOk;
 
-	@FXML
+    /**
+     * Initialize.
+     */
+    @FXML
 	void initialize() {
 		buttonOk.setOnMouseClicked(event -> buttonOk.getScene().getWindow().hide());
 	}

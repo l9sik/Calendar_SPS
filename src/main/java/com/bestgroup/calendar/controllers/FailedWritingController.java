@@ -6,6 +6,7 @@ import javafx.scene.control.Button;
 
 /**
  * Controller for FailedWriting.fxml
+ *
  * @author eviv2206
  */
 public class FailedWritingController {
@@ -13,6 +14,9 @@ public class FailedWritingController {
     @FXML
     private Button buttonOk;
 
+    /**
+     * Initialize.
+     */
     @FXML
     void initialize() {
         buttonOk.setOnMouseClicked(event -> buttonOk.getScene().getWindow().hide());
