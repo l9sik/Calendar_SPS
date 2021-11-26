@@ -10,14 +10,13 @@ import java.io.IOException;
  * Main class
  * @version 1.0
  */
-@SuppressWarnings("JavaDoc")
 public class HelloApplication extends Application {
     /**
      *
      * @throws IOException if something goes wrong
      */
     @Override
-    public void start(Stage stage){
+    public void start(Stage stage) throws IOException{
         NewScene nw = new NewScene();
         nw.openNewScene("/com/bestgroup/calendar/MainMenu.fxml");
     }
