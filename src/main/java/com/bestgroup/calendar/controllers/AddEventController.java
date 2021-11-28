@@ -202,7 +202,7 @@ public class AddEventController {
 			File log = new File("Events.xls");
 			try (FileInputStream file = new FileInputStream(log)) {
 				try (HSSFWorkbook wb = new HSSFWorkbook(file)) {
-					HSSFSheet sheet = wb.getSheetAt(wb.getActiveSheetIndex());
+					HSSFSheet sheet = wb.getSheet("Events");
 					Row row = sheet.createRow(sheet.getLastRowNum() + 1);
 					Cell date = row.createCell(0);
 					DataFormat format = wb.createDataFormat();

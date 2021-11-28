@@ -29,17 +29,17 @@
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
-            <version>11.0.2</version>
+            <version>17.0.0.1</version>
         </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
-            <version>11.0.2</version>
+            <version>17.0.0.1</version>
         </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-web</artifactId>
-            <version>11.0.2</version>
+            <version>17.0.0.1</version>
         </dependency>
         <dependency>
             <groupId>org.controlsfx</groupId>
@@ -49,7 +49,7 @@
         <dependency>
             <groupId>com.dlsc.formsfx</groupId>
             <artifactId>formsfx-core</artifactId>
-            <version>11.3.2</version>
+            <version>11.4.2</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.openjfx</groupId>
@@ -60,7 +60,7 @@
         <dependency>
             <groupId>net.synedra</groupId>
             <artifactId>validatorfx</artifactId>
-            <version>0.1.13</version>
+            <version>0.1.14</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.openjfx</groupId>
@@ -81,7 +81,7 @@
         <dependency>
             <groupId>eu.hansolo</groupId>
             <artifactId>tilesfx</artifactId>
-            <version>11.48</version>
+            <version>17.0.4</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.openjfx</groupId>
@@ -92,12 +92,12 @@
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi</artifactId>
-            <version>3.12</version>
+            <version>5.0.0</version>
         </dependency>
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi-ooxml</artifactId>
-            <version>3.12</version>
+            <version>5.0.0</version>
         </dependency>
 
         <dependency>
@@ -189,7 +189,7 @@
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.2</version>
+                <version>0.8.7</version>
                 <executions>
                     <execution>
                         <goals>
@@ -202,26 +202,6 @@
                         <goals>
                             <goal>report</goal>
                         </goals>
-                    </execution>
-                    <execution>
-                        <id>jacoco-check</id>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
-                        <configuration>
-                            <rules>
-                                <rule>
-                                    <element>PACKAGE</element>
-                                    <limits>
-                                        <limit>
-                                            <counter>LINE</counter>
-                                            <value>COVEREDRATIO</value>
-                                            <minimum>0.0</minimum>
-                                        </limit>
-                                    </limits>
-                                </rule>
-                            </rules>
-                        </configuration>
                     </execution>
                 </executions>
             </plugin>

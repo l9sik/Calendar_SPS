@@ -116,7 +116,8 @@ public class EventsController {
     private void setFilter(ArrayList<String> list) throws IOException{
         if (!list.isEmpty()) {
             try (HSSFWorkbook wbFrom = new HSSFWorkbook(new FileInputStream("Events.xls"))) {
-                HSSFSheet sheetIn = wbFrom.createSheet("Filtered events");
+                HSSFSheet sheetIn = wbFrom.getSheet("Filtered events");
+                //HSSFSheet sheetIn = wbFrom.createSheet("Filtered events");
                 HSSFRow topRow = sheetIn.createRow(0);
                 HSSFSheet sheetFrom = wbFrom.getSheetAt(0);
                 topRow.createCell(0).setCellValue("Date");
