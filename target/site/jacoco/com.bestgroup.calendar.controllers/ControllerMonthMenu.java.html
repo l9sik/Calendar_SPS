@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ControllerMonthMenu.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Calendar</a> &gt; <a href="index.source.html" class="el_package">com.bestgroup.calendar.controllers</a> &gt; <span class="el_source">ControllerMonthMenu.java</span></div><h1>ControllerMonthMenu.java</h1><pre class="source lang-java linenums">package com.bestgroup.calendar.controllers;
+
+import javafx.fxml.FXML;
+import javafx.geometry.HPos;
+import javafx.geometry.Insets;
+import javafx.scene.control.Button;
+import javafx.scene.layout.GridPane;
+import javafx.scene.text.Text;
+import com.bestgroup.calendar.AppHelper;
+
+/**
+ * Controller for Month.fxml
+ *
+ * @author l9sik
+ */
+<span class="nc" id="L16">public class ControllerMonthMenu {</span>
+
+    @FXML
+    private GridPane daysTable;
+
+    @FXML
+    private Button mainMenuSettingsButton;
+
+    @FXML
+    private Text textForMonth;
+
+    @FXML
+    private Text textForYear;
+
+    @FXML
+    private Button mainMenuCancelButton;
+
+<span class="nc" id="L33">    private final NewScene nw = new NewScene();</span>
+
+    /**
+     * Initialize.
+     */
+    @FXML
+    void initialize() {
+<span class="nc" id="L40">        textForYear.setText(Integer.toString(AppHelper.getYear()));</span>
+<span class="nc" id="L41">        textForMonth.setText(AppHelper.getMonthName());</span>
+<span class="nc" id="L42">        int[][] dateInIntArray = AppHelper.getWeekMatrix();</span>
+        /**
+         * Cycle to fill combo-box with buttons
+         * sets ID to each button
+         * colors button if it wednesday
+         */
+<span class="nc bnc" id="L48" title="All 2 branches missed.">        for (int j = 0; j &lt; 6; j++) {</span>
+<span class="nc bnc" id="L49" title="All 2 branches missed.">            for (int i = 0; i &lt; 7; i++) {</span>
+<span class="nc" id="L50">                String text = null;</span>
+<span class="nc bnc" id="L51" title="All 2 branches missed.">                if (dateInIntArray[i][j] &gt; 0)</span>
+<span class="nc" id="L52">                    text = Integer.toString(dateInIntArray[i][j]);</span>
+<span class="nc" id="L53">                Button btn = new Button(text);</span>
+<span class="nc" id="L54">                btn.setId(i + &quot; &quot; + j);</span>
+<span class="nc bnc" id="L55" title="All 2 branches missed.">                if (i &lt; 2)</span>
+<span class="nc" id="L56">                    btn.setStyle(&quot;-fx-background-color: c22e2e;&quot;);</span>
+<span class="nc" id="L57">                btn.setMaxHeight(30);</span>
+<span class="nc" id="L58">                btn.setMaxWidth(30);</span>
+<span class="nc" id="L59">                GridPane.setMargin(btn, new Insets(10));</span>
+<span class="nc" id="L60">                GridPane.setHalignment(btn, HPos.CENTER);</span>
+<span class="nc bnc" id="L61" title="All 2 branches missed.">                if (text != null) {</span>
+<span class="nc" id="L62">                    btn.setOnAction(actionEvent -&gt; {</span>
+<span class="nc" id="L63">                        AppHelper.setDate(btn.getText());</span>
+<span class="nc" id="L64">                        AppHelper.setMonthAndDay(btn.getText(), AppHelper.getMonthName());</span>
+<span class="nc" id="L65">                        nw.closeScene(btn);</span>
+<span class="nc" id="L66">                        nw.openNewScene(&quot;/com/bestgroup/calendar/DayMenu.fxml&quot;);</span>
+<span class="nc" id="L67">                    });</span>
+<span class="nc" id="L68">                    daysTable.add(btn, i, j);</span>
+                }
+            }
+        }
+<span class="nc" id="L72">        mainMenuCancelButton.setOnAction(actionEvent -&gt; {</span>
+<span class="nc" id="L73">            nw.closeScene(mainMenuCancelButton);</span>
+<span class="nc" id="L74">            nw.openNewScene(&quot;/com/bestgroup/calendar/MainMenu.fxml&quot;);</span>
+<span class="nc" id="L75">        });</span>
+<span class="nc" id="L76">        mainMenuSettingsButton.setOnAction(actionEvent -&gt; {</span>
+<span class="nc" id="L77">            nw.closeScene(mainMenuCancelButton);</span>
+<span class="nc" id="L78">            nw.openNewScene(&quot;/com/bestgroup/calendar/Settings.fxml&quot;);</span>
+<span class="nc" id="L79">        });</span>
+<span class="nc" id="L80">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

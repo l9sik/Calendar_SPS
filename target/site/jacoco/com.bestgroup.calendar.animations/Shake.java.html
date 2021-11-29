@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Shake.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Calendar</a> &gt; <a href="index.source.html" class="el_package">com.bestgroup.calendar.animations</a> &gt; <span class="el_source">Shake.java</span></div><h1>Shake.java</h1><pre class="source lang-java linenums">package com.bestgroup.calendar.animations;
+
+import javafx.animation.TranslateTransition;
+import javafx.scene.Node;
+import javafx.util.Duration;
+
+/**
+ * This class is for animations
+ *
+ * @author l9sik ;
+ */
+public class Shake {
+    private final TranslateTransition trlateTrsition;
+
+    /**
+     * Method for shake-animation
+     *
+     * @param nd node that you want to animate
+     */
+<span class="nc" id="L20">    public Shake(Node nd){</span>
+<span class="nc" id="L21">        trlateTrsition = new TranslateTransition(Duration.millis(70), nd);</span>
+<span class="nc" id="L22">        trlateTrsition.setFromX(0f);</span>
+<span class="nc" id="L23">        trlateTrsition.setByX(10f);</span>
+<span class="nc" id="L24">        trlateTrsition.setCycleCount(4);</span>
+<span class="nc" id="L25">        trlateTrsition.setAutoReverse(true);</span>
+<span class="nc" id="L26">    }</span>
+
+    /**
+     * Starts animation
+     */
+    public void playAnim(){
+<span class="nc" id="L32">        trlateTrsition.playFromStart();</span>
+<span class="nc" id="L33">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FilledEventController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Calendar</a> &gt; <a href="index.source.html" class="el_package">com.bestgroup.calendar.controllers</a> &gt; <span class="el_source">FilledEventController.java</span></div><h1>FilledEventController.java</h1><pre class="source lang-java linenums">package com.bestgroup.calendar.controllers;
+
+import java.io.*;
+import java.time.LocalDate;
+
+import com.bestgroup.calendar.EventHelper;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextField;
+import org.apache.poi.hssf.usermodel.HSSFRow;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+
+/**
+ * Controller for FilledEvent.fxml
+ *
+ * @author eviv2206
+ */
+<span class="nc" id="L20">public class FilledEventController {</span>
+
+	@FXML
+	private Button cancelButton;
+
+	@FXML
+	private Button deleteEventButton;
+
+	@FXML
+	private Button settingsButton;
+
+	@FXML
+	private DatePicker textData;
+
+	@FXML
+	private TextField textDescription;
+
+	@FXML
+	private TextField textTheme;
+
+	@FXML
+	private TextField textTimeNotification;
+
+    /**
+     * Initialize.
+     */
+    @FXML
+	void initialize() {
+<span class="nc" id="L48">		NewScene nw = new NewScene();</span>
+<span class="nc" id="L49">		filedFields();</span>
+<span class="nc" id="L50">		cancelButton.setOnAction(actionEvent -&gt; {</span>
+<span class="nc" id="L51">			nw.closeScene(cancelButton);</span>
+<span class="nc" id="L52">			nw.openNewScene(&quot;/com/bestgroup/calendar/MainMenu.fxml&quot;);</span>
+<span class="nc" id="L53">		});</span>
+<span class="nc" id="L54">		settingsButton.setOnAction(actionEvent -&gt; {</span>
+<span class="nc" id="L55">			nw.closeScene(settingsButton);</span>
+<span class="nc" id="L56">			nw.openNewScene(&quot;/com/bestgroup/calendar/Settings.fxml&quot;);</span>
+<span class="nc" id="L57">		});</span>
+<span class="nc" id="L58">		deleteEventButton.setOnAction(actionEvent -&gt; {</span>
+<span class="nc" id="L59">			nw.closeScene(deleteEventButton);</span>
+			try {
+<span class="nc bnc" id="L61" title="All 2 branches missed.">				if (deleteEvent())</span>
+<span class="nc" id="L62">					nw.openNewScene(&quot;/com/bestgroup/calendar/SuccessDelete.fxml&quot;);</span>
+<span class="nc" id="L63">			} catch (IOException e) {</span>
+<span class="nc" id="L64">				System.out.println(e.getMessage());</span>
+<span class="nc" id="L65">			}</span>
+<span class="nc" id="L66">		});</span>
+<span class="nc" id="L67">	}</span>
+
+    /**
+     * Fills the fields from chosen event
+     */
+    public void filedFields() {
+<span class="nc" id="L73">		EventHelper ev = new EventHelper();</span>
+<span class="nc" id="L74">		ev.getEvent();</span>
+<span class="nc" id="L75">		textData.setValue(LocalDate.parse(ev.getFullDate()));</span>
+<span class="nc" id="L76">		textDescription.setText(ev.getDescription());</span>
+<span class="nc" id="L77">		textTheme.setText(ev.getTheme());</span>
+<span class="nc" id="L78">		textTimeNotification.setText(ev.getTimeNotification());</span>
+<span class="nc" id="L79">	}</span>
+
+    /**
+     * Deletes event from both Events.txt and Events.xls
+     *
+     * @return returns true if deleting successfully ended
+     * @throws IOException throws if something goes wrong
+     */
+    public boolean deleteEvent() throws IOException {
+		String line;
+<span class="nc" id="L89">		boolean isDeleted = false;</span>
+<span class="nc" id="L90">		String outputLine = String.valueOf(textData.getValue());</span>
+<span class="nc" id="L91">		File sourceFile = new File(&quot;Events.txt&quot;);</span>
+<span class="nc" id="L92">		File outputFile = new File(&quot;Dictio2.txt&quot;);</span>
+<span class="nc" id="L93">		try (BufferedReader reader = new BufferedReader(new FileReader(sourceFile))) {</span>
+<span class="nc" id="L94">			try (BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile))) {</span>
+<span class="nc bnc" id="L95" title="All 2 branches missed.">				while ((line = reader.readLine()) != null) {</span>
+<span class="nc bnc" id="L96" title="All 2 branches missed.">					if (!line.equals(outputLine)) {</span>
+<span class="nc" id="L97">						writer.write(line);</span>
+<span class="nc" id="L98">						writer.newLine();</span>
+					} else {
+<span class="nc" id="L100">						reader.readLine();</span>
+<span class="nc" id="L101">						reader.readLine();</span>
+<span class="nc" id="L102">						reader.readLine();</span>
+					}
+				}
+			}
+		}
+<span class="nc" id="L107">		try (HSSFWorkbook wb = new HSSFWorkbook(new FileInputStream(&quot;Events.xls&quot;))){</span>
+<span class="nc" id="L108">			HSSFSheet sheet = wb.getSheetAt(wb.getActiveSheetIndex());</span>
+<span class="nc" id="L109">			int lastRowNum = sheet.getLastRowNum() + 1;</span>
+
+<span class="nc" id="L111">			int i = 1;</span>
+<span class="nc" id="L112">			boolean isNotFound = true;</span>
+<span class="nc" id="L113">			int index = -1;</span>
+<span class="nc bnc" id="L114" title="All 4 branches missed.">			while (i &lt; lastRowNum &amp;&amp; isNotFound) {</span>
+<span class="nc" id="L115">				HSSFRow row = sheet.getRow(i);</span>
+<span class="nc" id="L116">				line = row.getCell(0).getStringCellValue();</span>
+<span class="nc bnc" id="L117" title="All 2 branches missed.">				if (line.equals(outputLine)){</span>
+<span class="nc" id="L118">					index = i;</span>
+<span class="nc" id="L119">					isNotFound = false;</span>
+				}
+<span class="nc" id="L121">				i++;</span>
+<span class="nc" id="L122">			}</span>
+
+<span class="nc bnc" id="L124" title="All 2 branches missed.">			if (index &gt; 0){</span>
+<span class="nc" id="L125">				removeRow(sheet, index);</span>
+<span class="nc" id="L126">				isDeleted = true;</span>
+<span class="nc" id="L127">			}else System.out.println(&quot;There is no such event in excel file.&quot;);</span>
+<span class="nc" id="L128">			OutputStream out = new FileOutputStream(&quot;Events.xls&quot;);</span>
+<span class="nc" id="L129">			wb.write(out);</span>
+<span class="nc" id="L130">			out.flush();</span>
+<span class="nc" id="L131">			out.close();</span>
+
+		}
+<span class="nc" id="L134">		sourceFile.delete();</span>
+<span class="nc" id="L135">		outputFile.renameTo(sourceFile);</span>
+<span class="nc" id="L136">		return isDeleted;</span>
+	}
+
+    /**
+     * Removes row in sheet by index
+     *
+     * @param sheet    Sheet where you want to remove row
+     * @param rowIndex Index of row you want to remove (starts with 0)
+     */
+    public static void removeRow(HSSFSheet sheet, int rowIndex) {
+<span class="nc" id="L146">		int lastRowNum = sheet.getLastRowNum();</span>
+<span class="nc bnc" id="L147" title="All 4 branches missed.">		if (rowIndex &gt;= 0 &amp;&amp; rowIndex &lt; lastRowNum) {</span>
+<span class="nc" id="L148">			sheet.shiftRows(rowIndex + 1, lastRowNum, -1);</span>
+		}
+<span class="nc bnc" id="L150" title="All 2 branches missed.">		if (rowIndex == lastRowNum) {</span>
+<span class="nc" id="L151">			HSSFRow removingRow = sheet.getRow(rowIndex);</span>
+<span class="nc bnc" id="L152" title="All 2 branches missed.">			if (removingRow != null) {</span>
+<span class="nc" id="L153">				sheet.removeRow(removingRow);</span>
+			}
+		}
+<span class="nc" id="L156">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CurrentTime.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Calendar</a> &gt; <a href="index.source.html" class="el_package">com.bestgroup.calendar</a> &gt; <span class="el_source">CurrentTime.java</span></div><h1>CurrentTime.java</h1><pre class="source lang-java linenums">package com.bestgroup.calendar;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+
+
+
+/**
+ * This class helps to display time in program
+ * @version 1.0
+ * @author eviv2206
+ */
+
+public class CurrentTime {
+
+<span class="nc" id="L21">    private CurrentTime(){</span>
+<span class="nc" id="L22">        throw new IllegalStateException(&quot;Utility class&quot;);</span>
+    }
+
+    private static final String TIME_FORMAT = &quot;dd-MM-yyyy hh:mm:ss a&quot;;
+    private static final String DATE_FORMAT = &quot;yyyy-MM-dd&quot;;
+    private static final String YEAR_FORMAT = &quot;yyyy&quot;;
+    private static final String MONTH_FORMAT = &quot;MM&quot;;
+    private static final String DAY_FORMAT = &quot;dd&quot;;
+    private static String date;
+
+    public static void setYear(){
+<span class="nc" id="L33">        DateFormat dateFormat = new SimpleDateFormat(YEAR_FORMAT);</span>
+<span class="nc" id="L34">        Date dt = new Date();</span>
+<span class="nc" id="L35">        String year = dateFormat.format(dt);</span>
+<span class="nc" id="L36">        AppHelper.setYear(Integer.parseInt(year));</span>
+<span class="nc" id="L37">    }</span>
+
+    public static void setMonthAndDay(){
+<span class="nc" id="L40">        DateFormat dateFormat = new SimpleDateFormat(MONTH_FORMAT);</span>
+<span class="nc" id="L41">        Date dt = new Date();</span>
+<span class="nc" id="L42">        String monthNumber = dateFormat.format(dt);</span>
+<span class="nc" id="L43">        DateFormat dF = new SimpleDateFormat(DAY_FORMAT);</span>
+<span class="nc" id="L44">        String day = dF.format(dt);</span>
+<span class="nc" id="L45">        AppHelper.setDate(day);</span>
+<span class="nc" id="L46">        AppHelper.setMonthNumber(Integer.parseInt(monthNumber));</span>
+<span class="nc" id="L47">        String month = AppHelper.getMonthName();</span>
+<span class="nc" id="L48">        AppHelper.setMonthAndDay(day, month);</span>
+<span class="nc" id="L49">    }</span>
+
+    public static void setCurrentDate(){
+<span class="nc" id="L52">        DateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT);</span>
+<span class="nc" id="L53">        Date dt = new Date();</span>
+<span class="nc" id="L54">        date = dateFormat.format(dt);</span>
+<span class="nc" id="L55">    }</span>
+
+    public static void resetDate(){
+<span class="nc" id="L58">        date = null;</span>
+<span class="nc" id="L59">        AppHelper.setDate(null);</span>
+<span class="nc" id="L60">    }</span>
+
+    public static String getCurrentDate(){
+<span class="nc" id="L63">        return date;</span>
+    }
+    public static String getCurrentTime(String str){
+<span class="nc" id="L66">        DateTimeFormatter format = DateTimeFormatter.ofPattern(TIME_FORMAT);</span>
+<span class="nc" id="L67">        Instant nowUtc = Instant.now();</span>
+<span class="nc" id="L68">        ZoneId zone = ZoneId.of(str);</span>
+<span class="nc" id="L69">        ZonedDateTime timeNow = ZonedDateTime.ofInstant(nowUtc, zone);</span>
+<span class="nc" id="L70">        return format.format(timeNow);</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
