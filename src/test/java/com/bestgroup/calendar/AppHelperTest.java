@@ -43,4 +43,20 @@ class AppHelperTest {
         assertEquals("10 12", appHelper.getMonthAndDay());
     }
 
+    @Test
+    void getFullDate(){
+        appHelper.setFullDate();
+        assert(true);
+    }
+
+    @Test
+    void getMonthName(){
+        assert (true);
+    }
+
+    @Test
+    void getMonthCode(){
+        appHelper.getMonthNumber();
+        assert (true);
+    }
 }

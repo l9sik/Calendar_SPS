@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.bestgroup.calendar.AppHelperTest
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.264 s - in com.bestgroup.calendar.AppHelperTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.267 s - in com.bestgroup.calendar.AppHelperTest
