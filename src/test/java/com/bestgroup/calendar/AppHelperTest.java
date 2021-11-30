@@ -5,10 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-/**
- * This is class for some test? that to check processing of working our project
- *  @author von-means-hope
- */
+
 class AppHelperTest {
     AppHelper appHelper;
     @BeforeEach
@@ -47,11 +44,6 @@ class AppHelperTest {
     void getFullDate(){
         appHelper.setFullDate();
         assert(true);
-    }
-
-    @Test
-    void getMonthName(){
-        assert (true);
     }
 
     @Test
