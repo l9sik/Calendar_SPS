@@ -5,11 +5,12 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-
-
+/**
+ * This is class for some test? that to check processing of working our project
+ *  @author von-means-hope
+ */
 class AppHelperTest {
     AppHelper appHelper;
-
     @BeforeEach
     void setUp() {
         appHelper = new AppHelper();
@@ -18,17 +19,25 @@ class AppHelperTest {
         appHelper.setMonthAndDay("12", "10");
     }
 
-
+    /**
+     * Gets year.
+     */
     @Test
     void getYear() {
         assertEquals(2021, appHelper.getYear());
     }
 
+    /**
+     * Gets month number.
+     */
     @Test
     void getMonthNumber() {
         assertEquals(10, appHelper.getMonthNumber());
     }
 
+    /**
+     * Get month and day.
+     */
     @Test
     void getMonthAndDay(){
         assertEquals("10 12", appHelper.getMonthAndDay());
@@ -36,9 +45,14 @@ class AppHelperTest {
 
     @Test
     void getFullDate(){
-        assert (true);
+        appHelper.setFullDate();
+        assert(true);
     }
 
+    @Test
+    void getMonthName(){
+        assert (true);
+    }
 
     @Test
     void getMonthCode(){
@@ -52,14 +66,12 @@ class AppHelperTest {
         assert (true);
     }
 
-
     @Test
     void getDayOfWeekNum(){
         appHelper.getMonthCode();
         appHelper.getYearCode();
         assert (true);
     }
-
 
     @Test
     void getNumOfDaysInMonth(){
