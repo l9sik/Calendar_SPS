@@ -1,1 +1,0 @@
-moduleSearchIndex = [{"l":"com.bestgroup.calendar"}]

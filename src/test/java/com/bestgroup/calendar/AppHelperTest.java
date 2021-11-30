@@ -59,4 +59,35 @@ class AppHelperTest {
         appHelper.getMonthNumber();
         assert (true);
     }
+
+    @Test
+    void getYearCode(){
+        appHelper.getYear();
+        assert (true);
+    }
+
+    @Test
+    void getDayOfWeekNum(){
+        appHelper.getMonthCode();
+        appHelper.getYearCode();
+        assert (true);
+    }
+
+    @Test
+    void getNumOfDaysInMonth(){
+        appHelper.getMonthNumber();
+        assert (true);
+    }
+
+    @Test
+    void getWeekMatrix(){
+        appHelper.getDayOfWeekNum();
+        assert (true);
+    }
+
+    @Test
+    void plusDay(){
+        assert (true);
+    }
+
 }

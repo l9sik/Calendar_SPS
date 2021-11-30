@@ -15,5 +15,5 @@ Calendar,com.bestgroup.calendar.controllers,SettingController,175,0,2,0,30,0,6,0
 Calendar,com.bestgroup.calendar,CurrentTime,78,16,0,0,25,5,5,2,5,2
 Calendar,com.bestgroup.calendar,HelloApplication,15,0,0,0,6,0,3,0,3,0
 Calendar,com.bestgroup.calendar,Notifications,38,0,0,0,12,0,2,0,2,0
-Calendar,com.bestgroup.calendar,AppHelper,300,37,59,1,78,19,39,9,9,9
+Calendar,com.bestgroup.calendar,AppHelper,249,88,56,4,65,32,36,12,6,12
 Calendar,com.bestgroup.calendar,EventHelper,150,0,18,0,48,0,21,0,12,0
