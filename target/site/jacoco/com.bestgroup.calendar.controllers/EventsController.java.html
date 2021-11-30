@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>EventsController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Calendar</a> &gt; <a href="index.source.html" class="el_package">com.bestgroup.calendar.controllers</a> &gt; <span class="el_source">EventsController.java</span></div><h1>EventsController.java</h1><pre class="source lang-java linenums">package com.bestgroup.calendar.controllers;
+
+import com.bestgroup.calendar.AppHelper;
+import com.bestgroup.calendar.CurrentTime;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import org.apache.poi.hssf.usermodel.HSSFRow;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+
+import java.io.*;
+import java.awt.Desktop;
+import java.util.ArrayList;
+
+/**
+ * Controller for Events.fxml.
+ * Contains button to open Excel file and button to filter events
+ *
+ * @author l9sik
+ */
+
+
+<span class="nc" id="L24">public class EventsController {</span>
+
+    @FXML
+    private ComboBox&lt;String&gt; filterChooser;
+
+    @FXML
+    private Button mainMenuCancelButton;
+
+    @FXML
+    private Button mainMenuCurrentDateButton;
+
+    @FXML
+    private Button mainMenuSettingsButton;
+
+    @FXML
+    private Button openExcelButton;
+
+<span class="nc" id="L41">    private final NewScene newScene = new NewScene();</span>
+
+    /**
+     * Initialize.
+     */
+    @FXML
+    void initialize() {
+<span class="nc" id="L48">        filterChooser.getItems().setAll(&quot;Нет&quot;, &quot;Неделя&quot;, &quot;Месяц&quot;);</span>
+
+<span class="nc" id="L50">        openExcelButton.setOnAction(actionEvent -&gt; {</span>
+<span class="nc" id="L51">            String choice = filterChooser.getValue();</span>
+<span class="nc bnc" id="L52" title="All 2 branches missed.">            if (choice == null) choice = &quot;Нет&quot;;</span>
+<span class="nc" id="L53">            ArrayList&lt;String&gt; list = getList(choice);</span>
+<span class="nc bnc" id="L54" title="All 2 branches missed.">            if (!list.isEmpty()) {</span>
+                try {
+<span class="nc" id="L56">                    setFilter(list);</span>
+<span class="nc" id="L57">                } catch (IOException e) {</span>
+<span class="nc" id="L58">                    e.printStackTrace();</span>
+<span class="nc" id="L59">                }</span>
+            }
+            try {
+<span class="nc" id="L62">                Desktop desktop = Desktop.getDesktop();</span>
+
+<span class="nc" id="L64">                desktop.open(new File(&quot;Events.xls&quot;));</span>
+<span class="nc" id="L65">            } catch (IOException e) {</span>
+<span class="nc" id="L66">                System.out.println(&quot;There is something wrong with excel file.&quot;);</span>
+<span class="nc" id="L67">            }</span>
+<span class="nc" id="L68">        });</span>
+<span class="nc" id="L69">        mainMenuSettingsButton.setOnAction(actionEvent -&gt; {</span>
+<span class="nc" id="L70">            newScene.closeScene(mainMenuSettingsButton);</span>
+<span class="nc" id="L71">            newScene.openNewScene(&quot;/com/bestgroup/calendar/Settings.fxml&quot;);</span>
+<span class="nc" id="L72">        });</span>
+<span class="nc" id="L73">        mainMenuCancelButton.setOnAction(actionEvent -&gt; {</span>
+<span class="nc" id="L74">            newScene.closeScene(mainMenuCancelButton);</span>
+<span class="nc" id="L75">            newScene.openNewScene(&quot;/com/bestgroup/calendar/MainMenu.fxml&quot;);</span>
+<span class="nc" id="L76">        });</span>
+<span class="nc" id="L77">        mainMenuCurrentDateButton.setOnMouseClicked((event) -&gt; {</span>
+<span class="nc" id="L78">            CurrentTime.setYear();</span>
+<span class="nc" id="L79">            CurrentTime.setMonthAndDay();</span>
+<span class="nc" id="L80">            newScene.closeScene(mainMenuCurrentDateButton);</span>
+<span class="nc" id="L81">            newScene.openNewScene(&quot;/com/bestgroup/calendar/DayMenu.fxml&quot;);</span>
+<span class="nc" id="L82">        });</span>
+<span class="nc" id="L83">    }</span>
+
+    /**
+     * Gets set of week or month from current date
+     *
+     * @param choice choice from filter-chooser combo-box
+     * @return List of week or month dates
+     */
+    ArrayList&lt;String&gt; getList(String choice){
+<span class="nc" id="L92">        String date = AppHelper.getFullDate();</span>
+        String newDate;
+<span class="nc" id="L94">        ArrayList&lt;String&gt; list = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L95" title="All 2 branches missed.">        if (choice.equals(&quot;Неделя&quot;)){</span>
+<span class="nc bnc" id="L96" title="All 2 branches missed.">            for (int i = 0; i &lt; 7; i++){</span>
+<span class="nc" id="L97">                newDate = AppHelper.plusDay(date, i);</span>
+<span class="nc" id="L98">                list.add(newDate);</span>
+            }
+        }
+<span class="nc bnc" id="L101" title="All 2 branches missed.">        if (choice.equals(&quot;Месяц&quot;)){</span>
+<span class="nc bnc" id="L102" title="All 2 branches missed.">            for (int i = 0; i &lt; 30; i++){</span>
+<span class="nc" id="L103">                newDate = AppHelper.plusDay(date, i);</span>
+<span class="nc" id="L104">                list.add(newDate);</span>
+            }
+        }
+<span class="nc" id="L107">        return list;</span>
+    }
+
+    /**
+     * Method that sets filter to Events.xls file
+     * It creates new sheet with filtered data
+     * @param list
+     * @throws IOException if something goes wrong
+     */
+    private void setFilter(ArrayList&lt;String&gt; list) throws IOException{
+<span class="nc bnc" id="L117" title="All 2 branches missed.">        if (!list.isEmpty()) {</span>
+<span class="nc" id="L118">            try (HSSFWorkbook wbFrom = new HSSFWorkbook(new FileInputStream(&quot;Events.xls&quot;))) {</span>
+<span class="nc" id="L119">                HSSFSheet sheetIn = wbFrom.getSheet(&quot;Filtered events&quot;);</span>
+                //HSSFSheet sheetIn = wbFrom.createSheet(&quot;Filtered events&quot;);
+<span class="nc" id="L121">                HSSFRow topRow = sheetIn.createRow(0);</span>
+<span class="nc" id="L122">                HSSFSheet sheetFrom = wbFrom.getSheetAt(0);</span>
+<span class="nc" id="L123">                topRow.createCell(0).setCellValue(&quot;Date&quot;);</span>
+<span class="nc" id="L124">                topRow.createCell(1).setCellValue(&quot;Theme&quot;);</span>
+<span class="nc" id="L125">                topRow.createCell(2).setCellValue(&quot;Description&quot;);</span>
+<span class="nc" id="L126">                topRow.createCell(3).setCellValue(&quot;Time&quot;);</span>
+<span class="nc" id="L127">                int lastRowNum = sheetFrom.getLastRowNum() + 1;</span>
+<span class="nc" id="L128">                int i = 1;</span>
+<span class="nc bnc" id="L129" title="All 2 branches missed.">                while (i &lt; lastRowNum) {</span>
+<span class="nc" id="L130">                    HSSFRow rowFrom = sheetFrom.getRow(i);</span>
+<span class="nc bnc" id="L131" title="All 2 branches missed.">                    if (list.contains(rowFrom.getCell(0).getStringCellValue())) {</span>
+<span class="nc" id="L132">                        HSSFRow rowIn = sheetIn.createRow(i);</span>
+<span class="nc" id="L133">                        rowIn.createCell(0).setCellValue(rowFrom.getCell(0).getStringCellValue());</span>
+<span class="nc" id="L134">                        rowIn.createCell(1).setCellValue(rowFrom.getCell(1).getStringCellValue());</span>
+<span class="nc" id="L135">                        rowIn.createCell(2).setCellValue(rowFrom.getCell(2).getStringCellValue());</span>
+<span class="nc" id="L136">                        rowIn.createCell(3).setCellValue(rowFrom.getCell(3).getStringCellValue());</span>
+                    }
+<span class="nc" id="L138">                    i++;</span>
+<span class="nc" id="L139">                }</span>
+<span class="nc" id="L140">                OutputStream out = new FileOutputStream(&quot;Events.xls&quot;);</span>
+<span class="nc" id="L141">                wbFrom.write(out);</span>
+<span class="nc" id="L142">                out.flush();</span>
+<span class="nc" id="L143">                out.close();</span>
+            }
+        }
+
+<span class="nc" id="L147">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

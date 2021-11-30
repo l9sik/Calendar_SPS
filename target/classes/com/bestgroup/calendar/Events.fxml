@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: f2cc8f;" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bestgroup.calendar.controllers.EventsController">
+    <AnchorPane prefHeight="64.0" prefWidth="400.0" style="-fx-background-color: E07A5F;">
+        <Button fx:id="mainMenuSettingsButton" layoutX="14.0" layoutY="18.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="80.0" text="Настройки" textFill="WHITE">
+            <font>
+                <Font name="Calibri Bold" size="12.0" />
+            </font>
+        </Button>
+        <Button fx:id="mainMenuCancelButton" layoutX="270.0" layoutY="18.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="115.0" text="Отмена" textFill="WHITE">
+            <font>
+                <Font name="Calibri Bold" size="12.0" />
+            </font>
+        </Button>
+    </AnchorPane>
+    <AnchorPane layoutY="536.0" prefHeight="64.0" prefWidth="400.0" style="-fx-background-color: E07A5F;">
+        <Button fx:id="mainMenuCurrentDateButton" layoutX="149.0" layoutY="15.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="101.0" text="Текущая дата" textFill="WHITE">
+            <font>
+                <Font name="Calibri Bold" size="12.0" />
+            </font>
+        </Button>
+    </AnchorPane>
+    <Button fx:id="openExcelButton" layoutX="122.0" layoutY="278.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="157.0" text="Open Excel file" />
+   <ComboBox fx:id="filterChooser" layoutX="125.0" layoutY="152.0" prefWidth="150.0" promptText="Нет" styleClass="button" />
+   <Text fill="#3d405b" layoutX="122.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Фильтр" wrappingWidth="115.0">
+      <font>
+         <Font name="Calibri" size="24.0" />
+      </font>
+   </Text>
+</AnchorPane>
