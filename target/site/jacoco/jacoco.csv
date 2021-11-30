@@ -12,8 +12,8 @@ Calendar,com.bestgroup.calendar.controllers,EventsController,278,0,18,0,70,0,17,
 Calendar,com.bestgroup.calendar.controllers,SuccessDeleteController,22,0,0,0,7,0,3,0,3,0
 Calendar,com.bestgroup.calendar.controllers,FailedWritingController,15,0,0,0,3,0,3,0,3,0
 Calendar,com.bestgroup.calendar.controllers,SettingController,175,0,2,0,30,0,6,0,5,0
-Calendar,com.bestgroup.calendar,CurrentTime,78,16,0,0,25,5,5,2,5,2
-Calendar,com.bestgroup.calendar,HelloApplication,15,0,0,0,6,0,3,0,3,0
+Calendar,com.bestgroup.calendar,CurrentTime,94,0,0,0,30,0,7,0,7,0
+Calendar,com.bestgroup.calendar,HelloApplication,12,3,0,0,5,1,2,1,2,1
 Calendar,com.bestgroup.calendar,Notifications,38,0,0,0,12,0,2,0,2,0
-Calendar,com.bestgroup.calendar,AppHelper,249,88,56,4,65,32,36,12,6,12
+Calendar,com.bestgroup.calendar,AppHelper,257,80,57,3,70,27,37,11,7,11
 Calendar,com.bestgroup.calendar,EventHelper,150,0,18,0,48,0,21,0,12,0

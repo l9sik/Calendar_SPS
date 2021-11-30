@@ -49,10 +49,10 @@ public class CurrentTime {
 <span class="nc" id="L49">    }</span>
 
     public static void setCurrentDate(){
-<span class="fc" id="L52">        DateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT);</span>
-<span class="fc" id="L53">        Date dt = new Date();</span>
-<span class="fc" id="L54">        date = dateFormat.format(dt);</span>
-<span class="fc" id="L55">    }</span>
+<span class="nc" id="L52">        DateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT);</span>
+<span class="nc" id="L53">        Date dt = new Date();</span>
+<span class="nc" id="L54">        date = dateFormat.format(dt);</span>
+<span class="nc" id="L55">    }</span>
 
     public static void resetDate(){
 <span class="nc" id="L58">        date = null;</span>
@@ -60,7 +60,7 @@ public class CurrentTime {
 <span class="nc" id="L60">    }</span>
 
     public static String getCurrentDate(){
-<span class="fc" id="L63">        return date;</span>
+<span class="nc" id="L63">        return date;</span>
     }
     public static String getCurrentTime(String str){
 <span class="nc" id="L66">        DateTimeFormatter format = DateTimeFormatter.ofPattern(TIME_FORMAT);</span>

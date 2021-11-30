@@ -1,7 +1,6 @@
 package com.bestgroup.calendar;
 
 import java.io.*;
-import java.net.URL;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
