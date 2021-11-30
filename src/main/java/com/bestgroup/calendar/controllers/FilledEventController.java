@@ -105,7 +105,7 @@ public class FilledEventController {
 			}
 		}
 		try (HSSFWorkbook wb = new HSSFWorkbook(new FileInputStream("Events.xls"))){
-			HSSFSheet sheet = wb.getSheetAt(wb.getActiveSheetIndex());
+			HSSFSheet sheet = wb.getSheet("Events");
 			int lastRowNum = sheet.getLastRowNum() + 1;
 
 			int i = 1;

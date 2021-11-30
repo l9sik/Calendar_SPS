@@ -61,7 +61,7 @@ public class ControllerMonthMenu {
                 if (text != null) {
                     btn.setOnAction(actionEvent -> {
                         AppHelper.setDate(btn.getText());
-                        AppHelper.setMonthAndDay(btn.getText(), AppHelper.getMonthName());
+                        //AppHelper.setMonthAndDay(btn.getText(), AppHelper.getMonthName());
                         nw.closeScene(btn);
                         nw.openNewScene("/com/bestgroup/calendar/DayMenu.fxml");
                     });
