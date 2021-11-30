@@ -14,10 +14,6 @@ import java.util.Locale;
  */
 public class AppHelper {
 
-    private AppHelper() {
-        throw new IllegalStateException("Utility class");
-    }
-
     private static  int year = 0;
     private static  int monthNumber = 0;
     private static String fullDate = null;
